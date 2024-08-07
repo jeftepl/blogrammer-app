@@ -2,13 +2,12 @@ import { BaseComponent } from "@/theme/BaseComponent";
 import { StyleSheet } from "@/theme/StyleSheet";
 
 type BoxProps = {
-  //TODO: fix type any
-  tag: any;
-  styleSheet: StyleSheet;
-  children: React.ReactNode;
+  tag?: string;
+  styleSheet?: StyleSheet;
+  children?: React.ReactNode;
 };
 
-export default function Box({ styleSheet, children, tag, ...props }: BoxProps) {
+export default function Box({ tag, styleSheet, children, ...props }: BoxProps) {
   const Tag = tag || "div";
 
   return (
