@@ -1,5 +1,8 @@
 import StyledComponentsRegistry from "@/lib/registry";
 import type { Metadata } from "next";
+import { Open_Sans } from "next/font/google";
+
+const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Next.js FullStack",
@@ -13,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={openSans.className}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>

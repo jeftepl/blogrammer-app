@@ -2,7 +2,7 @@ import { BaseComponent } from "@/theme/BaseComponent";
 import { StyleSheet } from "@/theme/StyleSheet";
 
 type BoxProps = {
-  tag?: string;
+  tag?: "main" | "div" | "article" | "section" | "ul" | string;
   styleSheet?: StyleSheet;
   children?: React.ReactNode;
 };
