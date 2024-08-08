@@ -6,12 +6,10 @@ import Feed from "@/components/ui/Feed";
 import Footer from "@/components/ui/Footer";
 import Menu from "@/components/ui/Menu";
 import Text from "@/components/ui/Text";
-import GlobalStyle from "@/theme/GlobalStyle";
 
 export default function Home() {
   return (
     <>
-      <GlobalStyle />
       <Box tag="main">
         <Background />
         <Menu />

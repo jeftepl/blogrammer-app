@@ -1,4 +1,6 @@
 import StyledComponentsRegistry from "@/lib/registry";
+import GlobalStyle from "@/theme/GlobalStyle";
+import ThemeProvider from "@/theme/ThemeProvider";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 
@@ -17,7 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <ThemeProvider>
+            <GlobalStyle />
+            {children}
+          </ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

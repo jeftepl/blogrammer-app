@@ -1,16 +1,11 @@
 import { BaseComponent } from "@/theme/BaseComponent";
 import { StyleSheet } from "@/theme/StyleSheet";
-import theme from "@/theme/theme";
-
-type Display = "display1";
-
-type Heading = "heading1" | "heading2" | "heading3" | "heading4" | "heading5";
-
-type Body = "body1" | "body2" | "body3" | "body4" | "body5";
+import { ThemeTypographyVariants } from "@/theme/theme";
+import { useTheme } from "@/theme/ThemeProvider";
 
 type TextProps = {
-  variant?: Display | Heading | Body;
-  tag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "li" | string;
+  variant?: ThemeTypographyVariants;
+  tag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "li";
   children?: React.ReactNode;
   styleSheet?: StyleSheet;
 };
@@ -21,6 +16,7 @@ export default function Text({
   styleSheet,
   children,
 }: TextProps) {
+  const theme = useTheme();
   const textVariant = theme.typography.variants[variant];
 
   return (
