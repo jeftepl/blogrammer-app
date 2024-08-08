@@ -4,6 +4,6 @@ import { Breakpoints } from "@skynexui/responsive_stylesheet";
 type ResponsiveProperty<Type> = Partial<Record<Breakpoints, Type>>;
 
 export type StyleSheet = {
-  fontFamily?: ResponsiveProperty<string> | string;
   backgroundColor?: ResponsiveProperty<string> | string;
+  color?: ResponsiveProperty<string> | string;
 };

@@ -1,3 +1,4 @@
+import Icon from "../Icon";
 import Box from "./Box";
 import Text from "./Text";
 
@@ -16,7 +17,15 @@ export default function Feed({ children }: FeedProps) {
 
 const FeedHeader = () => {
   return (
-    <Box>
+    <Box
+      styleSheet={{
+        color: "red",
+      }}
+    >
+      <Icon name="youtube" size="lg" />
+      <Icon name="twitter" />
+      <Icon name="instagram" />
+      <Icon name="github" />
       <Text>Feed Header</Text>
     </Box>
   );
