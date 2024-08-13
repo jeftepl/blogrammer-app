@@ -1,5 +1,6 @@
 import Icon from "../Icon";
 import Box from "./Box";
+import Image from "./Image";
 import Text from "./Text";
 
 type FeedProps = {
@@ -22,6 +23,15 @@ const FeedHeader = () => {
         color: "red",
       }}
     >
+      <Image
+        src="https://github.com/jeftepl.png"
+        alt="Imagem de perfil"
+        styleSheet={{
+          width: "128px",
+          height: "128px",
+          borderRadius: "100%",
+        }}
+      />
       <Icon name="youtube" size="lg" />
       <Icon name="twitter" />
       <Icon name="instagram" />
