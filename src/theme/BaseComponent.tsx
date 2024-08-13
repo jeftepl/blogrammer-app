@@ -6,7 +6,9 @@ type StyledBaseComponent = {
   styleSheet?: StyleSheet;
 };
 
-const StyledBaseComponent = styled.div<StyledBaseComponent>`
+const StyledBaseComponent = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "styleSheet",
+})<StyledBaseComponent>`
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -14,8 +16,6 @@ const StyledBaseComponent = styled.div<StyledBaseComponent>`
   ${({ styleSheet }) => parseStyleSheet(styleSheet)}
 `;
 
-// TODO: Fix warning on browser:
-// app-index.js:33 Warning: React does not recognize the `styleSheet` prop on a DOM element
 export const BaseComponent = ({ styleSheet = {}, ...otherProps }) => {
   return <StyledBaseComponent styleSheet={styleSheet} {...otherProps} />;
 };
