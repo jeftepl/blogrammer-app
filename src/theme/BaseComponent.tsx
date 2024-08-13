@@ -1,5 +1,6 @@
 import { StyleSheet } from "@/theme/StyleSheet";
 import { parseStyleSheet } from "@skynexui/responsive_stylesheet";
+import React from "react";
 import styled from "styled-components";
 
 type StyledBaseComponent = {
@@ -16,6 +17,17 @@ const StyledBaseComponent = styled.div.withConfig({
   ${({ styleSheet }) => parseStyleSheet(styleSheet)}
 `;
 
-export const BaseComponent = ({ styleSheet = {}, ...otherProps }) => {
-  return <StyledBaseComponent styleSheet={styleSheet} {...otherProps} />;
+type BasecomponentProps = {
+  as?: string;
+  styleSheet?: StyleSheet;
+  children?: React.ReactNode;
 };
+
+export const BaseComponent = React.forwardRef<
+  HTMLDivElement,
+  BasecomponentProps
+>(({ styleSheet = {}, ...props }, ref) => (
+  <StyledBaseComponent styleSheet={styleSheet} {...props} ref={ref} />
+));
+
+BaseComponent.displayName = "BaseComponent";
