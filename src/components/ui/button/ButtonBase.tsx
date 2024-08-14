@@ -4,15 +4,16 @@ import React from "react";
 import Ripple from "../ripple/Ripple";
 import { StyleSheet } from "@/theme/StyleSheet";
 import { useRouter } from "next/navigation";
-import styled from "styled-components";
 
-type ButtonBaseProps = {
+export type ButtonBaseProps = {
   children: React.ReactNode;
   href?: string;
   textVariant?: ThemeTypographyVariants;
   styleSheet?: StyleSheet;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
+
+// TODO: implement textVariant
 export default function ButtonBase({
   children,
   href,

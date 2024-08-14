@@ -3,6 +3,7 @@ import Box from "./Box";
 import Image from "./Image";
 import Text from "./Text";
 import ButtonBase from "./button/ButtonBase";
+import Button from "./button/Button";
 
 type FeedProps = {
   children: React.ReactNode;
@@ -35,7 +36,7 @@ const FeedHeader = () => {
           }}
         />
       </ButtonBase>
-      <ButtonBase href="/about">Click me!</ButtonBase>
+      <Button>Click me!</Button>
       <Icon name="youtube" size="lg" />
       <Icon name="twitter" />
       <Icon name="instagram" />
