@@ -1,6 +1,6 @@
 "use client";
 
-import { BaseComponent } from "@/theme/BaseComponent";
+import BaseComponent from "@/theme/BaseComponent";
 import { StyleSheet } from "@/theme/StyleSheet";
 import { ThemeTypographyVariants } from "@/theme/theme";
 import { useTheme } from "@/theme/ThemeProvider";

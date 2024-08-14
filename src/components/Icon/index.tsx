@@ -1,4 +1,4 @@
-import { BaseComponent } from "@/theme/BaseComponent";
+import BaseComponent from "@/theme/BaseComponent";
 import * as icons from "./svgs";
 import { StyleSheet } from "@/theme/StyleSheet";
 
@@ -25,11 +25,11 @@ export default function Icon({ name, styleSheet, size = "md" }: IconProps) {
         ...styleSheet,
         width: iconSizes[size],
         height: iconSizes[size],
+        color: "inherit",
+        fill: "currentColor",
+        viewBox: "0 0 25 24",
+        xmlns: "http://www.w3.org/2000/svg",
       }}
-      color="inherit"
-      fill="currentColor"
-      viewBox="0 0 25 24"
-      xmlns="http://www.w3.org/2000/svg"
     >
       <CurrentIcon />
     </BaseComponent>

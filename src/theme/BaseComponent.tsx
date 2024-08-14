@@ -21,13 +21,15 @@ type BasecomponentProps = {
   as?: string;
   styleSheet?: StyleSheet;
   children?: React.ReactNode;
+  src?: string;
+  alt?: string;
 };
 
-export const BaseComponent = React.forwardRef<
-  HTMLDivElement,
-  BasecomponentProps
->(({ styleSheet = {}, ...props }, ref) => (
-  <StyledBaseComponent styleSheet={styleSheet} {...props} ref={ref} />
-));
+const BaseComponent = React.forwardRef<HTMLDivElement, BasecomponentProps>(
+  ({ styleSheet = {}, ...props }, ref) => (
+    <StyledBaseComponent styleSheet={styleSheet} {...props} ref={ref} />
+  )
+);
 
 BaseComponent.displayName = "BaseComponent";
+export default BaseComponent;

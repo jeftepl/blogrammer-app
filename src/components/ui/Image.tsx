@@ -1,4 +1,4 @@
-import { BaseComponent } from "@/theme/BaseComponent";
+import BaseComponent from "@/theme/BaseComponent";
 import { StyleSheet } from "@/theme/StyleSheet";
 
 type ImageProps = {
