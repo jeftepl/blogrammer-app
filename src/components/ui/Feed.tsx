@@ -1,7 +1,8 @@
-import Icon from "../Icon";
+import Icon from "./icon/Icon";
 import Box from "./Box";
 import Image from "./Image";
 import Text from "./Text";
+import ButtonBase from "./button/ButtonBase";
 
 type FeedProps = {
   children: React.ReactNode;
@@ -23,15 +24,18 @@ const FeedHeader = () => {
         color: "red",
       }}
     >
-      <Image
-        src="https://github.com/jeftepl.png"
-        alt="Imagem de perfil"
-        styleSheet={{
-          width: "128px",
-          height: "128px",
-          borderRadius: "100%",
-        }}
-      />
+      <ButtonBase href="https://github.com/jeftepl">
+        <Image
+          src="https://github.com/jeftepl.png"
+          alt="Imagem de perfil"
+          styleSheet={{
+            width: "128px",
+            height: "128px",
+            borderRadius: "100%",
+          }}
+        />
+      </ButtonBase>
+      <ButtonBase href="/about">Click me!</ButtonBase>
       <Icon name="youtube" size="lg" />
       <Icon name="twitter" />
       <Icon name="instagram" />

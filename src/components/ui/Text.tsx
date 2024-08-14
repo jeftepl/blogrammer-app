@@ -6,11 +6,18 @@ import { ThemeTypographyVariants } from "@/theme/theme";
 import { useTheme } from "@/theme/ThemeProvider";
 import React from "react";
 
+type Text = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type Action = "a" | "button";
+type Element = "li" | "span";
+type Tag = Text | Action | Element;
+
 type TextProps = {
   variant?: ThemeTypographyVariants;
-  tag?: "p" | "a" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "li";
+  tag?: Tag;
   children?: React.ReactNode;
   styleSheet?: StyleSheet;
+  href?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Text = React.forwardRef<HTMLDivElement, TextProps>(
