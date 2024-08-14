@@ -28,7 +28,9 @@ export default function Button({
         ...buttonColorVariant({ theme, colorVariant, variant }),
         ...buttonSize[size],
         alignSelf: "flex-start",
-        ...(fullWidth && { alignSelf: "inital" }),
+        justifyContent: "center",
+        alignItems: "center",
+        ...(fullWidth && { alignSelf: "initial" }),
         ...styleSheet,
       }}
     >

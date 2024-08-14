@@ -12,7 +12,6 @@ const StyledBaseComponent = styled.div.withConfig({
 })<StyledBaseComponent>`
   display: flex;
   flex-direction: column;
-  align-content: center;
   flex-shrink: 0;
   ${({ styleSheet }) => parseStyleSheet(styleSheet)}
 `;

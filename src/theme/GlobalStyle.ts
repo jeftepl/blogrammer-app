@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-content: flex-start;
     flex-shrink: 0;
   }
   * {
