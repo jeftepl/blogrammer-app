@@ -1,3 +1,27 @@
 {
-  "extends": "next/core-web-vitals"
+	"extends": ["next/core-web-vitals", "prettier"],
+	"plugins": ["prettier"],
+	"ignorePatterns": ["node_modules", ".next", "build", "docs", "public", "package*.json"],
+	"rules": {
+		"no-self-assign": "error",
+		"no-func-assign": "error",
+		"eqeqeq": ["error", "always"],
+		"no-duplicate-imports": "error",
+		"react/react-in-jsx-scope": "off",
+		"semi": 0,
+		"prettier/prettier": [
+			"warn",
+			{
+				"arrowParens": "always",
+				"semi": false,
+				"printWidth": 100,
+				"tabWidth": 2,
+				"singleQuote": true,
+				"useTabs": true,
+				"trailingComma": "all",
+				"endOfLine": "auto",
+				"bracketSpacing": true
+			}
+		]
+	}
 }

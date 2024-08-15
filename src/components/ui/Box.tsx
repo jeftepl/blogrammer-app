@@ -1,18 +1,18 @@
-import BaseComponent from "@/theme/BaseComponent";
-import { StyleSheet } from "@skynexui/responsive_stylesheet";
+import BaseComponent from '@/theme/BaseComponent'
+import { StyleSheet } from '@skynexui/responsive_stylesheet'
 
 type BoxProps = {
-  tag?: "main" | "div" | "article" | "section" | "ul";
-  styleSheet?: StyleSheet;
-  children?: React.ReactNode;
-};
+	tag?: 'main' | 'div' | 'article' | 'section' | 'ul'
+	styleSheet?: StyleSheet
+	children?: React.ReactNode
+}
 
 export default function Box({ tag, styleSheet, children, ...props }: BoxProps) {
-  const Tag = tag || "div";
+	const Tag = tag || 'div'
 
-  return (
-    <BaseComponent as={Tag} styleSheet={styleSheet} {...props}>
-      {children}
-    </BaseComponent>
-  );
+	return (
+		<BaseComponent as={Tag} styleSheet={styleSheet} {...props}>
+			{children}
+		</BaseComponent>
+	)
 }
