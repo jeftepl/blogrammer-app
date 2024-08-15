@@ -1,6 +1,6 @@
-import BaseComponent from "@/theme/BaseComponent";
+import { StyleSheet } from "@skynexui/responsive_stylesheet";
 import * as icons from "./svgs";
-import { StyleSheet } from "@/theme/StyleSheet";
+import BaseComponent from "@/theme/BaseComponent";
 
 const iconSizes = {
   xs: "12px",

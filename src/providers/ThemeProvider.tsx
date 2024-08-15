@@ -1,14 +1,7 @@
 "use client";
 
-import {
-  ThemeProvider as StyledThemeProvider,
-  useTheme as useThemeStyled,
-} from "styled-components";
-import theme, { Theme } from "./theme";
-
-export function useTheme(): Theme {
-  return useThemeStyled() as Theme;
-}
+import theme from "@/theme";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
 type ThemeProviderProps = {
   children: React.ReactNode;

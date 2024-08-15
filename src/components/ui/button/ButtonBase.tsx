@@ -1,9 +1,9 @@
-import { ThemeTypographyVariants } from "@/theme/theme";
-import Text from "../Text";
 import React from "react";
-import Ripple from "../ripple/Ripple";
-import { StyleSheet } from "@/theme/StyleSheet";
 import { useRouter } from "next/navigation";
+import { ThemeTypographyVariants } from "@/types/Theme";
+import { StyleSheet } from "@skynexui/responsive_stylesheet";
+import Text from "../Text";
+import Ripple from "../ripple/Ripple";
 
 export type ButtonBaseProps = {
   children: React.ReactNode;
@@ -13,11 +13,9 @@ export type ButtonBaseProps = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-// TODO: implement textVariant
 export default function ButtonBase({
   children,
   href,
-  textVariant,
   styleSheet,
   onClick,
 }: ButtonBaseProps) {

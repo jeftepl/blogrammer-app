@@ -1,5 +1,5 @@
 import BaseComponent from "@/theme/BaseComponent";
-import { StyleSheet } from "@/theme/StyleSheet";
+import { StyleSheet } from "@skynexui/responsive_stylesheet";
 
 type ImageProps = {
   src: string;

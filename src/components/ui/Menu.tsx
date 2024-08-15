@@ -1,8 +1,8 @@
-import { useTheme } from "@/theme/ThemeProvider";
 import Box from "./Box";
 import Text from "./Text";
 import Icon from "./icon/Icon";
 import ButtonBase from "./button/ButtonBase";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function Menu() {
   const theme = useTheme();

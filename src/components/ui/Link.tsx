@@ -3,16 +3,16 @@
 import NextLink from "next/link";
 import Text from "./Text";
 import React from "react";
-import { StyleSheet } from "@/theme/StyleSheet";
-import { ColorVariant, ThemeTypographyVariants } from "@/theme/theme";
-import { useTheme } from "@/theme/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
+import { ThemeColorVariant, ThemeTypographyVariants } from "@/types/Theme";
+import { StyleSheet } from "@skynexui/responsive_stylesheet";
 
 type LinkProps = {
   href: string;
   children: React.ReactNode;
   styleSheet?: StyleSheet;
   variant?: ThemeTypographyVariants;
-  colorVariant?: ColorVariant;
+  colorVariant?: ThemeColorVariant;
   colorVariantEnabled?: boolean;
 };
 

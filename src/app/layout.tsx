@@ -1,6 +1,6 @@
-import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyle from "@/theme/GlobalStyle";
-import ThemeProvider from "@/theme/ThemeProvider";
+import StyledComponentsRegistry from "@/lib/registry";
+import ThemeProvider from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 

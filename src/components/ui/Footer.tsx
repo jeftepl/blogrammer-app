@@ -1,4 +1,4 @@
-import { useTheme } from "@/theme/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
 import Box from "./Box";
 import Text from "./Text";
 

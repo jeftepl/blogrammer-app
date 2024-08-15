@@ -1,14 +1,14 @@
-import { ColorVariant, Theme } from "@/theme/theme";
+import { Theme, ThemeColorVariant } from "@/types/Theme";
 
 export type Variant = "ghost" | "contained" | "outlined";
 
 type ButtonColorVarintProps = {
   theme: Theme;
-  colorVariant: ColorVariant;
+  colorVariant: ThemeColorVariant;
   variant: Variant;
 };
 
-function createButtonVariant(theme: Theme, colorVariant: ColorVariant) {
+function createButtonVariant(theme: Theme, colorVariant: ThemeColorVariant) {
   return {
     contained: {
       backgroundColor: theme.colors[colorVariant].x500,

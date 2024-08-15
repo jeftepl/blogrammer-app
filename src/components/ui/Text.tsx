@@ -1,10 +1,10 @@
 "use client";
 
-import BaseComponent from "@/theme/BaseComponent";
-import { StyleSheet } from "@/theme/StyleSheet";
-import { ThemeTypographyVariants } from "@/theme/theme";
-import { useTheme } from "@/theme/ThemeProvider";
 import React from "react";
+import { useTheme } from "@/hooks/useTheme";
+import { ThemeTypographyVariants } from "@/types/Theme";
+import { StyleSheet } from "@skynexui/responsive_stylesheet";
+import BaseComponent from "@/theme/BaseComponent";
 
 type Text = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 type Action = "a" | "button";

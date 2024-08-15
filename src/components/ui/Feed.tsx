@@ -4,7 +4,7 @@ import Image from "./Image";
 import Text from "./Text";
 import ButtonBase from "./button/ButtonBase";
 import Button from "./button/Button";
-import { useTheme } from "@/theme/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
 
 type FeedProps = {
   children: React.ReactNode;

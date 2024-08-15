@@ -1,13 +1,13 @@
-import { ColorVariant } from "@/theme/theme";
 import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 import { buttonColorVariant, Variant } from "./buttonColorVariant";
-import { useTheme } from "@/theme/ThemeProvider";
 import { buttonSize, ButtonSize } from "./buttonSize";
+import { useTheme } from "@/hooks/useTheme";
+import { ThemeColorVariant } from "@/types/Theme";
 
 type ButtonProps = ButtonBaseProps & {
   children: React.ReactNode;
   fullWidth?: boolean;
-  colorVariant?: ColorVariant;
+  colorVariant?: ThemeColorVariant;
   variant?: Variant;
   size?: ButtonSize;
 };

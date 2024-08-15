@@ -5,7 +5,7 @@ import Box from "@/components/ui/Box";
 import Feed from "@/components/ui/Feed";
 import Footer from "@/components/ui/Footer";
 import Menu from "@/components/ui/Menu";
-import { useTheme } from "@/theme/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function Home() {
   const theme = useTheme();
