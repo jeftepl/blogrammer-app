@@ -1,3 +1,4 @@
+import { useTemplateConfig } from '@/app/context/TemplateConfigContext'
 import { useTheme } from '@/hooks/useTheme'
 import Box from './Box'
 import Image from './Image'
@@ -31,6 +32,7 @@ export default function Feed({ children }: FeedProps) {
 
 const FeedHeader = () => {
 	const theme = useTheme()
+	const templateConfig = useTemplateConfig()
 
 	return (
 		<Box
@@ -49,7 +51,7 @@ const FeedHeader = () => {
 				}}
 			>
 				<Image
-					src='https://github.com/jeftepl.png'
+					src={templateConfig.profile?.avatar ?? ''}
 					alt='Imagem de perfil'
 					styleSheet={{
 						width: { xs: '100px', md: '128px' },
@@ -94,7 +96,7 @@ const FeedHeader = () => {
 			</Box>
 			<ButtonBase href='https://github.com/jeftepl'>
 				<Text tag='h1' variant='heading4'>
-					Hello World
+					{templateConfig.profile?.name}
 				</Text>
 			</ButtonBase>
 			{/*<Icon name="youtube" size="lg" />

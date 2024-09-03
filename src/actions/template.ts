@@ -1,24 +1,8 @@
 'use server'
 
+import { TemplateConfig } from '@/types/Template'
 import path from 'path'
 import readYamlFile from 'read-yaml-file'
-
-type TemplateConfig = {
-	site?: {
-		title?: string
-		description?: string
-	}
-	profile?: {
-		name?: string
-		avatar?: string
-		socialNetworks: {
-			github?: string
-			youtube?: string
-			instagram?: string
-			linkedin?: string
-		}
-	}
-}
 
 export default async function templateConfig() {
 	const PATH_TEMPLATE_CONFIG = path.resolve('.', 'config.yaml')

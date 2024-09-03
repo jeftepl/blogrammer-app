@@ -1,5 +1,6 @@
 import templateConfig from '@/actions/template'
 import StyledComponentsRegistry from '@/lib/registry'
+import TemplateConfigProvider from '@/providers/TemplateConfigProvider'
 import ThemeProvider from '@/providers/ThemeProvider'
 import GlobalStyle from '@/theme/GlobalStyle'
 import type { Metadata, ResolvingMetadata } from 'next'
@@ -33,10 +34,12 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={openSans.className}>
 				<StyledComponentsRegistry>
-					<ThemeProvider>
-						<GlobalStyle />
-						{children}
-					</ThemeProvider>
+					<TemplateConfigProvider>
+						<ThemeProvider>
+							<GlobalStyle />
+							{children}
+						</ThemeProvider>
+					</TemplateConfigProvider>
 				</StyledComponentsRegistry>
 			</body>
 		</html>
