@@ -1,14 +1,27 @@
+import templateConfig from '@/actions/template'
 import StyledComponentsRegistry from '@/lib/registry'
 import ThemeProvider from '@/providers/ThemeProvider'
 import GlobalStyle from '@/theme/GlobalStyle'
-import type { Metadata } from 'next'
+import type { Metadata, ResolvingMetadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-	title: 'Next.js FullStack',
-	description: 'Next.js FullStack: Front-end component architecture',
+type Params = {
+	params: Record<string, string>
+	searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata(
+	{ params, searchParams }: Params,
+	parent: ResolvingMetadata,
+): Promise<Metadata> {
+	const template = await templateConfig()
+
+	return {
+		title: template.site?.title || 'Blog page - Timeline',
+		description: template.site?.description || 'Welcome to the blog timeline',
+	}
 }
 
 export default function RootLayout({

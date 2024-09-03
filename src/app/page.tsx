@@ -1,6 +1,5 @@
 'use client'
 
-import templateConfig from '@/actions/template'
 import Background from '@/components/ui/Background'
 import Box from '@/components/ui/Box'
 import Feed from '@/components/ui/Feed'
@@ -10,8 +9,6 @@ import { useTheme } from '@/hooks/useTheme'
 
 export default function Home() {
 	const theme = useTheme()
-
-	const template = templateConfig()
 
 	return (
 		<>

@@ -24,7 +24,5 @@ export default async function templateConfig() {
 	const PATH_TEMPLATE_CONFIG = path.resolve('.', 'config.yaml')
 	const templateConfig = await readYamlFile<TemplateConfig>(PATH_TEMPLATE_CONFIG)
 
-	console.log(templateConfig)
-
 	return templateConfig
 }
