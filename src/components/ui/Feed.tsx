@@ -1,4 +1,4 @@
-import { useTemplateConfig } from '@/app/context/TemplateConfigContext'
+import { useTemplateConfig } from '@/context/TemplateConfigContext'
 import { useTheme } from '@/hooks/useTheme'
 import Box from './Box'
 import Image from './Image'

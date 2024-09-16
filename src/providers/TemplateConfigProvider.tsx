@@ -1,7 +1,7 @@
 'use client'
 
 import templateConfig from '@/actions/template'
-import { TemplateConfigContext } from '@/app/context/TemplateConfigContext'
+import { TemplateConfigContext } from '@/context/TemplateConfigContext'
 import { TemplateConfig } from '@/types/Template'
 import { useEffect, useState } from 'react'
 
