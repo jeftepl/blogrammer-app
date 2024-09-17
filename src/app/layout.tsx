@@ -10,11 +10,10 @@ const openSans = Open_Sans({ subsets: ['latin'] })
 
 type Params = {
 	params: Record<string, string>
-	searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export async function generateMetadata(
-	{ params, searchParams }: Params,
+	{ params }: Params,
 	parent: ResolvingMetadata,
 ): Promise<Metadata> {
 	const template = await templateConfig()
