@@ -13,11 +13,15 @@ export default function TemplateConfigProvider({ children }: TemplateConfigProvi
 	const [value, setValue] = useState<TemplateConfig>({})
 
 	useEffect(() => {
-		const data = async () => {
-			const template = await templateConfig()
-			setValue(template)
+		const fetchData = async () => {
+			try {
+				const template = await templateConfig()
+				setValue(template)
+			} catch (err) {
+				console.error(err)
+			}
 		}
-		data()
+		fetchData()
 	}, [])
 
 	return <TemplateConfigContext.Provider value={value}>{children}</TemplateConfigContext.Provider>
