@@ -1,8 +1,9 @@
 site:
-  title: 'Blog page - Timeline'
-  description: 'Welcome to the blog timeline'
+  title: Blog page - Timeline
+  description: Welcome to the blog timeline
 profile:
-  name: 'Jefté Lima'
+  name: Jefté Lima
   avatar: https://github.com/jeftepl.png
   socialNetworks:
     github: https://github.com/jeftepl
+    youtube: https://youtube.com
