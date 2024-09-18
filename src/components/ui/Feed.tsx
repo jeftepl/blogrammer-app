@@ -5,11 +5,13 @@ import Image from './Image'
 import Text from './Text'
 import Button from './button/Button'
 import ButtonBase from './button/ButtonBase'
+import Link from './Link'
+import Icon from './icon/Icon'
+import { TemplateConfig } from '@/types/Template'
 
 type FeedProps = {
 	children: React.ReactNode
 }
-
 export default function Feed({ children }: FeedProps) {
 	const theme = useTheme()
 
@@ -33,6 +35,10 @@ export default function Feed({ children }: FeedProps) {
 const FeedHeader = () => {
 	const theme = useTheme()
 	const templateConfig = useTemplateConfig()
+
+	type SocialNetwork = keyof NonNullable<TemplateConfig['profile']>['socialNetworks']
+
+	const socialNetwork = templateConfig.profile?.socialNetworks
 
 	return (
 		<Box
@@ -99,11 +105,25 @@ const FeedHeader = () => {
 					{templateConfig.profile?.name}
 				</Text>
 			</ButtonBase>
-			{/*<Icon name="youtube" size="lg" />
-      <Icon name="twitter" />
-      <Icon name="instagram" />
-      <Icon name="github" />
-      <Text>Feed Header</Text> */}
+			<Box
+				styleSheet={{
+					flexDirection: 'row',
+					gap: '4px',
+				}}
+			>
+				{socialNetwork &&
+					(Object.keys(socialNetwork) as SocialNetwork[]).map((key) => {
+						const socialNetworkUrl = socialNetwork[key]
+						if (socialNetworkUrl) {
+							return (
+								<Link key={key} href={socialNetworkUrl}>
+									<Icon name={key} />
+								</Link>
+							)
+						}
+						return null
+					})}
+			</Box>
 		</Box>
 	)
 }
