@@ -14,7 +14,7 @@
     "@skynexui/responsive_stylesheet": "^1.11.0",
     "@types/styled-components": "^5.1.34",
     "gray-matter": "^4.0.3",
-    "next": "14.2.5",
+    "next": "^14.2.12",
     "react": "^18",
     "react-dom": "^18",
     "read-yaml-file": "^2.1.0",
