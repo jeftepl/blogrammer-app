@@ -1,13 +1,9 @@
 ---
 date: 09-18-2024
-title: "Lorem Ipsum"
-url: "https://www.lipsum.com/"
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-tags:
-	- javascript
-	- typescript
-	- reactjs
-	- nextjs
+title: Lorem Ipsum
+url: https://www.lipsum.com/
+excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+tags: [javascript, typescript, reactjs, nextjs]
 ---
 
 # Lorem Ipsum
