@@ -54,7 +54,7 @@ export default function FeedHeader() {
 							display: { xs: 'none', md: 'flex' },
 						}}
 					>
-						<Button fullWidth colorVariant='primary' size='xl' href='/'>
+						<Button fullWidth colorVariant='primary' size='xl' href='/newsletter'>
 							Newsletter
 						</Button>
 						<Button fullWidth colorVariant='neutral' size='xl' href='/'>
@@ -68,7 +68,7 @@ export default function FeedHeader() {
 							display: { xs: 'flex', md: 'none' },
 						}}
 					>
-						<Button fullWidth colorVariant='primary' size='xs' href='/'>
+						<Button fullWidth colorVariant='primary' size='xs' href='/newsletter'>
 							Newsletter
 						</Button>
 						<Button fullWidth colorVariant='neutral' size='xs' href='/'>
