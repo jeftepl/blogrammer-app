@@ -1,13 +1,15 @@
 import { useTemplateConfig } from '@/context/TemplateConfigContext'
+import usePosts from '@/hooks/usePosts'
 import { useTheme } from '@/hooks/useTheme'
+import { TemplateConfig } from '@/types/Template'
 import Box from './Box'
+import FeedPost from './FeedPost'
 import Image from './Image'
+import Link from './Link'
 import Text from './Text'
 import Button from './button/Button'
 import ButtonBase from './button/ButtonBase'
-import Link from './Link'
 import Icon from './icon/Icon'
-import { TemplateConfig } from '@/types/Template'
 
 type FeedProps = {
 	children: React.ReactNode
@@ -130,9 +132,17 @@ const FeedHeader = () => {
 Feed.Header = FeedHeader
 
 const FeedPosts = () => {
+	const posts = usePosts()
+
 	return (
 		<Box>
-			<Text>Feed Posts</Text>
+			{posts.map(({ metadata, slug, title }) => {
+				const { date, excerpt, tags, url } = metadata
+
+				return (
+					<FeedPost key={slug} title={title} excerpt={excerpt} url={url} date={date} tags={tags} />
+				)
+			})}
 		</Box>
 	)
 }
