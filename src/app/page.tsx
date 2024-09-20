@@ -7,7 +7,7 @@ import Footer from '@/components/ui/Footer'
 import Menu from '@/components/ui/Menu'
 import { useTheme } from '@/hooks/useTheme'
 
-export default function Home() {
+export default function HomePage() {
 	const theme = useTheme()
 
 	return (
@@ -24,6 +24,7 @@ export default function Home() {
 				<Menu />
 				<Feed>
 					<Feed.Header />
+					<Feed.Posts />
 				</Feed>
 				<Footer />
 			</Box>
