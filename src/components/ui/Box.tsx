@@ -2,7 +2,7 @@ import BaseComponent from '@/theme/BaseComponent'
 import { StyleSheet } from '@skynexui/responsive_stylesheet'
 
 type BoxProps = {
-	tag?: 'main' | 'div' | 'article' | 'section' | 'ul'
+	tag?: 'main' | 'div' | 'article' | 'section' | 'ul' | 'span'
 	styleSheet?: StyleSheet
 	children?: React.ReactNode
 }
