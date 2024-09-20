@@ -1,5 +1,5 @@
+import { StyleSheet } from '@/theme/Stylesheet'
 import { ThemeTypographyVariants } from '@/types/Theme'
-import { StyleSheet } from '@skynexui/responsive_stylesheet'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import Text from '../Text'

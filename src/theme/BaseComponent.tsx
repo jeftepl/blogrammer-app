@@ -1,6 +1,7 @@
-import { parseStyleSheet, StyleSheet } from '@skynexui/responsive_stylesheet'
+import { parseStyleSheet } from '@skynexui/responsive_stylesheet'
 import React from 'react'
 import styled from 'styled-components'
+import { StyleSheet } from './Stylesheet'
 
 type StyledBaseComponent = {
 	styleSheet?: StyleSheet

@@ -2,8 +2,8 @@
 
 import { useTheme } from '@/hooks/useTheme'
 import BaseComponent from '@/theme/BaseComponent'
+import { StyleSheet } from '@/theme/Stylesheet'
 import { ThemeTypographyVariants } from '@/types/Theme'
-import { StyleSheet } from '@skynexui/responsive_stylesheet'
 import React from 'react'
 
 type Text = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'

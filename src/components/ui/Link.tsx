@@ -1,8 +1,8 @@
 'use client'
 
 import { useTheme } from '@/hooks/useTheme'
+import { StyleSheet } from '@/theme/Stylesheet'
 import { ThemeColorVariant, ThemeTypographyVariants } from '@/types/Theme'
-import { StyleSheet } from '@skynexui/responsive_stylesheet'
 import NextLink from 'next/link'
 import React from 'react'
 import Text from './Text'

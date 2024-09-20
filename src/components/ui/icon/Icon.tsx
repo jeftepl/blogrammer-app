@@ -1,5 +1,5 @@
 import BaseComponent from '@/theme/BaseComponent'
-import { StyleSheet } from '@skynexui/responsive_stylesheet'
+import { StyleSheet } from '@/theme/Stylesheet'
 import * as icons from './svgs'
 
 const iconSizes = {
