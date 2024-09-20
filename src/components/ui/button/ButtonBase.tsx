@@ -1,6 +1,5 @@
 import { StyleSheet } from '@/theme/Stylesheet'
 import { ThemeTypographyVariants } from '@/types/Theme'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import Text from '../Text'
 import Ripple from '../ripple/Ripple'
@@ -14,8 +13,6 @@ export type ButtonBaseProps = {
 }
 
 export default function ButtonBase({ children, href, styleSheet, onClick }: ButtonBaseProps) {
-	const router = useRouter()
-
 	const isLink = Boolean(href)
 	const Tag = isLink ? 'a' : 'button'
 
@@ -34,11 +31,7 @@ export default function ButtonBase({ children, href, styleSheet, onClick }: Butt
 				textDecoration: 'none',
 				...styleSheet,
 			}}
-			onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-				isLink && event.preventDefault()
-				isLink && href && router.push(href)
-				!isLink && onClick && onClick(event)
-			}}
+			onClick={onClick}
 		>
 			{children}
 			<Ripple />

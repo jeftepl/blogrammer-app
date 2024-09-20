@@ -10,6 +10,7 @@ type ButtonProps = ButtonBaseProps & {
 	colorVariant?: ThemeColorVariant
 	variant?: Variant
 	size?: ButtonSize
+	href?: string
 }
 
 export default function Button({
@@ -19,6 +20,7 @@ export default function Button({
 	colorVariant = 'primary',
 	variant = 'contained',
 	size = 'md',
+	...props
 }: ButtonProps) {
 	const theme = useTheme()
 
@@ -33,6 +35,7 @@ export default function Button({
 				...(fullWidth && { alignSelf: 'initial' }),
 				...styleSheet,
 			}}
+			{...props}
 		>
 			{children}
 		</ButtonBase>
