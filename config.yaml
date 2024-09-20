@@ -2,8 +2,10 @@ site:
   title: Blog page - Timeline
   description: Welcome to the blog timeline
 profile:
-  name: Jefté Lima
-  avatar: https://github.com/jeftepl.png
+  name: John doe
+  avatar: https://picsum.photos/300/300
   socialNetworks:
-    github: https://github.com/jeftepl
-    youtube: https://youtube.com
+    github: https://github.com/
+    youtube: https://youtube.com/
+    instagram: https://instagram.com
+    linkedin: https://linkedin.com
