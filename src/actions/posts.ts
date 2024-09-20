@@ -21,6 +21,7 @@ export default async function posts(): Promise<Post[]> {
 				tags: data.tags,
 				url: data.url,
 			},
+			image: data.image || '',
 			title: data.title,
 			slug: postFileName.replace('.md', ''),
 			content,

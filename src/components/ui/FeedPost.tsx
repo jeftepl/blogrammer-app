@@ -3,6 +3,8 @@ import Box from './Box'
 import Icon from './icon/Icon'
 import Link from './Link'
 import Text from './Text'
+import ButtonBase from './button/ButtonBase'
+import Image from './Image'
 
 type FeedPostProps = {
 	title: string
@@ -10,9 +12,10 @@ type FeedPostProps = {
 	url: string
 	date: string
 	tags: string[]
+	image?: string
 }
 
-export default function FeedPost({ title, excerpt, url, date, tags }: FeedPostProps) {
+export default function FeedPost({ title, excerpt, url, date, tags, image }: FeedPostProps) {
 	const theme = useTheme()
 	const postDate = new Date(date)
 		.toLocaleString('en-US', {
@@ -109,6 +112,15 @@ export default function FeedPost({ title, excerpt, url, date, tags }: FeedPostPr
 					</Link>
 				))}
 			</Box>
+			{image && (
+				<ButtonBase href={url} styleSheet={{ hover: { opacity: 0.8 } }}>
+					<Image
+						src={image}
+						alt={title}
+						styleSheet={{ width: '100%', marginTop: '24px', borderRadius: '12px' }}
+					/>
+				</ButtonBase>
+			)}
 		</Box>
 	)
 }

@@ -139,11 +139,19 @@ const FeedPosts = () => {
 			<Text variant='heading3' styleSheet={{ marginBottom: '20px' }}>
 				Last Updates
 			</Text>
-			{posts.map(({ metadata, slug, title }) => {
+			{posts.map(({ metadata, slug, title, image }) => {
 				const { date, excerpt, tags, url } = metadata
 
 				return (
-					<FeedPost key={slug} title={title} excerpt={excerpt} url={url} date={date} tags={tags} />
+					<FeedPost
+						key={slug}
+						title={title}
+						excerpt={excerpt}
+						url={url}
+						date={date}
+						tags={tags}
+						image={image}
+					/>
 				)
 			})}
 		</Box>

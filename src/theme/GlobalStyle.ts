@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     width: 100%;
-    overflow: hidden;
     display: flex;
     flex: 1;
     flex-direction: column;
