@@ -136,6 +136,9 @@ const FeedPosts = () => {
 
 	return (
 		<Box>
+			<Text variant='heading3' styleSheet={{ marginBottom: '20px' }}>
+				Last Updates
+			</Text>
 			{posts.map(({ metadata, slug, title }) => {
 				const { date, excerpt, tags, url } = metadata
 
