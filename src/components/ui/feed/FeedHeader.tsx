@@ -1,40 +1,15 @@
 import { useTemplateConfig } from '@/context/TemplateConfigContext'
-import usePosts from '@/hooks/usePosts'
 import { useTheme } from '@/hooks/useTheme'
 import { TemplateConfig } from '@/types/Template'
-import Box from './Box'
-import FeedPost from './FeedPost'
-import Image from './Image'
-import Link from './Link'
-import Text from './Text'
-import Button from './button/Button'
-import ButtonBase from './button/ButtonBase'
-import Icon from './icon/Icon'
+import Box from '../Box'
+import Image from '../Image'
+import Link from '../Link'
+import Text from '../Text'
+import Button from '../button/Button'
+import ButtonBase from '../button/ButtonBase'
+import Icon from '../icon/Icon'
 
-type FeedProps = {
-	children: React.ReactNode
-}
-export default function Feed({ children }: FeedProps) {
-	const theme = useTheme()
-
-	return (
-		<Box
-			styleSheet={{
-				backgroundColor: theme.colors.neutral.x000,
-				marginTop: '-228px',
-				width: '100%',
-				maxWidth: '683px',
-				borderRadius: '8px',
-				paddingVertical: '40px',
-				paddingHorizontal: '32px',
-			}}
-		>
-			{children}
-		</Box>
-	)
-}
-
-const FeedHeader = () => {
+export default function FeedHeader() {
 	const theme = useTheme()
 	const templateConfig = useTemplateConfig()
 
@@ -129,32 +104,3 @@ const FeedHeader = () => {
 		</Box>
 	)
 }
-Feed.Header = FeedHeader
-
-const FeedPosts = () => {
-	const posts = usePosts()
-
-	return (
-		<Box>
-			<Text variant='heading3' styleSheet={{ marginBottom: '20px' }}>
-				Last Updates
-			</Text>
-			{posts.map(({ metadata, slug, title, image }) => {
-				const { date, excerpt, tags, url } = metadata
-
-				return (
-					<FeedPost
-						key={slug}
-						title={title}
-						excerpt={excerpt}
-						url={url}
-						date={date}
-						tags={tags}
-						image={image}
-					/>
-				)
-			})}
-		</Box>
-	)
-}
-Feed.Posts = FeedPosts

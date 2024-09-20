@@ -2,7 +2,9 @@
 
 import Background from '@/components/ui/Background'
 import Box from '@/components/ui/Box'
-import Feed from '@/components/ui/Feed'
+import Feed from '@/components/ui/feed/Feed'
+import FeedHeader from '@/components/ui/feed/FeedHeader'
+import FeedPosts from '@/components/ui/feed/FeedPosts'
 import Footer from '@/components/ui/Footer'
 import Menu from '@/components/ui/Menu'
 import { useTheme } from '@/hooks/useTheme'
@@ -23,8 +25,8 @@ export default function HomePage() {
 				<Background />
 				<Menu />
 				<Feed>
-					<Feed.Header />
-					<Feed.Posts />
+					<FeedHeader />
+					<FeedPosts />
 				</Feed>
 				<Footer />
 			</Box>

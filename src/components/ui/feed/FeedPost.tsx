@@ -1,10 +1,10 @@
 import { useTheme } from '@/hooks/useTheme'
-import Box from './Box'
-import Icon from './icon/Icon'
-import Link from './Link'
-import Text from './Text'
-import ButtonBase from './button/ButtonBase'
-import Image from './Image'
+import Box from '../Box'
+import ButtonBase from '../button/ButtonBase'
+import Icon from '../icon/Icon'
+import Image from '../Image'
+import Link from '../Link'
+import Text from '../Text'
 
 type FeedPostProps = {
 	title: string
