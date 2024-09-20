@@ -12,15 +12,21 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	marginTop?: ResponsiveProperty<string> | string
 	marginBottom?: ResponsiveProperty<string> | string
 	marginLeft?: ResponsiveProperty<string> | string
+	marginRight?: ResponsiveProperty<string> | string
 	padding?: ResponsiveProperty<string> | string
 	paddingVertical?: ResponsiveProperty<string> | string
 	paddingHorizontal?: ResponsiveProperty<string> | string
+	paddingTop?: ResponsiveProperty<string> | string
 	paddingBottom?: ResponsiveProperty<string> | string
+	paddingLeft?: ResponsiveProperty<string> | string
+	paddingRight?: ResponsiveProperty<string> | string
 	gap?: ResponsiveProperty<string> | string
 
 	// Sizing
-	width?: ResponsiveProperty<string> | string
 	maxWidth?: ResponsiveProperty<string> | string
+	minWidth?: ResponsiveProperty<string> | string
+	maxHeight?: ResponsiveProperty<string> | string
+	minHeight?: ResponsiveProperty<string> | string
 
 	// Positioning
 	top?: ResponsiveProperty<string | number> | string | number
@@ -30,7 +36,10 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 
 	// Borders
 	border?: ResponsiveProperty<string> | string
+	borderTop?: ResponsiveProperty<string> | string
 	borderBottom?: ResponsiveProperty<string> | string
+	borderLeft?: ResponsiveProperty<string> | string
+	borderRight?: ResponsiveProperty<string> | string
 	borderRadius?: ResponsiveProperty<string> | string
 
 	// Background
