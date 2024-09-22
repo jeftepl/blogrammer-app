@@ -50,6 +50,7 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	// Text
 	textAlign?: ResponsiveProperty<string> | string
 	textDecoration?: ResponsiveProperty<string> | string
+	fontSize?: ResponsiveProperty<string> | string
 	fontWeight?: ResponsiveProperty<string> | string
 
 	//Behavior

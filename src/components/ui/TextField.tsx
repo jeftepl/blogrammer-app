@@ -1,30 +1,35 @@
+import { useTheme } from '@/hooks/useTheme'
 import BaseComponent from '@/theme/BaseComponent'
 import Box from './Box'
+import Text from './Text'
 
 type TextFieldProps = {
 	name: string
 	id: string
 	placeholder?: string
+	value?: string
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+	error?: string
 }
 
 export default function TextField(props: TextFieldProps) {
+	const theme = useTheme()
+
 	return (
-		<Box
-			styleSheet={{
-				maxWidth: '300px',
-				width: '100%',
-			}}
-		>
+		<Box styleSheet={{ width: '100%' }}>
 			<BaseComponent
 				as='input'
 				{...props}
 				styleSheet={{
-					border: '1px solid rgb(195,195,195)',
+					border: `1px solid ${theme.colors.neutral.x300}`,
 					borderRadius: '4px',
 					padding: '8px',
 					width: '100%',
 				}}
 			/>
+			<Text styleSheet={{ color: theme.colors.negative.x600, fontSize: '14px' }}>
+				{props.error}
+			</Text>
 		</Box>
 	)
 }
