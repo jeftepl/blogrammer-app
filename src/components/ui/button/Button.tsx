@@ -5,12 +5,10 @@ import { buttonColorVariant, Variant } from './buttonColorVariant'
 import { buttonSize, ButtonSize } from './buttonSize'
 
 type ButtonProps = ButtonBaseProps & {
-	children: React.ReactNode
 	fullWidth?: boolean
 	colorVariant?: ThemeColorVariant
 	variant?: Variant
 	size?: ButtonSize
-	href?: string
 }
 
 export default function Button({
@@ -20,6 +18,7 @@ export default function Button({
 	colorVariant = 'primary',
 	variant = 'contained',
 	size = 'md',
+	type = 'button',
 	...props
 }: ButtonProps) {
 	const theme = useTheme()
@@ -35,6 +34,7 @@ export default function Button({
 				...(fullWidth && { alignSelf: 'initial' }),
 				...styleSheet,
 			}}
+			type={type}
 			{...props}
 		>
 			{children}

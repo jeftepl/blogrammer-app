@@ -9,30 +9,40 @@ export type ButtonBaseProps = {
 	href?: string
 	textVariant?: ThemeTypographyVariants
 	styleSheet?: StyleSheet
-	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+	type?: 'button' | 'submit' | 'reset'
+	onClick?: (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
-export default function ButtonBase({ children, href, styleSheet, onClick }: ButtonBaseProps) {
+export default function ButtonBase({
+	children,
+	href,
+	styleSheet,
+	type = 'button',
+	onClick,
+}: ButtonBaseProps) {
 	const isLink = Boolean(href)
 	const Tag = isLink ? 'a' : 'button'
 
+	const commonProps = {
+		href,
+		onClick,
+		styleSheet: {
+			overflow: 'hidden',
+			position: 'relative',
+			backgroundColor: 'transparent',
+			color: 'inherit',
+			border: '0',
+			outline: '0',
+			cursor: 'pointer',
+			textDecoration: 'none',
+			...styleSheet,
+		},
+	}
+
+	const buttonProps = isLink ? {} : { type }
+
 	return (
-		<Text
-			tag={Tag}
-			href={href}
-			styleSheet={{
-				overflow: 'hidden',
-				position: 'relative',
-				backgroundColor: 'transparent',
-				color: 'inherit',
-				border: '0',
-				outline: '0',
-				cursor: 'pointer',
-				textDecoration: 'none',
-				...styleSheet,
-			}}
-			onClick={onClick}
-		>
+		<Text tag={Tag} {...commonProps} {...buttonProps}>
 			{children}
 			<Ripple />
 		</Text>
