@@ -6,23 +6,49 @@ import Link from '@/components/ui/Link'
 import Text from '@/components/ui/Text'
 import TextField from '@/components/ui/TextField'
 import useForm from '@/hooks/useForm'
-import { emailRegex } from '@/utils/validations'
+import { useTheme } from '@/hooks/useTheme'
+import { isValidEmail } from '@/utils/validations'
+import { useState } from 'react'
+
+type requestResponse = {
+	status: number
+	message?: string
+	error?: string
+}
 
 export default function NewsletterPage() {
+	const [message, setMessage] = useState('')
+	const theme = useTheme()
+
 	const form = useForm({
 		initialValues: {
 			email: '',
 		},
 		validate: (values) => {
-			const errors: { email?: string; name?: string } = {}
-			if (!emailRegex.test(values.email)) errors.email = 'Invalid email address'
+			const errors: { email?: string } = {}
+			if (!isValidEmail(values.email)) errors.email = 'Invalid email address'
 			return errors
 		},
 	})
 
-	const sendData = () => {
-		if (form.isValid) {
-			console.log('Submit')
+	const sendData = async () => {
+		try {
+			const response = await fetch('/api/newsletter', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(form.values),
+			})
+			const data: requestResponse = await response.json()
+			if (response.ok) {
+				setMessage('Successfully subscribed!')
+				form.reset()
+			} else {
+				setMessage(data.error || 'An error occurred. Please try again.')
+			}
+		} catch (error) {
+			setMessage('An error occurred. Please try again.')
 		}
 	}
 
@@ -37,6 +63,7 @@ export default function NewsletterPage() {
 						width: '100%',
 						maxWidth: '400px',
 						padding: '16px',
+						textAlign: 'center',
 					}}
 				>
 					<Text variant='heading2'>Newsletter</Text>
@@ -48,11 +75,18 @@ export default function NewsletterPage() {
 						onChange={form.handleChange}
 						error={form.errors?.email}
 					/>
-					<Button fullWidth styleSheet={{ margin: '0 auto' }} type='submit'>
-						Sign up
+					<Button fullWidth type='submit' disabled={form.isSubmitting}>
+						{form.isSubmitting ? 'Sending...' : 'Sign up'}
 					</Button>
 				</Box>
 			</form>
+			<Text
+				variant='body3'
+				styleSheet={{ height: '34px', color: theme.colors.positive.x500 }}
+				aria-live='polite'
+			>
+				{message}
+			</Text>
 			<Link href='/'>Home</Link>
 		</Box>
 	)
