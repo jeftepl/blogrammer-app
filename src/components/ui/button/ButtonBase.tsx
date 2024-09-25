@@ -11,6 +11,7 @@ export type ButtonBaseProps = {
 	styleSheet?: StyleSheet
 	type?: 'button' | 'submit' | 'reset'
 	onClick?: (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
+	disabled?: boolean
 }
 
 export default function ButtonBase({
@@ -19,6 +20,7 @@ export default function ButtonBase({
 	styleSheet,
 	type = 'button',
 	onClick,
+	disabled,
 }: ButtonBaseProps) {
 	const isLink = Boolean(href)
 	const Tag = isLink ? 'a' : 'button'
@@ -26,6 +28,7 @@ export default function ButtonBase({
 	const commonProps = {
 		href,
 		onClick,
+		disabled,
 		styleSheet: {
 			overflow: 'hidden',
 			position: 'relative',
