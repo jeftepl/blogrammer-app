@@ -12,7 +12,7 @@ type TextFieldProps = {
 	error?: string
 }
 
-export default function TextField(props: TextFieldProps) {
+export default function TextField({ error, ...props }: TextFieldProps) {
 	const theme = useTheme()
 
 	return (
@@ -27,8 +27,11 @@ export default function TextField(props: TextFieldProps) {
 					width: '100%',
 				}}
 			/>
-			<Text styleSheet={{ color: theme.colors.negative.x600, fontSize: '14px' }}>
-				{props.error}
+			<Text
+				aria-describedby={error ? 'email-error' : undefined}
+				styleSheet={{ color: theme.colors.negative.x600, fontSize: '14px' }}
+			>
+				{error}
 			</Text>
 		</Box>
 	)
