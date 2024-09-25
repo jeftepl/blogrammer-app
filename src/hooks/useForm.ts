@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 
 type FormValues = Record<string, string>
 type FormErrors = Record<string, string>
@@ -15,26 +15,34 @@ export default function useForm({
 	const [errors, setErrors] = useState<FormErrors>({})
 	const [isSubmitting, setIsSubmitting] = useState(false)
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target
-		setValues({
-			...values,
+		setValues((prevValues) => ({
+			...prevValues,
 			[name]: value,
-		})
-	}
+		}))
+	}, [])
 
-	const handleSubmit = (onSubmit: () => void) => {
-		return (event: React.FormEvent<HTMLFormElement>) => {
-			event.preventDefault()
-			setIsSubmitting(true)
-			const validationErrors = validate(values)
-			setErrors(validationErrors)
-			if (Object.keys(validationErrors).length === 0) {
-				onSubmit()
+	const handleSubmit = useCallback(
+		(onSubmit: () => Promise<void>) => {
+			return async (event: React.FormEvent<HTMLFormElement>) => {
+				event.preventDefault()
+				setIsSubmitting(true)
+				const validationErrors = validate(values)
+				setErrors(validationErrors)
+				if (Object.keys(validationErrors).length === 0) {
+					await onSubmit()
+				}
+				setIsSubmitting(false)
 			}
-			setIsSubmitting(false)
-		}
-	}
+		},
+		[validate, values],
+	)
+
+	const reset = useCallback(() => {
+		setValues(initialValues)
+		setErrors({})
+	}, [initialValues])
 
 	return {
 		values,
@@ -42,6 +50,6 @@ export default function useForm({
 		isSubmitting,
 		handleChange,
 		handleSubmit,
-		isValid: Object.keys(errors).length === 0,
+		reset,
 	}
 }
