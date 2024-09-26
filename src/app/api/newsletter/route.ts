@@ -12,21 +12,33 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
 const dbClient = createClient(SUPABASE_URL, SUPABASE_KEY)
 
 export async function GET() {
-	const { data, error } = await dbClient.from('newsletter_users').select('*')
-	console.log(data)
-	console.log(error)
+	try {
+		const { data, error, count, status } = await dbClient
+			.from('newsletter_users')
+			.select('*', { count: 'exact' })
 
-	return NextResponse.json({ data }, { status: 200 })
+		if (error) return NextResponse.json({ error }, { status })
+
+		return NextResponse.json({ data, count }, { status: 200 })
+	} catch (error) {
+		console.error('Fetching data error:', error)
+		return NextResponse.json({ error: 'An error occurred' }, { status: 500 })
+	}
 }
 
 export async function POST(request: Request) {
 	try {
-		const data = await request.json()
-		if (!data.email || !isValidEmail(data.email)) {
+		const response = await request.json()
+		if (!response.email || !isValidEmail(response.email)) {
 			return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
 		}
 
-		console.log('Subscribing email:', data.email)
+		const { error, status } = await dbClient
+			.from('newsletter_users')
+			.insert({ email: response.email, optin: true })
+
+		if (error) return NextResponse.json({ error }, { status })
+
 		return NextResponse.json({ message: 'Subscription successful' }, { status: 200 })
 	} catch (error) {
 		console.error('Newsletter subscription error:', error)
