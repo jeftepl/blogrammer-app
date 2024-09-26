@@ -17,8 +17,8 @@ export default function TemplateConfigProvider({ children }: TemplateConfigProvi
 			try {
 				const template = await templateConfig()
 				setValue(template)
-			} catch (err) {
-				console.error(err)
+			} catch (error) {
+				console.error(error)
 			}
 		}
 		fetchData()

@@ -7,24 +7,14 @@ import Text from '@/components/ui/Text'
 import TextField from '@/components/ui/TextField'
 import useForm from '@/hooks/useForm'
 import { useTheme } from '@/hooks/useTheme'
+import { sendConfirmationEmail } from '@/services/email'
+import { getNewsletterSubscribersCount, subscribeToNewsletter } from '@/services/newsletter'
 import { isValidEmail } from '@/utils/validations'
 import { useEffect, useState } from 'react'
 
-type RequesPostResponse = {
-	status: number
-	message?: string
-	error?: string
-}
-
-type RequesGetResponse = {
-	status: number
-	data?: string
-	count?: string
-	error?: string
-}
-
 export default function NewsletterPage() {
-	const [message, setMessage] = useState('')
+	const [message, setMessage] = useState<string>('')
+	const [isError, setIsError] = useState(false)
 	const [count, setCount] = useState(0)
 
 	const theme = useTheme()
@@ -40,45 +30,39 @@ export default function NewsletterPage() {
 		},
 	})
 
-	const sendData = async () => {
+	useEffect(() => {
+		fetchSubscribersCount()
+	}, [message])
+
+	const fetchSubscribersCount = async () => {
 		try {
-			const response = await fetch('/api/newsletter', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(form.values),
-			})
-			const data: RequesPostResponse = await response.json()
-			if (response.ok) {
-				setMessage('Successfully subscribed!')
-				form.reset()
-			} else {
-				setMessage(data.error || 'An error occurred. Please try again.')
-			}
+			const count = await getNewsletterSubscribersCount()
+			setCount(count)
 		} catch (error) {
-			setMessage('An error occurred. Please try again.')
+			console.error('Failed to fetch subscribers count:', error)
 		}
 	}
 
-	useEffect(() => {
-		const getUsersOptin = async () => {
-			try {
-				const response = await fetch('/api/newsletter', { method: 'GET' })
-				const data: RequesGetResponse = await response.json()
-				if (response.ok) {
-					setCount(Number(data.count))
-				}
-			} catch (error) {
-				console.error(error)
+	const handleSubmit = async () => {
+		try {
+			await subscribeToNewsletter(form.values.email)
+			await sendConfirmationEmail(form.values.email)
+			setMessage('Successfully subscribed!')
+			form.reset()
+		} catch (error) {
+			setIsError(true)
+			if (error instanceof Error) {
+				setMessage(error.message)
+			} else {
+				setMessage('An unexpected error occurred. Please try again.')
 			}
+			console.error('Subscription error:', error)
 		}
-		getUsersOptin()
-	}, [])
+	}
 
 	return (
 		<Box styleSheet={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-			<form onSubmit={form.handleSubmit(sendData)}>
+			<form onSubmit={form.handleSubmit(handleSubmit)}>
 				<Box
 					styleSheet={{
 						alignItems: 'center',
@@ -112,7 +96,10 @@ export default function NewsletterPage() {
 			</form>
 			<Text
 				variant='body3'
-				styleSheet={{ height: '34px', color: theme.colors.positive.x500 }}
+				styleSheet={{
+					height: '34px',
+					color: isError ? theme.colors.negative.x500 : theme.colors.positive.x500,
+				}}
 				aria-live='polite'
 			>
 				{message}
