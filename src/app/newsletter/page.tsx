@@ -8,16 +8,25 @@ import TextField from '@/components/ui/TextField'
 import useForm from '@/hooks/useForm'
 import { useTheme } from '@/hooks/useTheme'
 import { isValidEmail } from '@/utils/validations'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-type requestResponse = {
+type RequesPostResponse = {
 	status: number
 	message?: string
 	error?: string
 }
 
+type RequesGetResponse = {
+	status: number
+	data?: string
+	count?: string
+	error?: string
+}
+
 export default function NewsletterPage() {
 	const [message, setMessage] = useState('')
+	const [count, setCount] = useState(0)
+
 	const theme = useTheme()
 
 	const form = useForm({
@@ -40,7 +49,7 @@ export default function NewsletterPage() {
 				},
 				body: JSON.stringify(form.values),
 			})
-			const data: requestResponse = await response.json()
+			const data: RequesPostResponse = await response.json()
 			if (response.ok) {
 				setMessage('Successfully subscribed!')
 				form.reset()
@@ -51,6 +60,21 @@ export default function NewsletterPage() {
 			setMessage('An error occurred. Please try again.')
 		}
 	}
+
+	useEffect(() => {
+		const getUsersOptin = async () => {
+			try {
+				const response = await fetch('/api/newsletter', { method: 'GET' })
+				const data: RequesGetResponse = await response.json()
+				if (response.ok) {
+					setCount(Number(data.count))
+				}
+			} catch (error) {
+				console.error(error)
+			}
+		}
+		getUsersOptin()
+	}, [])
 
 	return (
 		<Box styleSheet={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%' }}>
@@ -67,6 +91,12 @@ export default function NewsletterPage() {
 					}}
 				>
 					<Text variant='heading2'>Newsletter</Text>
+					<Text variant='body2' styleSheet={{ flexDirection: 'row' }}>
+						Join our group of&nbsp;
+						<Text tag='span' variant='heading5'>
+							{count} active readers
+						</Text>
+					</Text>
 					<TextField
 						id='email'
 						name='email'
