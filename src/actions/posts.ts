@@ -7,27 +7,41 @@ import path from 'path'
 
 export default async function posts(): Promise<Post[]> {
 	const PATH_POSTS = path.resolve('.', '_data', 'posts')
-	const postFiles = await fs.readdir(PATH_POSTS, { encoding: 'utf-8' })
+	const years = await fs.readdir(PATH_POSTS, { encoding: 'utf-8' })
 
-	const postsPromise = postFiles.map(async (postFileName) => {
-		const filePath = path.join(PATH_POSTS, postFileName)
-		const postFile = await fs.readFile(filePath, { encoding: 'utf-8' })
-		const { data, content } = matter(postFile)
+	const allPosts: Post[] = []
 
-		const post: Post = {
-			metadata: {
-				date: new Date(data.date).toISOString(),
-				excerpt: data.excerpt,
-				tags: data.tags,
-				url: data.url,
-			},
-			image: data.image || '',
-			title: data.title,
-			slug: postFileName.replace('.md', ''),
-			content,
+	for (const year of years) {
+		const yearPath = path.join(PATH_POSTS, year)
+		const postFiles = await fs.readdir(yearPath, { encoding: 'utf-8' })
+
+		for (const postFile of postFiles) {
+			if (postFile.endsWith('.md')) {
+				const filePath = path.join(yearPath, postFile)
+				const postContent = await fs.readFile(filePath, { encoding: 'utf-8' })
+				const { data, content } = matter(postContent)
+
+				const post: Post = {
+					metadata: {
+						date: new Date(data.date).toISOString(),
+						excerpt: data.excerpt,
+						tags: data.tags,
+						url: data.url,
+					},
+					image: data.image || '',
+					title: data.title,
+					slug: postFile.replace('.md', ''),
+					content,
+					author: data.author,
+					published: data.published,
+				}
+
+				allPosts.push(post)
+			}
 		}
-		return post
-	})
-	const posts = Promise.all(postsPromise)
-	return posts
+	}
+
+	allPosts.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime())
+
+	return allPosts
 }
