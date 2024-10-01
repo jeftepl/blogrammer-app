@@ -35,7 +35,7 @@ export default function FeedHeader() {
 			>
 				<Image
 					src={templateConfig.profile?.avatar ?? ''}
-					alt='Imagem de perfil'
+					alt='Profile image'
 					styleSheet={{
 						width: { xs: '100px', md: '128px' },
 						height: { xs: '100px', md: '128px' },
