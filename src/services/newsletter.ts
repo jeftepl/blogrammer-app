@@ -14,8 +14,11 @@ export async function subscribeToNewsletter(email: string): Promise<void> {
 			throw new Error(errorData.error || 'Failed to subscribe')
 		}
 	} catch (error) {
-		console.error(error)
-		throw new Error('Failed to subscribe')
+		if (error instanceof Error) {
+			throw new Error(error.message)
+		} else {
+			throw new Error('An unexpected error occurred. Please try again.')
+		}
 	}
 }
 
