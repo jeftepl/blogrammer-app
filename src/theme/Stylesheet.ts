@@ -6,58 +6,63 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	// Layout
 	display?: ResponsiveProperty<string> | string
 	position?: ResponsiveProperty<string> | string
-	overflow?: ResponsiveProperty<string> | string
-	alignSelf?: ResponsiveProperty<string> | string
-	margin?: ResponsiveProperty<string> | string
-	marginTop?: ResponsiveProperty<string> | string
-	marginBottom?: ResponsiveProperty<string> | string
-	marginLeft?: ResponsiveProperty<string> | string
-	marginRight?: ResponsiveProperty<string> | string
-	padding?: ResponsiveProperty<string> | string
-	paddingVertical?: ResponsiveProperty<string> | string
-	paddingHorizontal?: ResponsiveProperty<string> | string
-	paddingTop?: ResponsiveProperty<string> | string
-	paddingBottom?: ResponsiveProperty<string> | string
-	paddingLeft?: ResponsiveProperty<string> | string
-	paddingRight?: ResponsiveProperty<string> | string
-	gap?: ResponsiveProperty<string> | string
-
-	// Sizing
-	maxWidth?: ResponsiveProperty<string> | string
-	minWidth?: ResponsiveProperty<string> | string
-	maxHeight?: ResponsiveProperty<string> | string
-	minHeight?: ResponsiveProperty<string> | string
-
-	// Positioning
 	top?: ResponsiveProperty<string | number> | string | number
+	right?: ResponsiveProperty<string | number> | string | number
 	bottom?: ResponsiveProperty<string | number> | string | number
 	left?: ResponsiveProperty<string | number> | string | number
-	right?: ResponsiveProperty<string | number> | string | number
+	float?: ResponsiveProperty<string> | string
+	clear?: ResponsiveProperty<string> | string
+	zIndex?: ResponsiveProperty<number> | number
 
-	// Borders
-	border?: ResponsiveProperty<string> | string
-	borderTop?: ResponsiveProperty<string> | string
-	borderBottom?: ResponsiveProperty<string> | string
-	borderLeft?: ResponsiveProperty<string> | string
-	borderRight?: ResponsiveProperty<string> | string
-	borderRadius?: ResponsiveProperty<string> | string
+	// Flexbox/Grid
+	flexWrap?: ResponsiveProperty<string> | string
+	flexFlow?: ResponsiveProperty<string> | string
+	alignContent?: ResponsiveProperty<string> | string
+	order?: ResponsiveProperty<number> | number
+	flexGrow?: ResponsiveProperty<number> | number
+	flexShrink?: ResponsiveProperty<number> | number
+	flexBasis?: ResponsiveProperty<string | number> | string | number
+	alignSelf?: ResponsiveProperty<string> | string
 
-	// Background
-	backgroundImage?: ResponsiveProperty<string> | string
-	backgroundPosition?: ResponsiveProperty<string> | string
-	backgroundSize?: ResponsiveProperty<string> | string
+	// Box Model
+	margin?: ResponsiveProperty<string | number> | string | number
+	marginTop?: ResponsiveProperty<string | number> | string | number
+	marginRight?: ResponsiveProperty<string | number> | string | number
+	marginBottom?: ResponsiveProperty<string | number> | string | number
+	marginLeft?: ResponsiveProperty<string | number> | string | number
+	padding?: ResponsiveProperty<string | number> | string | number
+	paddingTop?: ResponsiveProperty<string | number> | string | number
+	paddingRight?: ResponsiveProperty<string | number> | string | number
+	paddingBottom?: ResponsiveProperty<string | number> | string | number
+	paddingLeft?: ResponsiveProperty<string | number> | string | number
 
-	// Text
+	// Typography
+	fontFamily?: ResponsiveProperty<string> | string
+	fontSize?: ResponsiveProperty<string | number> | string | number
+	fontWeight?: ResponsiveProperty<string | number> | string | number
+	lineHeight?: ResponsiveProperty<string | number> | string | number
+	letterSpacing?: ResponsiveProperty<string | number> | string | number
 	textAlign?: ResponsiveProperty<string> | string
 	textDecoration?: ResponsiveProperty<string> | string
-	fontSize?: ResponsiveProperty<string> | string
-	fontWeight?: ResponsiveProperty<string> | string
+	textTransform?: ResponsiveProperty<string> | string
 
-	//Behavior
-	cursor?: ResponsiveProperty<string> | string
+	// Visual
+	background?: ResponsiveProperty<string> | string
+	backgroundImage?: ResponsiveProperty<string> | string
+	border?: ResponsiveProperty<string> | string
+	borderRadius?: ResponsiveProperty<string | number> | string | number
+	opacity?: ResponsiveProperty<number> | number
+
+	// Effects
+	boxShadow?: ResponsiveProperty<string> | string
 	transform?: ResponsiveProperty<string> | string
+	transition?: ResponsiveProperty<string> | string
 
-	// Miscellaneous
+	// Interactive
+	cursor?: ResponsiveProperty<string> | string
+	pointerEvents?: ResponsiveProperty<string> | string
+
+	// SVG-specific
 	viewBox?: string
 	xmlns?: string
 }

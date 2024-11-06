@@ -11,9 +11,11 @@ export default function Feed({ children }: FeedProps) {
 		<Box
 			styleSheet={{
 				backgroundColor: theme.colors.neutral.x000,
+				boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
 				marginTop: '-228px',
+				marginBottom: '40px',
 				width: '100%',
-				maxWidth: '683px',
+				maxWidth: '880px',
 				borderRadius: '8px',
 				paddingVertical: '40px',
 				paddingHorizontal: '32px',

@@ -1,3 +1,4 @@
+import useAuthor from '@/hooks/useAuthor'
 import { useTheme } from '@/hooks/useTheme'
 import Box from '../Box'
 import ButtonBase from '../button/ButtonBase'
@@ -7,6 +8,7 @@ import Link from '../Link'
 import Text from '../Text'
 
 type FeedPostProps = {
+	authorId: string
 	title: string
 	excerpt: string
 	url: string
@@ -15,8 +17,18 @@ type FeedPostProps = {
 	image?: string
 }
 
-export default function FeedPost({ title, excerpt, url, date, tags, image }: FeedPostProps) {
+export default function FeedPost({
+	authorId,
+	title,
+	excerpt,
+	url,
+	date,
+	tags,
+	image,
+}: FeedPostProps) {
 	const theme = useTheme()
+	const author = useAuthor(authorId)
+
 	const postDate = new Date(date)
 		.toLocaleString('en-US', {
 			year: 'numeric',
@@ -60,7 +72,7 @@ export default function FeedPost({ title, excerpt, url, date, tags, image }: Fee
 			</Box>
 			<Text
 				variant='body4'
-				styleSheet={{ fontWeight: 'bold', marginBottom: '32px', marginLeft: '4px' }}
+				styleSheet={{ fontWeight: 'bold', marginBottom: '16px', marginLeft: '4px' }}
 			>
 				{postDate}
 			</Text>
@@ -70,6 +82,25 @@ export default function FeedPost({ title, excerpt, url, date, tags, image }: Fee
 				styleSheet={{ marginBottom: '8px', display: 'inline' }}
 				colorVariantEnabled={false}
 			>
+				<Box
+					styleSheet={{
+						flexDirection: 'row',
+						alignItems: 'center',
+						gap: '8px',
+						marginBottom: '16px',
+					}}
+				>
+					<Image
+						src={author?.avatar ?? ''}
+						alt='Profile image'
+						styleSheet={{
+							width: '42px',
+							height: '42px',
+							borderRadius: '100%',
+						}}
+					/>
+					<Text variant='heading5'>{author?.name}</Text>
+				</Box>
 				<Box
 					tag='span'
 					styleSheet={{

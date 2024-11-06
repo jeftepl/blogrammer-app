@@ -11,12 +11,13 @@ export default function FeedPosts() {
 			<Text variant='heading3' styleSheet={{ marginBottom: '20px' }}>
 				Last Updates
 			</Text>
-			{posts.map(({ metadata, slug, title, image }) => {
+			{posts.map(({ metadata, slug, author, title, image }) => {
 				const { date, excerpt, tags, url } = metadata
 
 				return (
 					<FeedPost
 						key={slug}
+						authorId={author}
 						title={title}
 						excerpt={excerpt}
 						url={url}
