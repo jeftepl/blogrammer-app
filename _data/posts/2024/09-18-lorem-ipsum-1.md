@@ -2,7 +2,7 @@
 id: 1
 date: 09-18-2024
 title: Lorem Ipsum
-author: john-doe-1
+author: 1
 url: https://www.lipsum.com/
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 tags: [javascript, typescript, reactjs, nextjs]

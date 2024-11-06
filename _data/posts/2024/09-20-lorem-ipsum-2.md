@@ -2,7 +2,7 @@
 id: 2
 date: 09-20-2024
 title: Vivamus viverra
-author: jane-smith-2
+author: 2
 image: https://picsum.photos/800/600
 url: https://www.lipsum.com/
 excerpt: Orci varius natoque penatibus et magnis dis parturient montes
