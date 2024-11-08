@@ -1,6 +1,6 @@
 ---
 id: 1
-avatar: https://picsum.photos/300/300
+avatar: /images/authors/john-doe-1.jpg
 github: https://github.com/
 youtube: https://youtube.com/
 instagram: https://instagram.com

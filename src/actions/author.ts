@@ -15,11 +15,12 @@ export default async function author(id: string): Promise<Author | null> {
 		const { data, content } = matter(authorContent)
 
 		if (data.id === id) {
-			const titleMatch = content.match(/^#\s+(.+)$/m)
+			const regex = /^#\s+(.+)$/m
+			const titleMatch = content.match(regex)
 			const name = titleMatch ? titleMatch[1].trim() : ''
-			const authorData = { ...data, name } as Author
+			const description = content.replace(regex, '').trim()
 
-			return authorData
+			return { ...data, name, description } as Author
 		}
 	}
 

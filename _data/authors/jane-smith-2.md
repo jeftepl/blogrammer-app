@@ -1,6 +1,6 @@
 ---
 id: 2
-avatar: https://picsum.photos/300/300
+avatar: /images/authors/jane-smith-2.jpg
 github: https://github.com/
 youtube: https://youtube.com/
 instagram: https://instagram.com
