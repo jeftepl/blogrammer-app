@@ -1,6 +1,8 @@
+import { useTheme } from '@/hooks/useTheme'
 import { StyleSheet } from '@/theme/Stylesheet'
 import { ThemeTypographyVariants } from '@/types/Theme'
 import React from 'react'
+import Link from '../Link'
 import Text from '../Text'
 import Ripple from '../ripple/Ripple'
 
@@ -18,15 +20,18 @@ export default function ButtonBase({
 	children,
 	href,
 	styleSheet,
+	textVariant,
 	type = 'button',
 	onClick,
 	disabled,
 }: ButtonBaseProps) {
+	const theme = useTheme()
+
+	const textVariantStyle = textVariant ? theme.typography.variants[textVariant] : {}
 	const isLink = Boolean(href)
 	const Tag = isLink ? 'a' : 'button'
 
 	const commonProps = {
-		href,
 		onClick,
 		disabled,
 		styleSheet: {
@@ -38,12 +43,21 @@ export default function ButtonBase({
 			outline: '0',
 			cursor: 'pointer',
 			textDecoration: 'none',
+			...textVariantStyle,
 			...styleSheet,
 		},
 	}
 
-	const buttonProps = isLink ? {} : { type }
+	if (isLink) {
+		return (
+			<Link href={href!} {...commonProps}>
+				{children}
+				<Ripple />
+			</Link>
+		)
+	}
 
+	const buttonProps = { type }
 	return (
 		<Text tag={Tag} {...commonProps} {...buttonProps}>
 			{children}
