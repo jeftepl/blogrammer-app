@@ -1,6 +1,6 @@
 import { Theme, ThemeColorVariant } from '@/types/Theme'
 
-export type Variant = 'ghost' | 'contained' | 'outlined'
+export type Variant = 'ghost' | 'contained' | 'outlined' | 'subtle'
 
 type ButtonColorVarintProps = {
 	theme: Theme
@@ -40,6 +40,16 @@ function createButtonVariant(theme: Theme, colorVariant: ThemeColorVariant) {
 			},
 			focus: {
 				backgroundColor: theme.colors[colorVariant].x100,
+			},
+		},
+		subtle: {
+			backgroundColor: theme.colors.neutral.x050,
+			color: theme.colors[colorVariant].x500,
+			hover: {
+				backgroundColor: theme.colors[colorVariant].x100,
+			},
+			focus: {
+				backgroundColor: theme.colors[colorVariant].x200,
 			},
 		},
 	}
