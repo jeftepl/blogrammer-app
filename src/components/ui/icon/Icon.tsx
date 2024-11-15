@@ -18,17 +18,16 @@ type IconProps = {
 
 export default function Icon({ name, styleSheet, size = 'md' }: IconProps) {
 	const CurrentIcon = icons[name]
+
 	return (
 		<BaseComponent
 			as='svg'
 			styleSheet={{
-				...styleSheet,
 				width: iconSizes[size],
 				height: iconSizes[size],
 				color: 'inherit',
 				fill: 'currentColor',
-				viewBox: '0 0 25 24',
-				xmlns: 'http://www.w3.org/2000/svg',
+				...styleSheet,
 			}}
 		>
 			<CurrentIcon />
