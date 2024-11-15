@@ -54,7 +54,7 @@ const Link = React.forwardRef<HTMLDivElement, LinkProps>(
 		}
 
 		return (
-			<NextLink href={href} passHref legacyBehavior>
+			<NextLink href={href} passHref legacyBehavior scroll={false}>
 				<Text {...linkProps}>{children}</Text>
 			</NextLink>
 		)
