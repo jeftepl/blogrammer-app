@@ -1,8 +1,8 @@
 site:
-  title: Blog page - Timeline
-  description: Welcome to the blog timeline
+  title: Blogrammer
+  description: Welcome to your favorite blog about programming
 profile:
-  name: John doe
+  name: John Doe
   avatar: https://picsum.photos/300/300
   socialNetworks:
     github: https://github.com/
