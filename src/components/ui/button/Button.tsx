@@ -1,5 +1,5 @@
 import { useTheme } from '@/hooks/useTheme'
-import { ThemeColorVariant } from '@/types/Theme'
+import { ThemeColorVariant, ThemeTypographyVariants } from '@/types/Theme'
 import ButtonBase, { ButtonBaseProps } from './ButtonBase'
 import { buttonColorVariant, Variant } from './buttonColorVariant'
 import { buttonSize, ButtonSize } from './buttonSize'
@@ -8,6 +8,7 @@ type ButtonProps = ButtonBaseProps & {
 	fullWidth?: boolean
 	colorVariant?: ThemeColorVariant
 	variant?: Variant
+	textVariant?: ThemeTypographyVariants
 	size?: ButtonSize
 }
 
@@ -19,9 +20,12 @@ export default function Button({
 	variant = 'contained',
 	size = 'md',
 	type = 'button',
+	textVariant,
 	...props
 }: ButtonProps) {
 	const theme = useTheme()
+
+	const textVariantStyle = textVariant ? theme.typography.variants[textVariant] : {}
 
 	return (
 		<ButtonBase
@@ -31,7 +35,8 @@ export default function Button({
 				alignSelf: 'flex-start',
 				justifyContent: 'center',
 				alignItems: 'center',
-				...(fullWidth && { alignSelf: 'initial' }),
+				...(fullWidth && { alignSelf: 'initial', width: '100%' }),
+				...textVariantStyle,
 				...styleSheet,
 			}}
 			type={type}
