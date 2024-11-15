@@ -19,6 +19,7 @@ export default function TextField({ error, ...props }: TextFieldProps) {
 		<Box styleSheet={{ width: '100%' }}>
 			<BaseComponent
 				as='input'
+				type='text'
 				{...props}
 				styleSheet={{
 					border: `1px solid ${theme.colors.neutral.x300}`,
@@ -28,7 +29,7 @@ export default function TextField({ error, ...props }: TextFieldProps) {
 				}}
 			/>
 			<Text
-				aria-describedby={error ? 'email-error' : undefined}
+				aria-describedby={error ? 'input-error' : undefined}
 				styleSheet={{ color: theme.colors.negative.x600, fontSize: '14px' }}
 			>
 				{error}
