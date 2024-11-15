@@ -14,6 +14,10 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	clear?: ResponsiveProperty<string> | string
 	zIndex?: ResponsiveProperty<number> | number
 
+	// Sizing
+	maxWidth?: ResponsiveProperty<string | number> | string | number
+	maxHeight?: ResponsiveProperty<string | number> | string | number
+
 	// Flexbox/Grid
 	flexWrap?: ResponsiveProperty<string> | string
 	flexFlow?: ResponsiveProperty<string> | string
@@ -63,6 +67,9 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	pointerEvents?: ResponsiveProperty<string> | string
 
 	// SVG-specific
-	viewBox?: string
-	xmlns?: string
+	fill?: ResponsiveProperty<string> | string
+	stroke?: ResponsiveProperty<string> | string
+	strokeWidth?: ResponsiveProperty<string | number> | string | number
+	strokeLinecap?: ResponsiveProperty<string> | string
+	strokeLinejoin?: ResponsiveProperty<string> | string
 }

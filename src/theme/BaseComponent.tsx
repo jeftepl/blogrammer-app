@@ -18,6 +18,7 @@ const StyledBaseComponent = styled.div.withConfig({
 
 type BasecomponentProps = {
 	as?: string
+	type?: string
 	styleSheet?: StyleSheet
 	children?: React.ReactNode
 	src?: string
