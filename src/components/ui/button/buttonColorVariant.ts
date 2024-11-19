@@ -43,13 +43,13 @@ function createButtonVariant(theme: Theme, colorVariant: ThemeColorVariant) {
 			},
 		},
 		subtle: {
-			backgroundColor: theme.colors.neutral.x050,
+			backgroundColor: theme.colors.neutral.x100,
 			color: theme.colors[colorVariant].x500,
 			hover: {
-				backgroundColor: theme.colors[colorVariant].x100,
+				backgroundColor: theme.colors[colorVariant].x200,
 			},
 			focus: {
-				backgroundColor: theme.colors[colorVariant].x200,
+				backgroundColor: theme.colors[colorVariant].x300,
 			},
 		},
 	}

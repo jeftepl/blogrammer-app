@@ -1,16 +1,17 @@
 'use client'
 
+import { Theme } from '@/types/Theme'
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
-	* {
-		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		font-smooth: always;
-		margin: 0;
-		padding: 0;
-	}
+const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
+  * {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+    margin: 0;
+    padding: 0;
+  }
   html {
     display: flex;
     min-height: 100%;
@@ -24,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     flex-wrap: nowrap;
     justify-content: flex-start;
     flex-shrink: 0;
+    background-color: ${({ theme }) => theme.colors.neutral.x050};
   }
   * {
     box-sizing: border-box;
@@ -31,12 +33,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-	input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
-	input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
-	input[type="search"]::-webkit-search-decoration,
-	input[type="search"]::-webkit-search-cancel-button,
-	input[type="search"]::-webkit-search-results-button,
-	input[type="search"]::-webkit-search-results-decoration { display: none; }
+  input[type="search"]::-ms-clear { display: none; width : 0; height: 0; }
+  input[type="search"]::-ms-reveal { display: none; width : 0; height: 0; }
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration { display: none; }
 `
 
 export default GlobalStyle

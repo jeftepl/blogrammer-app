@@ -37,8 +37,8 @@ export const colors = {
 	},
 	neutral: {
 		x000: '#FFFFFF',
-		x050: '#F7F7F7',
-		x100: '#E1E1E1',
+		x050: '#F6F6F6',
+		x100: '#EFEFEF',
 		x200: '#CFCFCF',
 		x300: '#B1B1B1',
 		x400: '#9E9E9E',
