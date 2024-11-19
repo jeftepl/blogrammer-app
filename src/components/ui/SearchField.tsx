@@ -18,10 +18,9 @@ export default function SearchField({ error, ...props }: SearchFieldProps) {
 	return (
 		<Box
 			styleSheet={{
-				justifyContent: 'center',
-				width: '100%',
-				maxWidth: '350px',
 				position: 'relative',
+				justifyContent: 'center',
+				width: '42%',
 				color: theme.colors.neutral.x400,
 			}}
 		>
@@ -31,7 +30,7 @@ export default function SearchField({ error, ...props }: SearchFieldProps) {
 				placeholder='Search...'
 				{...props}
 				styleSheet={{
-					backgroundColor: theme.colors.neutral.x050,
+					backgroundColor: theme.colors.neutral.x100,
 					border: 'none',
 					borderRadius: '8px',
 					padding: '12px',

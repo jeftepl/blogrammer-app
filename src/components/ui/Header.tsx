@@ -22,59 +22,77 @@ export default function Header() {
 				right: 0,
 				top: 0,
 				zIndex: 1000,
-				flexDirection: 'row',
-				justifyContent: 'space-between',
-				alignItems: 'center',
-				paddingVertical: '8px',
-				paddingHorizontal: '20px',
-				color: theme.colors.neutral.x999,
-				backgroundColor: theme.colors.neutral.x000,
-				boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
 			}}
 		>
-			<Link href='/'>
-				<Text
-					tag='h1'
-					variant='heading3'
+			<Box
+				styleSheet={{
+					flexDirection: 'row',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+					paddingVertical: '8px',
+					paddingHorizontal: '20px',
+					backgroundColor: theme.colors.neutral.x050,
+					color: theme.colors.neutral.x999,
+					maxWidth: { xs: '100%', sm: '768px', md: '992px', lg: '1280px', xl: '1592px' },
+					width: '100%',
+					margin: '0 auto',
+				}}
+			>
+				<Link href='/' styleSheet={{ width: '29%' }}>
+					<Text
+						tag='h1'
+						variant='heading3'
+						styleSheet={{
+							flexDirection: 'row',
+							alignItems: 'center',
+							gap: '4px',
+							color: theme.colors.neutral.x000,
+						}}
+					>
+						<ButtonBase
+							styleSheet={{
+								borderRadius: '100%',
+								width: size,
+								height: size,
+								backgroundColor: theme.colors.primary.x500,
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+							textVariant='heading3'
+						>
+							<Text
+								tag='span'
+								variant='heading3'
+								styleSheet={{ fontFamily: 'var(--font-orbitron)' }}
+							>
+								B
+							</Text>
+						</ButtonBase>
+						<Text
+							tag='span'
+							variant='heading4'
+							styleSheet={{ color: theme.colors.neutral.x999, marginTop: '2px' }}
+						>
+							logrammer
+						</Text>
+					</Text>
+				</Link>
+				<SearchField name='search' id='search' />
+				<Box
 					styleSheet={{
 						flexDirection: 'row',
-						alignItems: 'center',
-						gap: '4px',
-						color: theme.colors.neutral.x000,
+						justifyContent: 'flex-end',
+						gap: '10px',
+						width: '29%',
 					}}
 				>
-					<ButtonBase
-						styleSheet={{
-							borderRadius: '100%',
-							width: size,
-							height: size,
-							backgroundColor: theme.colors.primary.x500,
-							alignItems: 'center',
-							justifyContent: 'center',
-						}}
-						textVariant='heading3'
-					>
-						<Text tag='span' variant='heading3' styleSheet={{ fontFamily: 'var(--font-orbitron)' }}>
-							B
-						</Text>
-					</ButtonBase>
-					<Text
-						tag='span'
-						variant='heading4'
-						styleSheet={{ color: theme.colors.neutral.x999, marginTop: '2px' }}
-					>
-						logrammer
-					</Text>
-				</Text>
-			</Link>
-			<SearchField name='search' id='search' />
-			<Box styleSheet={{ flexDirection: 'row', gap: '20px' }}>
-				<Button colorVariant='primary' size='xs' textVariant='body3' href='/newsletter'>
-					Newsletter
-				</Button>
-				<Button variant='subtle' colorVariant='neutral' size='xs' textVariant='body3' href='/'>
-					Contact us
-				</Button>
+					<Button colorVariant='primary' size='xs' textVariant='body3' href='/newsletter'>
+						Newsletter
+					</Button>
+					<Button variant='subtle' colorVariant='neutral' size='xs' textVariant='body3' href='/'>
+						Contact us
+					</Button>
+				</Box>
 			</Box>
 		</Box>
 	)
