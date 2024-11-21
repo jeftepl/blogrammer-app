@@ -1,12 +1,14 @@
-import useAuthor from '@/hooks/useAuthor'
+import { useAuthor } from '@/hooks/useAuthor'
 import { useTheme } from '@/hooks/useTheme'
+import AuthorLink from '../AuthorLink'
 import Box from '../Box'
 import ButtonBase from '../button/ButtonBase'
+import HorizontalRule from '../HorizontalRule'
 import Icon from '../icon/Icon'
 import Image from '../Image'
 import Link from '../Link'
+import Tag from '../Tag'
 import Text from '../Text'
-import HorizontalRule from '../HorizontalRule'
 
 type FeedPostProps = {
 	authorId: string
@@ -69,40 +71,15 @@ export default function FeedPost({
 				styleSheet={{ marginBottom: '8px', display: 'inline' }}
 				colorVariantEnabled={false}
 			>
-				<Box
-					styleSheet={{
-						flexDirection: 'row',
-						alignItems: 'center',
-						gap: '8px',
-						marginBottom: '16px',
-					}}
-				>
-					<Image
-						src={author?.avatar ?? ''}
-						alt='Profile image'
-						styleSheet={{
-							width: '42px',
-							height: '42px',
-							borderRadius: '100%',
-						}}
-					/>
-					<Text variant='heading5' styleSheet={{ color: theme.colors.primary.x500 }}>
-						{author?.name}
-					</Text>
-				</Box>
+				<Box styleSheet={{ marginBottom: 8 }}>{author && <AuthorLink {...author} />}</Box>
 				<Text
 					tag='h2'
-					variant='body1'
+					variant='heading3'
 					styleSheet={{
 						display: 'inline',
 						padding: '2px',
 						borderRadius: '4px',
-						color: theme.colors.neutral.x000,
-						backgroundColor: theme.colors.neutral.x800,
-						hover: {
-							color: theme.colors.primary.x900,
-							backgroundColor: theme.colors.primary.x200,
-						},
+						color: theme.colors.neutral.x900,
 					}}
 				>
 					{title}
@@ -120,26 +97,9 @@ export default function FeedPost({
 					/>
 				</ButtonBase>
 			)}
-			<Box styleSheet={{ flexDirection: 'row', gap: '4px' }}>
+			<Box styleSheet={{ flexDirection: 'row', flexWrap: 'wrap', gap: '4px' }}>
 				{tags.map((tag) => (
-					<Link
-						key={tag}
-						href={`/tags/${tag}`}
-						variant='body4'
-						styleSheet={{
-							borderRadius: '1000px',
-							padding: '6px 8px',
-							color: theme.colors.neutral.x800,
-							backgroundColor: theme.colors.neutral.x200,
-							hover: {
-								color: theme.colors.primary.x900,
-								backgroundColor: theme.colors.primary.x200,
-							},
-						}}
-						colorVariantEnabled={false}
-					>
-						#{tag}
-					</Link>
+					<Tag key={tag} tag={tag} />
 				))}
 			</Box>
 			<HorizontalRule />

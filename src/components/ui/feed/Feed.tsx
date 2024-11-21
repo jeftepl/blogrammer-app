@@ -11,6 +11,7 @@ export default function Feed({ children }: FeedProps) {
 		<Box
 			styleSheet={{
 				backgroundColor: theme.colors.neutral.x000,
+				marginTop: '110px',
 				marginBottom: '40px',
 				width: '42%',
 				borderRadius: '8px',

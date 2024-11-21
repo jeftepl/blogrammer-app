@@ -10,13 +10,14 @@ import Text from './Text'
 
 export default function Header() {
 	const theme = useTheme()
-	const size = '40px'
+	const size = '36px'
 
 	return (
 		<Box
 			tag='header'
 			styleSheet={{
 				width: '100%',
+				height: '110px',
 				position: 'fixed',
 				left: 0,
 				right: 0,
@@ -28,8 +29,8 @@ export default function Header() {
 				styleSheet={{
 					flexDirection: 'row',
 					justifyContent: 'space-between',
-					alignItems: 'center',
-					paddingVertical: '8px',
+					paddingTop: '12px',
+					paddingBottom: '53px',
 					paddingHorizontal: '20px',
 					backgroundColor: theme.colors.neutral.x050,
 					color: theme.colors.neutral.x999,
@@ -58,12 +59,12 @@ export default function Header() {
 								alignItems: 'center',
 								justifyContent: 'center',
 							}}
-							textVariant='heading3'
+							textVariant='heading2'
 						>
 							<Text
 								tag='span'
-								variant='heading3'
-								styleSheet={{ fontFamily: 'var(--font-orbitron)' }}
+								variant='heading2'
+								styleSheet={{ fontFamily: 'var(--font-orbitron)', marginLeft: '1px' }}
 							>
 								B
 							</Text>
