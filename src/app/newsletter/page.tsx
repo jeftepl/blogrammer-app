@@ -61,7 +61,15 @@ export default function NewsletterPage() {
 	}
 
 	return (
-		<Box styleSheet={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+		<Box
+			styleSheet={{
+				flex: 1,
+				alignItems: 'center',
+				justifyContent: 'center',
+				width: '100%',
+				backgroundColor: theme.colors.neutral.x000,
+			}}
+		>
 			<form onSubmit={form.handleSubmit(handleSubmit)}>
 				<Box
 					styleSheet={{
