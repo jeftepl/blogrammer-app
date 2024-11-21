@@ -34,6 +34,8 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	marginRight?: ResponsiveProperty<string | number> | string | number
 	marginBottom?: ResponsiveProperty<string | number> | string | number
 	marginLeft?: ResponsiveProperty<string | number> | string | number
+	marginVertical?: ResponsiveProperty<string | number> | string | number
+	marginHorizontal?: ResponsiveProperty<string | number> | string | number
 	padding?: ResponsiveProperty<string | number> | string | number
 	paddingTop?: ResponsiveProperty<string | number> | string | number
 	paddingRight?: ResponsiveProperty<string | number> | string | number

@@ -23,8 +23,8 @@ export const typography = {
 				xs: '1.5',
 			},
 			fontSize: {
-				xs: '36px',
-				md: '48px',
+				xs: '24px',
+				md: '36px',
 			},
 		},
 		heading2: {
@@ -35,8 +35,8 @@ export const typography = {
 				xs: '1.5',
 			},
 			fontSize: {
-				xs: '24px',
-				md: '36px',
+				xs: '20px',
+				md: '26px',
 			},
 		},
 		heading3: {
@@ -47,8 +47,8 @@ export const typography = {
 				xs: '1.5',
 			},
 			fontSize: {
-				xs: '20px',
-				md: '30px',
+				xs: '18px',
+				md: '24px',
 			},
 		},
 		heading4: {
