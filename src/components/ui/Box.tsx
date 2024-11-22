@@ -2,7 +2,7 @@ import BaseComponent from '@/theme/BaseComponent'
 import { StyleSheet } from '@/theme/Stylesheet'
 
 type BoxProps = {
-	tag?: 'header' | 'main' | 'div' | 'article' | 'section' | 'ul' | 'span'
+	tag?: 'header' | 'aside' | 'main' | 'div' | 'article' | 'section' | 'ul' | 'span'
 	styleSheet?: StyleSheet
 	children?: React.ReactNode
 }

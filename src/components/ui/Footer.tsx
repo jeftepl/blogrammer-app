@@ -1,25 +1,38 @@
-import { useTheme } from '@/hooks/useTheme'
 import Box from './Box'
+import HorizontalRule from './HorizontalRule'
+import Link from './Link'
 import Text from './Text'
 
 export default function Footer() {
-	const theme = useTheme()
-
 	return (
-		<Box
-			styleSheet={{
-				backgroundColor: theme.colors.neutral.x900,
-				color: theme.colors.neutral.x000,
-				width: '100%',
-				height: '120px',
-				paddingHorizontal: '24px',
-				paddingVertical: '24px',
-				alignItems: 'center',
-				justifyContent: 'center',
-				textAlign: 'center',
-			}}
-		>
-			<Text variant='body2'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
-		</Box>
+		<>
+			<Box>
+				<Box
+					styleSheet={{
+						flexDirection: 'row',
+						justifyContent: 'flex-start',
+						flexWrap: 'wrap',
+						gap: '20px',
+					}}
+				>
+					<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/newsletter'>
+						Newsletter
+					</Link>
+					<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/contact'>
+						Contact us
+					</Link>
+					<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/tags'>
+						Tags
+					</Link>
+					<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/authors'>
+						Authors
+					</Link>
+				</Box>
+			</Box>
+			<HorizontalRule />
+			<Text styleSheet={{ marginTop: '16px' }} variant='body3'>
+				Blogrammer 2024. All Rights reserved
+			</Text>
+		</>
 	)
 }

@@ -1,11 +1,13 @@
 'use client'
 
+import Aside from '@/components/ui/Aside'
 import AuthorLink from '@/components/ui/AuthorLink'
 import Box from '@/components/ui/Box'
+import Card from '@/components/ui/Card'
 import Feed from '@/components/ui/feed/Feed'
 import FeedPosts from '@/components/ui/feed/FeedPosts'
+import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
-import HorizontalRule from '@/components/ui/HorizontalRule'
 import Link from '@/components/ui/Link'
 import Tag from '@/components/ui/Tag'
 import Text from '@/components/ui/Text'
@@ -61,35 +63,20 @@ export default function HomePage() {
 						paddingHorizontal: '20px',
 					}}
 				>
-					<Box
-						styleSheet={{
-							width: 'calc(29% - 55px)',
-							position: 'sticky',
-							top: 0,
-							height: '100%',
-							paddingTop: '110px',
-						}}
-					>
-						<Text variant='heading1' styleSheet={{ lineHeight: 1 }}>
-							Last Updates
-						</Text>
-						<Text variant='heading4'>Dive into programming</Text>
-						<Box
-							styleSheet={{
-								backgroundColor: theme.colors.neutral.x000,
-								borderRadius: '8px',
-								paddingVertical: '40px',
-								paddingHorizontal: '32px',
-								marginTop: '75px',
-							}}
-						>
+					<Aside>
+						<Box styleSheet={{ marginBottom: 50 }}>
+							<Text variant='heading1' styleSheet={{ lineHeight: 1 }}>
+								Last Updates
+							</Text>
+							<Text variant='heading4'>Dive into programming</Text>
+						</Box>
+						<Card>
 							<Text variant='heading4'>Topics</Text>
 							<Box
 								styleSheet={{
 									flexDirection: 'row',
 									flexWrap: 'wrap',
 									gap: '10px',
-									marginVertical: 20,
 								}}
 							>
 								{mockedTags.map((tag) => (
@@ -97,74 +84,23 @@ export default function HomePage() {
 								))}
 							</Box>
 							<Link href='/tags'>See all</Link>
-						</Box>
-					</Box>
+						</Card>
+					</Aside>
 					<Feed>
 						<FeedPosts />
 					</Feed>
-					<Box
-						styleSheet={{
-							width: 'calc(29% - 55px)',
-							gap: '20px',
-							overflowY: 'auto',
-							position: 'sticky',
-							top: 0,
-							height: '100%',
-							paddingTop: '110px',
-						}}
-					>
-						<Box
-							styleSheet={{
-								gap: 16,
-								backgroundColor: theme.colors.neutral.x000,
-								borderRadius: '8px',
-								paddingVertical: '40px',
-								paddingHorizontal: '32px',
-							}}
-						>
+					<Aside>
+						<Card>
 							<Text variant='heading4'>Authors</Text>
 							{authors.map((author) => (
 								<AuthorLink key={author.id} {...author} />
 							))}
 							<Link href='/authors'>See all</Link>
-						</Box>
-						<Box
-							styleSheet={{
-								backgroundColor: theme.colors.neutral.x000,
-								borderRadius: '8px',
-								paddingVertical: '40px',
-								paddingHorizontal: '32px',
-							}}
-						>
-							<Box>
-								<Box
-									styleSheet={{
-										flexDirection: 'row',
-										justifyContent: 'flex-start',
-										flexWrap: 'wrap',
-										gap: '20px',
-									}}
-								>
-									<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/newsletter'>
-										Newsletter
-									</Link>
-									<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/contact'>
-										Contact us
-									</Link>
-									<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/tags'>
-										Tags
-									</Link>
-									<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/authors'>
-										Authors
-									</Link>
-								</Box>
-							</Box>
-							<HorizontalRule />
-							<Text styleSheet={{ marginTop: '16px' }} variant='body3'>
-								Blogrammer 2024. All Rights reserved
-							</Text>
-						</Box>
-					</Box>
+						</Card>
+						<Card>
+							<Footer />
+						</Card>
+					</Aside>
 				</Box>
 			</Box>
 		</>
