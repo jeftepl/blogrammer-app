@@ -1,8 +1,6 @@
 import Box from './Box'
 
-export default function Background() {
-	const url = 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2'
-
+export default function Background(url: string) {
 	return (
 		<Box
 			styleSheet={{

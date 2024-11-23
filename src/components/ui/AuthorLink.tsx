@@ -1,14 +1,18 @@
-import { Author } from '@/types/Author'
-import Box from './Box'
-import Image from './Image'
-import Text from './Text'
 import { useTheme } from '@/hooks/useTheme'
+import { Author } from '@/types/Author'
+import Image from './Image'
+import Link from './Link'
+import Text from './Text'
 
 export default function AuthorLink(author: Author) {
 	const theme = useTheme()
 
+	const name = author.name.trim().replace(/\s+/g, '-').toLowerCase()
+	const url = `/authors/${name}-${author.id}`
+
 	return (
-		<Box
+		<Link
+			href={url}
 			styleSheet={{
 				flexDirection: 'row',
 				alignItems: 'center',
@@ -27,6 +31,6 @@ export default function AuthorLink(author: Author) {
 			<Text variant='heading5' styleSheet={{ color: theme.colors.primary.x500 }}>
 				{author?.name}
 			</Text>
-		</Box>
+		</Link>
 	)
 }

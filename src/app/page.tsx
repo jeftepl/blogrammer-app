@@ -12,34 +12,13 @@ import Link from '@/components/ui/Link'
 import Tag from '@/components/ui/Tag'
 import Text from '@/components/ui/Text'
 import { useAuthors } from '@/hooks/useAuthor'
+import useTags from '@/hooks/useTags'
 import { useTheme } from '@/hooks/useTheme'
 
 export default function HomePage() {
 	const theme = useTheme()
 	const authors = useAuthors()
-
-	const mockedTags = [
-		'javascript',
-		'typescript',
-		'reactjs',
-		'nodejs',
-		'nextjs',
-		'webdev',
-		'frontend',
-		'backend',
-		'fullstack',
-		'graphql',
-		'apollo',
-		'prisma',
-		'mongodb',
-		'postgresql',
-		'mysql',
-		'docker',
-		'kubernetes',
-		'aws',
-		'azure',
-		'gcp',
-	]
+	const tags = useTags()
 
 	return (
 		<>
@@ -79,9 +58,12 @@ export default function HomePage() {
 									gap: '10px',
 								}}
 							>
-								{mockedTags.map((tag) => (
-									<Tag key={tag} tag={tag} />
-								))}
+								{[...tags]
+									.sort(() => Math.random() - 0.5)
+									.slice(0, 20)
+									.map((tag) => (
+										<Tag key={tag} tag={tag} />
+									))}
 							</Box>
 							<Link href='/tags'>See all</Link>
 						</Card>
