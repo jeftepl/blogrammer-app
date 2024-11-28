@@ -2,12 +2,13 @@ import { author, authors } from '@/actions/author'
 import { Author } from '@/types/Author'
 import { useEffect, useState } from 'react'
 
-export function useAuthor(id: string) {
+export function useAuthor(id: string | undefined) {
 	const [data, setData] = useState<Author | null>(null)
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
+				if (!id) return
 				const response = await author(id)
 				setData(response)
 			} catch (err) {

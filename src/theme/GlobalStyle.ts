@@ -3,7 +3,7 @@
 import { Theme } from '@/types/Theme'
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
+const GlobalStyle = createGlobalStyle<{ theme?: Theme }>`
   * {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

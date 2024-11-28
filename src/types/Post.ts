@@ -1,7 +1,7 @@
 export type Post = {
 	metadata: {
+		id: string
 		date: string
-		url: string
 		excerpt: string
 		tags: string[]
 	}
