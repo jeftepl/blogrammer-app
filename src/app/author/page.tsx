@@ -6,7 +6,6 @@ import Feed from '@/components/ui/feed/Feed'
 import FeedHeader from '@/components/ui/feed/FeedHeader'
 import FeedPosts from '@/components/ui/feed/FeedPosts'
 import Footer from '@/components/ui/Footer'
-import Menu from '@/components/ui/Menu'
 import { useTheme } from '@/hooks/useTheme'
 
 export default function HomePage() {
@@ -21,7 +20,7 @@ export default function HomePage() {
 				alignItems: 'center',
 			}}
 		>
-			<Background />
+			<Background url='https://images.unsplash.com/photo-1518932945647-7a1c969f8be2' />
 			<Feed>
 				<FeedHeader />
 				<FeedPosts />

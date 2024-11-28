@@ -75,7 +75,7 @@ export default function HomePage() {
 						<Card>
 							<Text variant='heading4'>Authors</Text>
 							{authors.map((author) => (
-								<AuthorLink key={author.id} {...author} />
+								<AuthorLink key={author.id} author={author} />
 							))}
 							<Link href='/authors'>See all</Link>
 						</Card>
