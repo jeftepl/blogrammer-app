@@ -9,15 +9,15 @@ export default function FeedPosts() {
 	return (
 		<Box>
 			{posts.map(({ metadata, slug, author, title, image }) => {
-				const { date, excerpt, tags, url } = metadata
+				const { id, date, excerpt, tags } = metadata
 
 				return (
 					<FeedPost
 						key={slug}
+						id={id}
 						authorId={author}
 						title={title}
 						excerpt={excerpt}
-						url={url}
 						date={date}
 						tags={tags}
 						image={image}

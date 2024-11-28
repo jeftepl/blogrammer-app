@@ -3,8 +3,14 @@ import { Author } from '@/types/Author'
 import Image from './Image'
 import Link from './Link'
 import Text from './Text'
+import Box from './Box'
 
-export default function AuthorLink(author: Author) {
+type AuthorLinkProps = {
+	author: Author
+	date?: string
+}
+
+export default function AuthorLink({ author, date }: AuthorLinkProps) {
 	const theme = useTheme()
 
 	const name = author.name.trim().replace(/\s+/g, '-').toLowerCase()
@@ -28,9 +34,16 @@ export default function AuthorLink(author: Author) {
 					borderRadius: '100%',
 				}}
 			/>
-			<Text variant='heading5' styleSheet={{ color: theme.colors.primary.x500 }}>
-				{author?.name}
-			</Text>
+			<Box>
+				<Text variant='heading5' styleSheet={{ color: theme.colors.primary.x500 }}>
+					{author?.name}
+				</Text>
+				{date && (
+					<Text tag='span' variant='body3' styleSheet={{ color: theme.colors.neutral.x500 }}>
+						Published on {date}
+					</Text>
+				)}
+			</Box>
 		</Link>
 	)
 }

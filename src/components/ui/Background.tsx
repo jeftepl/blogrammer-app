@@ -1,6 +1,6 @@
 import Box from './Box'
 
-export default function Background(url: string) {
+export default function Background({ url }: { url: string }) {
 	return (
 		<Box
 			styleSheet={{

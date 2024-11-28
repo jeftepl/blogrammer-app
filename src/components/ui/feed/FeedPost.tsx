@@ -11,20 +11,20 @@ import Tag from '../Tag'
 import Text from '../Text'
 
 type FeedPostProps = {
+	id: string
 	authorId: string
 	title: string
 	excerpt: string
-	url: string
 	date: string
 	tags: string[]
 	image?: string
 }
 
 export default function FeedPost({
+	id,
 	authorId,
 	title,
 	excerpt,
-	url,
 	date,
 	tags,
 	image,
@@ -65,13 +65,13 @@ export default function FeedPost({
 					{postDate}
 				</Box>
 			</Text>
+			<Box styleSheet={{ marginBottom: 8 }}>{author && <AuthorLink author={author} />}</Box>
 			<Link
-				href={url}
+				href={`/post/${id}`}
 				variant='body1'
 				styleSheet={{ marginBottom: '8px', display: 'inline' }}
 				colorVariantEnabled={false}
 			>
-				<Box styleSheet={{ marginBottom: 8 }}>{author && <AuthorLink {...author} />}</Box>
 				<Text
 					tag='h2'
 					variant='heading3'
@@ -89,11 +89,17 @@ export default function FeedPost({
 				{excerpt}
 			</Text>
 			{image && (
-				<ButtonBase href={url} styleSheet={{ hover: { opacity: 0.8 } }}>
+				<ButtonBase href={`/post/${id}`} styleSheet={{ hover: { opacity: 0.8 } }}>
 					<Image
 						src={image}
 						alt={title}
-						styleSheet={{ width: '100%', marginBottom: '24px', borderRadius: '12px' }}
+						styleSheet={{
+							width: '100%',
+							height: '335px',
+							marginBottom: '24px',
+							borderRadius: '12px',
+							objectFit: 'cover',
+						}}
 					/>
 				</ButtonBase>
 			)}
