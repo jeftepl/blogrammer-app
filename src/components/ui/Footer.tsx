@@ -21,8 +21,8 @@ export default function Footer() {
 					<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/contact'>
 						Contact us
 					</Link>
-					<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/tags'>
-						Tags
+					<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/topics'>
+						Topics
 					</Link>
 					<Link styleSheet={{ width: 'calc(50% - 20px)' }} href='/authors'>
 						Authors

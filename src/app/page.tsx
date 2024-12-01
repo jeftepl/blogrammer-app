@@ -4,19 +4,17 @@ import Aside from '@/components/ui/Aside'
 import AuthorLink from '@/components/ui/AuthorLink'
 import Box from '@/components/ui/Box'
 import Card from '@/components/ui/Card'
-import Feed from '@/components/ui/posts/Feed'
-import PostListing from '@/components/ui/posts/PostListing'
 import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
 import Link from '@/components/ui/Link'
+import Feed from '@/components/ui/posts/Feed'
+import PostListing from '@/components/ui/posts/PostListing'
 import Tag from '@/components/ui/Tag'
 import Text from '@/components/ui/Text'
 import { useAuthors } from '@/hooks/useAuthor'
 import useTags from '@/hooks/useTags'
-import { useTheme } from '@/hooks/useTheme'
 
 export default function HomePage() {
-	const theme = useTheme()
 	const authors = useAuthors()
 	const tags = useTags()
 
@@ -26,12 +24,11 @@ export default function HomePage() {
 			<Box
 				tag='main'
 				styleSheet={{
-					backgroundColor: theme.colors.neutral.x050,
 					flex: 1,
 					alignItems: 'center',
 					maxWidth: { xs: '100%', sm: '768px', md: '992px', lg: '1280px', xl: '1592px' },
 					width: '100%',
-					margin: '0 auto',
+					marginHorizontal: 'auto',
 				}}
 			>
 				<Box
@@ -65,7 +62,7 @@ export default function HomePage() {
 										<Tag key={tag} tag={tag} />
 									))}
 							</Box>
-							<Link href='/tags'>See all</Link>
+							<Link href='/topics'>See all</Link>
 						</Card>
 					</Aside>
 					<Feed>

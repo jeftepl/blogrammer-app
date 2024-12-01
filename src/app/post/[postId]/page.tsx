@@ -4,13 +4,12 @@ import Aside from '@/components/ui/Aside'
 import AuthorLink from '@/components/ui/AuthorLink'
 import Box from '@/components/ui/Box'
 import Card from '@/components/ui/Card'
-import PostListing from '@/components/ui/posts/PostListing'
 import Header from '@/components/ui/Header'
 import Image from '@/components/ui/Image'
+import PostListing from '@/components/ui/posts/PostListing'
 import Text from '@/components/ui/Text'
 import { useAuthor } from '@/hooks/useAuthor'
 import { usePost } from '@/hooks/usePosts'
-import { useTheme } from '@/hooks/useTheme'
 import { useParams } from 'next/navigation'
 
 export default function PostPage() {
@@ -18,7 +17,6 @@ export default function PostPage() {
 
 	const postId = params.postId
 	const post = usePost(postId)
-	const theme = useTheme()
 	const author = useAuthor(post?.author)
 
 	if (!post) return
@@ -29,12 +27,11 @@ export default function PostPage() {
 			<Box
 				tag='main'
 				styleSheet={{
-					backgroundColor: theme.colors.neutral.x050,
 					flex: 1,
 					alignItems: 'center',
 					maxWidth: { xs: '100%', sm: '768px', md: '992px', lg: '1280px', xl: '1592px' },
 					width: '100%',
-					margin: '0 auto',
+					marginHorizontal: 'auto',
 				}}
 			>
 				<Box
