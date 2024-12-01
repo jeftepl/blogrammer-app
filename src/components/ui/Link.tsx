@@ -18,7 +18,14 @@ type LinkProps = {
 
 const Link = React.forwardRef<HTMLDivElement, LinkProps>(
 	(
-		{ href, children, colorVariant = 'primary', styleSheet, colorVariantEnabled = true }: LinkProps,
+		{
+			href,
+			children,
+			variant,
+			colorVariant = 'primary',
+			styleSheet,
+			colorVariantEnabled = true,
+		}: LinkProps,
 		ref,
 	) => {
 		const theme = useTheme()
@@ -36,6 +43,7 @@ const Link = React.forwardRef<HTMLDivElement, LinkProps>(
 		}
 
 		const linkProps = {
+			variant,
 			tag,
 			ref,
 			href,

@@ -9,6 +9,7 @@ export const typography = {
 			},
 			lineHeight: {
 				xs: '1.5',
+				md: '1.2',
 			},
 			fontSize: {
 				xs: '48px',

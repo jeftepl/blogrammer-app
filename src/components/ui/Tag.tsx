@@ -1,17 +1,19 @@
+import { ThemeTypographyVariants } from '@/types/Theme'
 import { useTheme } from 'styled-components'
 import Link from './Link'
 
 type TagProps = {
 	tag: string
+	variant?: ThemeTypographyVariants
 }
 
-export default function Tag({ tag }: TagProps) {
+export default function Tag({ tag, variant }: TagProps) {
 	const theme = useTheme()
 
 	return (
 		<Link
 			href={`/tags/${tag}`}
-			variant='body4'
+			variant={variant}
 			styleSheet={{
 				borderRadius: '1000px',
 				padding: '6px 8px',
