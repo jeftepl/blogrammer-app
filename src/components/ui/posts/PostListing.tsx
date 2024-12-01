@@ -1,10 +1,15 @@
 import usePosts from '@/hooks/usePosts'
 import Box from '../Box'
-import Text from '../Text'
 import FeedPost from './FeedPost'
+import RecommendedPosts from './RecommendedPosts'
 
-export default function FeedPosts() {
+type PostListingProps = {
+	variant: 'feed' | 'recommended'
+}
+
+export default function PostListing({ variant }: PostListingProps) {
 	const posts = usePosts()
+	const PostComponent = variant === 'feed' ? FeedPost : RecommendedPosts
 
 	return (
 		<Box>
@@ -12,7 +17,7 @@ export default function FeedPosts() {
 				const { id, date, excerpt, tags } = metadata
 
 				return (
-					<FeedPost
+					<PostComponent
 						key={slug}
 						id={id}
 						authorId={author}
