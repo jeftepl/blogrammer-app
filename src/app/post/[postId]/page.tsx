@@ -1,8 +1,10 @@
 'use client'
 
+import Aside from '@/components/ui/Aside'
 import AuthorLink from '@/components/ui/AuthorLink'
 import Box from '@/components/ui/Box'
-import FeedPosts from '@/components/ui/feed/FeedPosts'
+import Card from '@/components/ui/Card'
+import PostListing from '@/components/ui/posts/PostListing'
 import Header from '@/components/ui/Header'
 import Image from '@/components/ui/Image'
 import Text from '@/components/ui/Text'
@@ -32,8 +34,7 @@ export default function PostPage() {
 					alignItems: 'center',
 					maxWidth: { xs: '100%', sm: '768px', md: '992px', lg: '1280px', xl: '1592px' },
 					width: '100%',
-					marginTop: '120px',
-					marginHorizontal: 'auto',
+					margin: '0 auto',
 				}}
 			>
 				<Box
@@ -44,53 +45,46 @@ export default function PostPage() {
 						paddingHorizontal: '20px',
 					}}
 				>
-					<Box styleSheet={{ width: '66%' }}>
-						<Text tag='h1' variant='display1'>
-							{post.title}
-						</Text>
-						<Box
-							styleSheet={{
-								flexDirection: 'row',
-								alignItems: 'center',
-								gap: '10px',
-								marginBottom: '20px',
-							}}
-						>
-							{author && (
-								<AuthorLink
-									author={author}
-									date={new Date(post.metadata.date).toLocaleDateString()}
+					<Box styleSheet={{ width: '71%', marginTop: '110px' }}>
+						<Card>
+							<Text tag='h1' variant='display1'>
+								{post.title}
+							</Text>
+							<Box
+								styleSheet={{
+									flexDirection: 'row',
+									alignItems: 'center',
+									gap: '10px',
+									marginBottom: '20px',
+								}}
+							>
+								{author && (
+									<AuthorLink
+										author={author}
+										date={new Date(post.metadata.date).toLocaleDateString()}
+									/>
+								)}
+							</Box>
+							{post.image && (
+								<Image
+									src={post.image}
+									alt={post.title}
+									styleSheet={{ height: '465px', objectFit: 'cover', borderRadius: '12px' }}
 								/>
 							)}
-						</Box>
-						{post.image && (
-							<Image
-								src={post.image}
-								alt={post.title}
-								styleSheet={{ height: '465px', objectFit: 'cover', borderRadius: '12px' }}
-							/>
-						)}
-						<Box tag='article' styleSheet={{ marginTop: '20px' }}>
-							{post.content}
-						</Box>
+							<Box tag='article' styleSheet={{ marginTop: '20px' }}>
+								{post.content}
+							</Box>
+						</Card>
 					</Box>
-					<Box
-						tag='aside'
-						styleSheet={{
-							width: 'calc(33% - 55px)',
-							gap: '20px',
-							overflowY: 'auto',
-							position: 'sticky',
-							top: 0,
-							height: '100%',
-							paddingLeft: '20px',
-						}}
-					>
-						<Text tag='h2' variant='heading4'>
-							More posts
-						</Text>
-						<FeedPosts />
-					</Box>
+					<Aside>
+						<Card>
+							<Text tag='h2' variant='heading4'>
+								More posts
+							</Text>
+							<PostListing variant='recommended' />
+						</Card>
+					</Aside>
 				</Box>
 			</Box>
 		</>

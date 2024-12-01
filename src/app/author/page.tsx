@@ -2,9 +2,9 @@
 
 import Background from '@/components/ui/Background'
 import Box from '@/components/ui/Box'
-import Feed from '@/components/ui/feed/Feed'
-import FeedHeader from '@/components/ui/feed/FeedHeader'
-import FeedPosts from '@/components/ui/feed/FeedPosts'
+import Feed from '@/components/ui/posts/Feed'
+import FeedHeader from '@/components/ui/posts/FeedHeader'
+import PostListing from '@/components/ui/posts/PostListing'
 import Footer from '@/components/ui/Footer'
 import { useTheme } from '@/hooks/useTheme'
 
@@ -23,7 +23,7 @@ export default function HomePage() {
 			<Background url='https://images.unsplash.com/photo-1518932945647-7a1c969f8be2' />
 			<Feed>
 				<FeedHeader />
-				<FeedPosts />
+				<PostListing variant='feed' />
 			</Feed>
 			<Footer />
 		</Box>

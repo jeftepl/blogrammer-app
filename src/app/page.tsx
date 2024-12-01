@@ -4,8 +4,8 @@ import Aside from '@/components/ui/Aside'
 import AuthorLink from '@/components/ui/AuthorLink'
 import Box from '@/components/ui/Box'
 import Card from '@/components/ui/Card'
-import Feed from '@/components/ui/feed/Feed'
-import FeedPosts from '@/components/ui/feed/FeedPosts'
+import Feed from '@/components/ui/posts/Feed'
+import PostListing from '@/components/ui/posts/PostListing'
 import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
 import Link from '@/components/ui/Link'
@@ -69,7 +69,7 @@ export default function HomePage() {
 						</Card>
 					</Aside>
 					<Feed>
-						<FeedPosts />
+						<PostListing variant='feed' />
 					</Feed>
 					<Aside>
 						<Card>
