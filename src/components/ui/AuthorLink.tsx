@@ -8,13 +8,14 @@ import Box from './Box'
 type AuthorLinkProps = {
 	author: Author
 	date?: string
+	description?: string
 }
 
-export default function AuthorLink({ author, date }: AuthorLinkProps) {
+export default function AuthorLink({ author, date, description }: AuthorLinkProps) {
 	const theme = useTheme()
 
 	const name = author.name.trim().replace(/\s+/g, '-').toLowerCase()
-	const url = `/authors/${name}-${author.id}`
+	const url = `/author/${name}-${author.id}`
 
 	return (
 		<Link
@@ -41,6 +42,11 @@ export default function AuthorLink({ author, date }: AuthorLinkProps) {
 				{date && (
 					<Text tag='span' variant='body3' styleSheet={{ color: theme.colors.neutral.x500 }}>
 						Published on {date}
+					</Text>
+				)}
+				{description && (
+					<Text tag='p' variant='body3' styleSheet={{ color: theme.colors.neutral.x500 }}>
+						{description}
 					</Text>
 				)}
 			</Box>

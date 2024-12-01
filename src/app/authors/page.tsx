@@ -12,9 +12,9 @@ import Text from '@/components/ui/Text'
 import { useAuthors } from '@/hooks/useAuthor'
 import useTags from '@/hooks/useTags'
 
-export default function TopicsPage() {
-	const tags = useTags()
+export default function AuthorsPage() {
 	const authors = useAuthors()
+	const tags = useTags()
 
 	return (
 		<>
@@ -45,8 +45,26 @@ export default function TopicsPage() {
 					>
 						<Card>
 							<Text tag='h2' variant='heading1'>
-								Topics
+								Authors
 							</Text>
+							<Box
+								styleSheet={{
+									flexDirection: 'column',
+									flexWrap: 'wrap',
+									gap: '10px',
+								}}
+							>
+								{authors.map((author) => (
+									<Box key={author.id} styleSheet={{ marginBottom: '10px' }}>
+										<AuthorLink author={author} description={author.description} />
+									</Box>
+								))}
+							</Box>
+						</Card>
+					</Box>
+					<Aside>
+						<Card>
+							<Text variant='heading4'>Topics</Text>
 							<Box
 								styleSheet={{
 									flexDirection: 'row',
@@ -54,19 +72,14 @@ export default function TopicsPage() {
 									gap: '10px',
 								}}
 							>
-								{[...tags].map((tag) => (
-									<Tag key={tag} tag={tag} />
-								))}
+								{[...tags]
+									.sort(() => Math.random() - 0.5)
+									.slice(0, 20)
+									.map((tag) => (
+										<Tag key={tag} tag={tag} />
+									))}
 							</Box>
-						</Card>
-					</Box>
-					<Aside>
-						<Card>
-							<Text variant='heading4'>Authors</Text>
-							{authors.map((author) => (
-								<AuthorLink key={author.id} author={author} />
-							))}
-							<Link href='/authors'>See all</Link>
+							<Link href='/topics'>See all</Link>
 						</Card>
 						<Card>
 							<Footer />
