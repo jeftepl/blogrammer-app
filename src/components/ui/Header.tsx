@@ -1,16 +1,11 @@
-'use client'
-
 import { useTheme } from '@/hooks/useTheme'
 import Box from './Box'
 import Button from './button/Button'
-import ButtonBase from './button/ButtonBase'
-import Link from './Link'
+import Logo from './Logo'
 import SearchField from './SearchField'
-import Text from './Text'
 
 export default function Header() {
 	const theme = useTheme()
-	const size = '36px'
 
 	return (
 		<Box
@@ -39,45 +34,9 @@ export default function Header() {
 					margin: '0 auto',
 				}}
 			>
-				<Link href='/' styleSheet={{ width: '29%' }}>
-					<Text
-						tag='h1'
-						variant='heading3'
-						styleSheet={{
-							flexDirection: 'row',
-							alignItems: 'center',
-							gap: '4px',
-							color: theme.colors.neutral.x000,
-						}}
-					>
-						<ButtonBase
-							styleSheet={{
-								borderRadius: '100%',
-								width: size,
-								height: size,
-								backgroundColor: theme.colors.primary.x500,
-								alignItems: 'center',
-								justifyContent: 'center',
-							}}
-							textVariant='heading2'
-						>
-							<Text
-								tag='span'
-								variant='heading2'
-								styleSheet={{ fontFamily: 'var(--font-orbitron)', marginLeft: '1px' }}
-							>
-								B
-							</Text>
-						</ButtonBase>
-						<Text
-							tag='span'
-							variant='heading4'
-							styleSheet={{ color: theme.colors.neutral.x999, marginTop: '2px' }}
-						>
-							logrammer
-						</Text>
-					</Text>
-				</Link>
+				<Box styleSheet={{ width: '29%' }}>
+					<Logo />
+				</Box>
 				<SearchField name='search' id='search' />
 				<Box
 					styleSheet={{
@@ -90,7 +49,13 @@ export default function Header() {
 					<Button colorVariant='primary' size='xs' textVariant='body3' href='/newsletter'>
 						Newsletter
 					</Button>
-					<Button variant='subtle' colorVariant='neutral' size='xs' textVariant='body3' href='/'>
+					<Button
+						variant='subtle'
+						colorVariant='neutral'
+						size='xs'
+						textVariant='body3'
+						href='/contact'
+					>
 						Contact us
 					</Button>
 				</Box>
