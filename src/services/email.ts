@@ -1,15 +1,18 @@
-export async function sendConfirmationEmail(email: string) {
+type sendEmailProps = {
+	email?: string
+	subject: string
+	message: string
+	isNotification?: boolean
+}
+
+export async function sendEmail({ email, subject, message, isNotification }: sendEmailProps) {
 	try {
 		const response = await fetch('/api/email', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({
-				email,
-				subject: 'Newsletter',
-				message: 'Successfully subscribed to the Newsletter!',
-			}),
+			body: JSON.stringify({ email, subject, message, isNotification }),
 		})
 
 		if (!response.ok) {
@@ -19,6 +22,6 @@ export async function sendConfirmationEmail(email: string) {
 		return response.json()
 	} catch (error) {
 		console.error(error)
-		throw new Error('Failed to send confirmation email')
+		throw new Error('Failed to send email')
 	}
 }

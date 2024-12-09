@@ -7,21 +7,27 @@ type ValidateFunction = (values: FormValues) => FormErrors
 export default function useForm({
 	initialValues,
 	validate,
+	onChange,
 }: {
 	initialValues: FormValues
 	validate: ValidateFunction
+	onChange: () => void
 }) {
 	const [values, setValues] = useState(initialValues)
 	const [errors, setErrors] = useState<FormErrors>({})
 	const [isSubmitting, setIsSubmitting] = useState(false)
 
-	const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-		const { name, value } = event.target
-		setValues((prevValues) => ({
-			...prevValues,
-			[name]: value,
-		}))
-	}, [])
+	const handleChange = useCallback(
+		(event: React.ChangeEvent<HTMLInputElement>) => {
+			const { name, value } = event.target
+			setValues((prevValues) => ({
+				...prevValues,
+				[name]: value,
+			}))
+			onChange()
+		},
+		[onChange],
+	)
 
 	const handleSubmit = useCallback(
 		(onSubmit: () => Promise<void>) => {

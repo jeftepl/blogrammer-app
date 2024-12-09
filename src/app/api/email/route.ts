@@ -5,15 +5,16 @@ type bodyRequest = {
 	email: string
 	subject: string
 	message: string
+	isNotification?: boolean
 }
 
 export async function POST(req: Request) {
 	const body: bodyRequest = await req.json()
-	const { email, subject, message } = body
+	const { email, subject, message, isNotification } = body
 
 	const emailMessage = {
 		from: process.env.EMAIL_ADDRESS,
-		to: email,
+		to: isNotification ? process.env.EMAIL_ADDRESS : email,
 		subject: subject,
 		text: message,
 		html: `<p>${message}</p>`,
@@ -29,7 +30,10 @@ export async function POST(req: Request) {
 
 	try {
 		await transporter.sendMail(emailMessage)
-		return NextResponse.json({ success: `Message delivered to ${email}` }, { status: 200 })
+		return NextResponse.json(
+			{ success: `Message delivered to ${emailMessage.to}` },
+			{ status: 200 },
+		)
 	} catch (error) {
 		return NextResponse.json({ error: `Error sending email: ${error}` }, { status: 500 })
 	}
