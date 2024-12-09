@@ -13,6 +13,7 @@ const orbitron = Orbitron({
 
 const cairo = Cairo({
 	subsets: ['latin'],
+	variable: '--font-cairo',
 })
 
 export async function generateMetadata(): Promise<Metadata> {

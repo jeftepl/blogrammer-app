@@ -8,7 +8,7 @@ import React from 'react'
 
 type Text = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 type Action = 'a' | 'button'
-type Element = 'li' | 'span'
+type Element = 'li' | 'span' | 'label'
 type Tag = Text | Action | Element
 
 type TextProps = {
@@ -17,6 +17,8 @@ type TextProps = {
 	children?: React.ReactNode
 	styleSheet?: StyleSheet
 	href?: string
+	htmlFor?: string
+	disabled?: boolean
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 

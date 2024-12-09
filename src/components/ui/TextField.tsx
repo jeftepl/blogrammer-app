@@ -22,15 +22,17 @@ export default function TextField({ error, ...props }: TextFieldProps) {
 				type='text'
 				{...props}
 				styleSheet={{
+					fontFamily: `var(--font-cairo)`,
 					border: `1px solid ${theme.colors.neutral.x300}`,
 					borderRadius: '4px',
-					padding: '8px',
+					padding: '4px 8px',
 					width: '100%',
+					outline: 'none',
 				}}
 			/>
 			<Text
 				aria-describedby={error ? 'input-error' : undefined}
-				styleSheet={{ color: theme.colors.negative.x600, fontSize: '14px' }}
+				styleSheet={{ color: theme.colors.negative.x600, fontSize: '14px', marginTop: '6px' }}
 			>
 				{error}
 			</Text>

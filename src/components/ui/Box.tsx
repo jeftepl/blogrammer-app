@@ -2,8 +2,9 @@ import BaseComponent from '@/theme/BaseComponent'
 import { StyleSheet } from '@/theme/Stylesheet'
 
 type BoxProps = {
-	tag?: 'header' | 'aside' | 'main' | 'div' | 'article' | 'section' | 'ul' | 'span'
+	tag?: 'header' | 'aside' | 'main' | 'div' | 'article' | 'section' | 'ul' | 'span' | 'form'
 	styleSheet?: StyleSheet
+	onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
 	children?: React.ReactNode
 }
 
