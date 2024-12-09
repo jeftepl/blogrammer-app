@@ -58,6 +58,8 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	border?: ResponsiveProperty<string> | string
 	borderRadius?: ResponsiveProperty<string | number> | string | number
 	opacity?: ResponsiveProperty<number> | number
+	resize?: ResponsiveProperty<string> | string
+	outline?: ResponsiveProperty<string> | string
 
 	// Effects
 	boxShadow?: ResponsiveProperty<string> | string
@@ -67,6 +69,8 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	// Interactive
 	cursor?: ResponsiveProperty<string> | string
 	pointerEvents?: ResponsiveProperty<string> | string
+	scrollbarColor?: ResponsiveProperty<string> | string
+	scrollbarWidth?: ResponsiveProperty<string> | string
 
 	// SVG-specific
 	fill?: ResponsiveProperty<string> | string

@@ -23,6 +23,8 @@ type BasecomponentProps = {
 	children?: React.ReactNode
 	src?: string
 	alt?: string
+	rows?: number
+	maxLength?: number
 }
 
 const BaseComponent = React.forwardRef<HTMLDivElement, BasecomponentProps>(
