@@ -2,7 +2,7 @@ import { useTheme } from '@/hooks/useTheme'
 import { ThemeColorVariant, ThemeTypographyVariants } from '@/types/Theme'
 import ButtonBase, { ButtonBaseProps } from './ButtonBase'
 import { buttonColorVariant, Variant } from './buttonColorVariant'
-import { buttonSize, ButtonSize } from './buttonSize'
+import { buttonRounded, buttonSize, ButtonSize, ButtonRounded } from './buttonSize'
 
 type ButtonProps = ButtonBaseProps & {
 	fullWidth?: boolean
@@ -10,6 +10,7 @@ type ButtonProps = ButtonBaseProps & {
 	variant?: Variant
 	textVariant?: ThemeTypographyVariants
 	size?: ButtonSize
+	rounded?: ButtonRounded
 }
 
 export default function Button({
@@ -21,6 +22,7 @@ export default function Button({
 	size = 'md',
 	type = 'button',
 	textVariant,
+	rounded = 'lg',
 	...props
 }: ButtonProps) {
 	const theme = useTheme()
@@ -32,6 +34,7 @@ export default function Button({
 			styleSheet={{
 				...buttonColorVariant({ theme, colorVariant, variant }),
 				...buttonSize[size],
+				...buttonRounded[rounded],
 				alignSelf: 'flex-start',
 				justifyContent: 'center',
 				alignItems: 'center',
