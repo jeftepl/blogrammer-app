@@ -14,7 +14,9 @@ import Text from '@/components/ui/Text'
 import { useAuthors } from '@/hooks/useAuthor'
 import useTags from '@/hooks/useTags'
 
-export default function HomePage() {
+export default function HomePage({ searchParams }: { searchParams: { tags?: string } }) {
+	const tagsParams = searchParams.tags?.split(',')
+
 	const authors = useAuthors()
 	const tags = useTags()
 
@@ -59,7 +61,7 @@ export default function HomePage() {
 									.sort(() => Math.random() - 0.5)
 									.slice(0, 20)
 									.map((tag) => (
-										<Tag key={tag} tag={tag} />
+										<Tag key={tag} tag={tag} currentTags={tagsParams} />
 									))}
 							</Box>
 							<Link href='/topics'>See all</Link>
