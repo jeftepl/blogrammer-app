@@ -5,10 +5,11 @@ import RecommendedPosts from './RecommendedPosts'
 
 type PostListingProps = {
 	variant: 'feed' | 'recommended'
+	topics?: string[]
 }
 
-export default function PostListing({ variant }: PostListingProps) {
-	const posts = usePosts()
+export default function PostListing({ variant, topics }: PostListingProps) {
+	const posts = usePosts(topics)
 	const PostComponent = variant === 'feed' ? FeedPost : RecommendedPosts
 
 	return (

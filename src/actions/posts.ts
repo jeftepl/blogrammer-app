@@ -5,7 +5,7 @@ import fs from 'fs/promises'
 import matter from 'gray-matter'
 import path from 'path'
 
-export async function getAllPosts(): Promise<Post[]> {
+export async function getPosts(topics?: string[]): Promise<Post[]> {
 	const PATH_POSTS = path.resolve('.', '_data', 'posts')
 	const years = await fs.readdir(PATH_POSTS, { encoding: 'utf-8' })
 
@@ -36,7 +36,14 @@ export async function getAllPosts(): Promise<Post[]> {
 					published: data.published,
 				}
 
-				allPosts.push(post)
+				if (topics && topics.length > 0) {
+					const hasTopics = topics.every((topic) => post.metadata.tags.includes(topic))
+					if (hasTopics) {
+						allPosts.push(post)
+					}
+				} else {
+					allPosts.push(post)
+				}
 			}
 		}
 	}

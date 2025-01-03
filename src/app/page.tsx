@@ -3,6 +3,7 @@
 import Aside from '@/components/ui/Aside'
 import AuthorLink from '@/components/ui/AuthorLink'
 import Box from '@/components/ui/Box'
+import Button from '@/components/ui/button/Button'
 import Card from '@/components/ui/Card'
 import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
@@ -64,11 +65,25 @@ export default function HomePage({ searchParams }: { searchParams: { tags?: stri
 										<Tag key={tag} tag={tag} currentTags={tagsParams} />
 									))}
 							</Box>
-							<Link href='/topics'>See all</Link>
+							<Box
+								styleSheet={{
+									flexDirection: 'row',
+									gap: '10px',
+									justifyContent: 'space-between',
+									alignItems: 'center',
+								}}
+							>
+								<Link href='/topics'>See all</Link>
+								{tagsParams?.length && tagsParams.length > 0 && (
+									<Button variant='ghost' href='/'>
+										Clear All
+									</Button>
+								)}
+							</Box>
 						</Card>
 					</Aside>
 					<Feed>
-						<PostListing variant='feed' />
+						<PostListing variant='feed' topics={tagsParams} />
 					</Feed>
 					<Aside>
 						<Card>

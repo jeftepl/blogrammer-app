@@ -1,21 +1,21 @@
-import { getPost, getAllPosts } from '@/actions/posts'
+import { getPost, getPosts } from '@/actions/posts'
 import { Post } from '@/types/Post'
 import { useEffect, useState } from 'react'
 
-export default function usePosts() {
+export default function usePosts(topics?: string[]) {
 	const [data, setData] = useState<Post[]>([])
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await getAllPosts()
+				const response = await getPosts(topics)
 				setData(response)
 			} catch (err) {
 				console.error(err)
 			}
 		}
 		fetchData()
-	}, [])
+	}, [topics])
 
 	return data
 }
