@@ -1,14 +1,21 @@
+import { StyleSheet } from '@/theme/Stylesheet'
 import Box from './Box'
 
-export default function Background({ url }: { url: string }) {
+interface BackgroundProps {
+	url: string
+	styleSheet?: StyleSheet
+}
+
+export default function Background({ url, styleSheet }: BackgroundProps) {
 	return (
 		<Box
 			styleSheet={{
 				width: '100%',
-				height: '400px',
 				backgroundImage: `url(${url})`,
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
+				backgroundRepeat: 'no-repeat',
+				...styleSheet,
 			}}
 		/>
 	)

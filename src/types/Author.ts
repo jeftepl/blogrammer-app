@@ -1,10 +1,13 @@
 export type Author = {
-	id: number
+	id: string
 	name: string
 	description: string
 	avatar: string
-	github: string
-	youtube: string
-	instagram: string
-	linkedin: string
+	cover?: string
+	socialNetworks: {
+		github: string
+		youtube: string
+		instagram: string
+		linkedin: string
+	}
 }

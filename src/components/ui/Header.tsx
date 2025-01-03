@@ -18,6 +18,7 @@ export default function Header() {
 				right: 0,
 				top: 0,
 				zIndex: 1000,
+				backgroundColor: theme.colors.neutral.x050,
 			}}
 		>
 			<Box
@@ -27,7 +28,6 @@ export default function Header() {
 					paddingTop: '12px',
 					paddingBottom: '53px',
 					paddingHorizontal: '20px',
-					backgroundColor: theme.colors.neutral.x050,
 					color: theme.colors.neutral.x999,
 					maxWidth: { xs: '100%', sm: '768px', md: '992px', lg: '1280px', xl: '1592px' },
 					width: '100%',

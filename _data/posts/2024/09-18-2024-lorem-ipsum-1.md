@@ -2,7 +2,7 @@
 id: 09-18-2024-lorem-ipsum-1
 date: 09-18-2024
 title: Lorem Ipsum
-author: 1
+author: john-doe-1
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 tags: [javascript, typescript, reactjs, nextjs]
 published: true

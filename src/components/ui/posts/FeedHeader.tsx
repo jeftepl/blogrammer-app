@@ -1,106 +1,93 @@
-import { useTemplateConfig } from '@/context/TemplateConfigContext'
+import { useAuthor } from '@/hooks/useAuthor'
 import { useTheme } from '@/hooks/useTheme'
-import { TemplateConfig } from '@/types/Template'
+import { Author } from '@/types/Author'
 import Box from '../Box'
 import Image from '../Image'
 import Link from '../Link'
 import Text from '../Text'
-import Button from '../button/Button'
-import ButtonBase from '../button/ButtonBase'
 import Icon from '../icon/Icon'
+import Background from '../Background'
 
-export default function FeedHeader() {
+export default function FeedHeader({ authorId }: { authorId: string }) {
 	const theme = useTheme()
-	const templateConfig = useTemplateConfig()
+	const author = useAuthor(authorId)
 
-	type SocialNetwork = keyof NonNullable<TemplateConfig['profile']>['socialNetworks']
+	type SocialNetwork = keyof NonNullable<Author['socialNetworks']>
+	const socialNetwork = author?.socialNetworks
 
-	const socialNetwork = templateConfig.profile?.socialNetworks
+	const coverHeight = '150px'
 
 	return (
 		<Box
 			styleSheet={{
-				borderBottom: `1px solid ${theme.colors.neutral.x200}`,
 				paddingBottom: '24px',
 				marginBottom: '24px',
 			}}
 		>
 			<Box
 				styleSheet={{
-					flexDirection: 'row',
-					justifyContent: 'space-between',
 					gap: '16px',
-					marginBottom: '16px',
+					paddingBottom: '24px',
+					borderBottom: `1px solid ${theme.colors.neutral.x200}`,
+					position: 'relative',
 				}}
 			>
+				<Box styleSheet={{ height: coverHeight }}>
+					{author?.cover && (
+						<Box
+							styleSheet={{
+								borderRadius: '16px',
+								overflow: 'hidden',
+								width: '100%',
+							}}
+						>
+							<Background
+								url={author?.cover}
+								styleSheet={{ height: coverHeight, boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,.2)' }}
+							/>
+						</Box>
+					)}
+				</Box>
 				<Image
-					src={templateConfig.profile?.avatar ?? ''}
+					src={author?.avatar ?? ''}
 					alt='Profile image'
 					styleSheet={{
-						width: { xs: '100px', md: '128px' },
-						height: { xs: '100px', md: '128px' },
+						width: '100px',
+						height: '100px',
 						borderRadius: '100%',
+						position: 'absolute',
+						top: 'calc(50% - 100px)',
+						left: '10px',
 					}}
 				/>
-				<Box
-					styleSheet={{
-						justifyContent: 'space-between',
-					}}
-				>
+				<Box styleSheet={{ gap: '8px' }}>
+					<Text tag='h1' variant='heading3'>
+						{author?.name}
+					</Text>
 					<Box
 						styleSheet={{
-							flex: 1,
-							justifyContent: 'space-between',
-							display: { xs: 'none', md: 'flex' },
+							flexDirection: 'row',
+							gap: '4px',
 						}}
 					>
-						<Button fullWidth colorVariant='primary' size='xl' href='/newsletter'>
-							Newsletter
-						</Button>
-						<Button fullWidth colorVariant='neutral' size='xl' href='/'>
-							Buy me a coffee
-						</Button>
-					</Box>
-					<Box
-						styleSheet={{
-							flex: 1,
-							justifyContent: 'space-between',
-							display: { xs: 'flex', md: 'none' },
-						}}
-					>
-						<Button fullWidth colorVariant='primary' size='xs' href='/newsletter'>
-							Newsletter
-						</Button>
-						<Button fullWidth colorVariant='neutral' size='xs' href='/'>
-							Buy me a coffee
-						</Button>
+						{socialNetwork &&
+							(Object.keys(socialNetwork) as SocialNetwork[]).map((key) => {
+								const socialNetworkUrl = socialNetwork[key]
+								if (socialNetworkUrl) {
+									return (
+										<Link key={key} href={socialNetworkUrl}>
+											<Icon name={key} />
+										</Link>
+									)
+								}
+								return null
+							})}
 					</Box>
 				</Box>
 			</Box>
-			<ButtonBase href='https://github.com/jeftepl'>
-				<Text tag='h1' variant='heading4'>
-					{templateConfig.profile?.name}
-				</Text>
-			</ButtonBase>
-			<Box
-				styleSheet={{
-					flexDirection: 'row',
-					gap: '4px',
-				}}
-			>
-				{socialNetwork &&
-					(Object.keys(socialNetwork) as SocialNetwork[]).map((key) => {
-						const socialNetworkUrl = socialNetwork[key]
-						if (socialNetworkUrl) {
-							return (
-								<Link key={key} href={socialNetworkUrl}>
-									<Icon name={key} />
-								</Link>
-							)
-						}
-						return null
-					})}
-			</Box>
+			<Text variant='body2' styleSheet={{ marginTop: '24px' }}>
+				{author?.description}
+			</Text>
 		</Box>
 	)
 }

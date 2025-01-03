@@ -14,8 +14,7 @@ type AuthorLinkProps = {
 export default function AuthorLink({ author, date, description }: AuthorLinkProps) {
 	const theme = useTheme()
 
-	const name = author.name.trim().replace(/\s+/g, '-').toLowerCase()
-	const url = `/author/${name}-${author.id}`
+	const url = `/author/${author.id}`
 
 	return (
 		<Link

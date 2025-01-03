@@ -2,7 +2,7 @@
 id: 06-15-2023-lorem-ipsum-1
 date: 06-15-2023
 title: Sed eget semper sapien
-author: 3
+author: john-connor-3
 excerpt: Phasellus iaculis dui non tortor cursus tempus
 tags: [javascript, typescript, reactjs, nextjs]
 published: true
