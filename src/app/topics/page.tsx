@@ -3,6 +3,7 @@
 import Aside from '@/components/ui/Aside'
 import AuthorLink from '@/components/ui/AuthorLink'
 import Box from '@/components/ui/Box'
+import Button from '@/components/ui/button/Button'
 import Card from '@/components/ui/Card'
 import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
@@ -11,10 +12,27 @@ import Tag from '@/components/ui/Tag'
 import Text from '@/components/ui/Text'
 import { useAuthors } from '@/hooks/useAuthor'
 import useTags from '@/hooks/useTags'
+import { useState } from 'react'
 
 export default function TopicsPage() {
+	const [selectedTags, setSelectedTags] = useState<string[]>([])
+
 	const tags = useTags()
 	const authors = useAuthors()
+
+	const handleFilter = (tag?: string) => {
+		if (!tag) {
+			setSelectedTags([])
+			return
+		}
+
+		if (selectedTags.includes(tag)) {
+			setSelectedTags(selectedTags.filter((t) => t !== tag))
+		} else {
+			setSelectedTags([...selectedTags, tag])
+		}
+	}
+	const link = selectedTags.length > 0 ? `/?tags=${selectedTags.join(',')}` : '/topics'
 
 	return (
 		<>
@@ -55,8 +73,30 @@ export default function TopicsPage() {
 								}}
 							>
 								{[...tags].map((tag) => (
-									<Tag key={tag} tag={tag} />
+									<Tag
+										key={tag}
+										tag={tag}
+										isButton={true}
+										currentTags={selectedTags}
+										onClick={() => handleFilter(tag)}
+									/>
 								))}
+							</Box>
+							<Box styleSheet={{ marginHorizontal: 'auto' }}>
+								<Box
+									styleSheet={{
+										flexDirection: 'row',
+										justifyContent: 'space-between',
+										gap: '10px',
+									}}
+								>
+									<Button href={link}>Filter</Button>
+									{selectedTags.length > 0 && (
+										<Button variant='ghost' onClick={() => handleFilter()}>
+											Clear All
+										</Button>
+									)}
+								</Box>
 							</Box>
 						</Card>
 					</Box>

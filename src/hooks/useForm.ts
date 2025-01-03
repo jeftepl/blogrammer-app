@@ -11,7 +11,7 @@ export default function useForm({
 }: {
 	initialValues: FormValues
 	validate: ValidateFunction
-	onChange: () => void
+	onChange?: () => void
 }) {
 	const [values, setValues] = useState(initialValues)
 	const [errors, setErrors] = useState<FormErrors>({})
@@ -24,7 +24,7 @@ export default function useForm({
 				...prevValues,
 				[name]: value,
 			}))
-			onChange()
+			onChange?.()
 		},
 		[onChange],
 	)

@@ -18,6 +18,7 @@ type FeedPostProps = {
 	date: string
 	tags: string[]
 	image?: string
+	topics?: string[]
 }
 
 export default function FeedPost({
@@ -28,6 +29,7 @@ export default function FeedPost({
 	date,
 	tags,
 	image,
+	topics,
 }: FeedPostProps) {
 	const theme = useTheme()
 	const author = useAuthor(authorId)
@@ -105,7 +107,7 @@ export default function FeedPost({
 			)}
 			<Box styleSheet={{ flexDirection: 'row', flexWrap: 'wrap', gap: '4px' }}>
 				{tags.map((tag) => (
-					<Tag key={tag} tag={tag} />
+					<Tag key={tag} tag={tag} currentTags={topics} />
 				))}
 			</Box>
 			<HorizontalRule />

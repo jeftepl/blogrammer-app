@@ -1,14 +1,23 @@
 import { ThemeTypographyVariants } from '@/types/Theme'
 import { useTheme } from 'styled-components'
 import Link from './Link'
+import ButtonBase from './button/ButtonBase'
 
 type TagProps = {
 	tag: string
 	currentTags?: string[]
 	variant?: ThemeTypographyVariants
+	isButton?: boolean
+	onClick?: () => void
 }
 
-export default function Tag({ tag, variant, currentTags = [] }: TagProps) {
+export default function Tag({
+	tag,
+	variant,
+	currentTags = [],
+	isButton = false,
+	onClick,
+}: TagProps) {
 	const theme = useTheme()
 
 	const getTagUrl = (selectedTag: string, tagList: string[]): string => {
@@ -25,10 +34,13 @@ export default function Tag({ tag, variant, currentTags = [] }: TagProps) {
 	const isSelected = currentTags.includes(tag)
 	const href = getTagUrl(tag, currentTags)
 
+	const TagComponent = isButton ? ButtonBase : Link
+
 	return (
-		<Link
-			href={href}
+		<TagComponent
+			{...(isButton ? { href: '' } : { href })}
 			variant={variant}
+			onClick={onClick}
 			styleSheet={{
 				borderRadius: '1000px',
 				padding: '6px 8px',
@@ -42,6 +54,6 @@ export default function Tag({ tag, variant, currentTags = [] }: TagProps) {
 			colorVariantEnabled={false}
 		>
 			#{tag}
-		</Link>
+		</TagComponent>
 	)
 }

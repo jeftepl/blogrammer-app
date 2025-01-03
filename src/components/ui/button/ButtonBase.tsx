@@ -35,6 +35,7 @@ export default function ButtonBase({
 		onClick,
 		disabled,
 		styleSheet: {
+			fontFamily: 'inherit',
 			overflow: 'hidden',
 			position: 'relative',
 			backgroundColor: 'transparent',

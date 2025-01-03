@@ -27,6 +27,7 @@ export default function PostListing({ variant, topics }: PostListingProps) {
 						date={date}
 						tags={tags}
 						image={image}
+						topics={topics}
 					/>
 				)
 			})}

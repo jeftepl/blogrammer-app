@@ -58,12 +58,9 @@ export default function HomePage({ searchParams }: { searchParams: { tags?: stri
 									gap: '10px',
 								}}
 							>
-								{[...tags]
-									.sort(() => Math.random() - 0.5)
-									.slice(0, 20)
-									.map((tag) => (
-										<Tag key={tag} tag={tag} currentTags={tagsParams} />
-									))}
+								{[...tags].slice(0, 20).map((tag) => (
+									<Tag key={tag} tag={tag} currentTags={tagsParams} />
+								))}
 							</Box>
 							<Box
 								styleSheet={{
