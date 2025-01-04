@@ -5,7 +5,12 @@ import fs from 'fs/promises'
 import matter from 'gray-matter'
 import path from 'path'
 
-export async function getPosts(topics?: string[]): Promise<Post[]> {
+type GetPostsProps = {
+	topics?: string[]
+	authorId?: string
+}
+
+export async function getPosts({ topics, authorId }: GetPostsProps): Promise<Post[]> {
 	const PATH_POSTS = path.resolve('.', '_data', 'posts')
 	const years = await fs.readdir(PATH_POSTS, { encoding: 'utf-8' })
 
@@ -34,6 +39,10 @@ export async function getPosts(topics?: string[]): Promise<Post[]> {
 					content,
 					author: data.author,
 					published: data.published,
+				}
+
+				if (authorId && post.author !== authorId) {
+					continue
 				}
 
 				if (topics && topics.length > 0) {

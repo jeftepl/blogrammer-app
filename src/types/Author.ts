@@ -3,7 +3,6 @@ export type Author = {
 	name: string
 	description: string
 	avatar: string
-	cover?: string
 	socialNetworks: {
 		github: string
 		youtube: string

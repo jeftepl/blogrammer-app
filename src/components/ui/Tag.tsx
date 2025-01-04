@@ -9,6 +9,7 @@ type TagProps = {
 	variant?: ThemeTypographyVariants
 	isButton?: boolean
 	onClick?: () => void
+	params?: string
 }
 
 export default function Tag({
@@ -17,6 +18,7 @@ export default function Tag({
 	currentTags = [],
 	isButton = false,
 	onClick,
+	params,
 }: TagProps) {
 	const theme = useTheme()
 
@@ -25,10 +27,10 @@ export default function Tag({
 
 		if (isSelected) {
 			const filteredTags = tagList.filter((t) => t !== selectedTag)
-			return filteredTags.length ? `/?tags=${filteredTags.join(',')}` : '/'
+			return filteredTags.length ? `?tags=${filteredTags.join(',')}` : (params ?? '/')
 		}
 
-		return `/?tags=${[selectedTag, ...tagList].join(',')}`
+		return `?tags=${[selectedTag, ...tagList].join(',')}`
 	}
 
 	const isSelected = currentTags.includes(tag)

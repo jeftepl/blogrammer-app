@@ -60,7 +60,7 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 								}}
 							>
 								{[...tags].slice(0, 20).map((tag) => (
-									<Tag key={tag} tag={tag} currentTags={tagsParams} />
+									<Tag key={tag} tag={tag} currentTags={tagsParams} params={authorId} />
 								))}
 							</Box>
 							<Box
@@ -81,7 +81,7 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 						</Card>
 					</Aside>
 					<Feed>
-						<PostListing variant='feed' />
+						<PostListing variant='feed' topics={tagsParams} authorId={authorId} />
 					</Feed>
 					<Aside>
 						<Card>

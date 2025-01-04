@@ -1,7 +1,6 @@
 ---
 id: john-doe-1
 avatar: /images/authors/john-doe-1.jpg
-cover: https://picsum.photos/800/400
 socialNetworks:
   github: https://github.com/
   youtube: https://youtube.com/
