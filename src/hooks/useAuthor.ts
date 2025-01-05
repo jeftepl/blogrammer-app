@@ -21,20 +21,20 @@ export function useAuthor(id: string | undefined) {
 	return data
 }
 
-export function useAuthors() {
+export function useAuthors(search?: string) {
 	const [data, setData] = useState<Author[]>([])
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await authors()
+				const response = await authors(search?.toLowerCase())
 				setData(response)
 			} catch (err) {
 				console.error(err)
 			}
 		}
 		fetchData()
-	}, [])
+	}, [search])
 
 	return data
 }

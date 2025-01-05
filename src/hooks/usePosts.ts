@@ -5,22 +5,23 @@ import { useEffect, useState } from 'react'
 type UsePostsProps = {
 	topics?: string[]
 	authorId?: string
+	search?: string
 }
 
-export default function usePosts({ topics, authorId }: UsePostsProps) {
+export default function usePosts({ topics, authorId, search }: UsePostsProps) {
 	const [data, setData] = useState<Post[]>([])
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await getPosts({ topics, authorId })
+				const response = await getPosts({ topics, authorId, search: search?.toLowerCase() })
 				setData(response)
 			} catch (err) {
 				console.error(err)
 			}
 		}
 		fetchData()
-	}, [topics, authorId])
+	}, [topics, authorId, search])
 
 	return data
 }

@@ -5,6 +5,7 @@ type BoxProps = {
 	tag?: 'header' | 'aside' | 'main' | 'div' | 'article' | 'section' | 'ul' | 'span' | 'form'
 	styleSheet?: StyleSheet
 	onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
+	onClick?: () => void
 	children?: React.ReactNode
 }
 

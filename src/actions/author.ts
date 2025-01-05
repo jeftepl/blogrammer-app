@@ -27,7 +27,7 @@ export async function author(id: string): Promise<Author | null> {
 	return null
 }
 
-export async function authors(): Promise<Author[]> {
+export async function authors(search?: string): Promise<Author[]> {
 	const PATH_AUTHORS = path.resolve('.', '_data', 'authors')
 	const authorsFiles = await fs.readdir(PATH_AUTHORS, { encoding: 'utf-8' })
 	const authors = []
@@ -41,6 +41,10 @@ export async function authors(): Promise<Author[]> {
 		const titleMatch = content.match(regex)
 		const name = titleMatch ? titleMatch[1].trim() : ''
 		const description = content.replace(regex, '').trim()
+
+		if (search) {
+			if (!name.toLowerCase().includes(search)) continue
+		}
 
 		authors.push({ ...data, name, description } as Author)
 	}

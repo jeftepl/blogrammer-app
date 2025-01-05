@@ -8,9 +8,10 @@ import path from 'path'
 type GetPostsProps = {
 	topics?: string[]
 	authorId?: string
+	search?: string
 }
 
-export async function getPosts({ topics, authorId }: GetPostsProps): Promise<Post[]> {
+export async function getPosts({ topics, authorId, search }: GetPostsProps): Promise<Post[]> {
 	const PATH_POSTS = path.resolve('.', '_data', 'posts')
 	const years = await fs.readdir(PATH_POSTS, { encoding: 'utf-8' })
 
@@ -42,6 +43,14 @@ export async function getPosts({ topics, authorId }: GetPostsProps): Promise<Pos
 				}
 
 				if (authorId && post.author !== authorId) {
+					continue
+				}
+
+				if (
+					search &&
+					!post.title.toLowerCase().includes(search) &&
+					!post.content.toLowerCase().includes(search)
+				) {
 					continue
 				}
 
