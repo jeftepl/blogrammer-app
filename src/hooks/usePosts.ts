@@ -1,6 +1,9 @@
 import { getPost, getPosts } from '@/actions/posts'
 import { Post } from '@/types/Post'
+import { serialize } from 'next-mdx-remote/serialize'
 import { useEffect, useState } from 'react'
+import rehypeHighlight from 'rehype-highlight'
+import remarkGfm from 'remark-gfm'
 
 type UsePostsProps = {
 	topics?: string[]
@@ -33,7 +36,15 @@ export function usePost(id: string) {
 		const fetchData = async () => {
 			try {
 				const response = await getPost(id)
-				setData(response)
+				if (!response) return null
+
+				const serializedContent = await serialize(response.content, {
+					mdxOptions: {
+						remarkPlugins: [remarkGfm],
+						rehypePlugins: [rehypeHighlight],
+					},
+				})
+				setData({ ...response, content: serializedContent })
 			} catch (err) {
 				console.error(err)
 			}

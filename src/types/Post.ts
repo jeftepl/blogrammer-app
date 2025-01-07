@@ -1,3 +1,5 @@
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+
 export type Post = {
 	metadata: {
 		id: string
@@ -9,6 +11,6 @@ export type Post = {
 	image?: string
 	slug: string
 	title: string
-	content: string
+	content: MDXRemoteSerializeResult
 	published: boolean
 }

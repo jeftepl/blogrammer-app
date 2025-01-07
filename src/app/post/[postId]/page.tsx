@@ -6,6 +6,7 @@ import Box from '@/components/ui/Box'
 import Card from '@/components/ui/Card'
 import Header from '@/components/ui/Header'
 import Image from '@/components/ui/Image'
+import PostContent from '@/components/ui/posts/PostContent'
 import PostListing from '@/components/ui/posts/PostListing'
 import Text from '@/components/ui/Text'
 import { useAuthor } from '@/hooks/useAuthor'
@@ -70,7 +71,7 @@ export default function PostPage() {
 								/>
 							)}
 							<Box tag='article' styleSheet={{ marginTop: '20px' }}>
-								{post.content}
+								<PostContent content={post.content} />
 							</Box>
 						</Card>
 					</Box>
