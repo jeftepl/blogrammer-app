@@ -18,7 +18,7 @@ export default function Tag({
 	currentTags = [],
 	isButton = false,
 	onClick,
-	params,
+	params = '/',
 }: TagProps) {
 	const theme = useTheme()
 
@@ -27,10 +27,10 @@ export default function Tag({
 
 		if (isSelected) {
 			const filteredTags = tagList.filter((t) => t !== selectedTag)
-			return filteredTags.length ? `?tags=${filteredTags.join(',')}` : (params ?? '/')
+			return filteredTags.length ? `${params}?tags=${filteredTags.join(',')}` : (params ?? '/')
 		}
 
-		return `?tags=${[selectedTag, ...tagList].join(',')}`
+		return `${params}?tags=${[selectedTag, ...tagList].join(',')}`
 	}
 
 	const isSelected = currentTags.includes(tag)

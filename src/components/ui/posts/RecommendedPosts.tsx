@@ -122,7 +122,7 @@ export default function RecommendedPosts({
 			</Box>
 			<Box styleSheet={{ flexDirection: 'row', flexWrap: 'wrap', gap: '4px' }}>
 				{tags.map((tag) => (
-					<Tag key={tag} tag={tag} variant='body4' />
+					<Tag key={tag} tag={tag} variant='body4' params={'/'} />
 				))}
 			</Box>
 			<HorizontalRule />

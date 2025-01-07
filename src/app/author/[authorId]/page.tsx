@@ -81,7 +81,7 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 						</Card>
 					</Aside>
 					<Feed>
-						<PostListing variant='feed' topics={tagsParams} authorId={authorId} />
+						<PostListing variant='feed' topics={tagsParams} authorId={authorId} params={authorId} />
 					</Feed>
 					<Aside>
 						<Card>

@@ -7,9 +7,10 @@ type PostListingProps = {
 	variant: 'feed' | 'recommended'
 	topics?: string[]
 	authorId?: string
+	params?: string
 }
 
-export default function PostListing({ variant, topics, authorId }: PostListingProps) {
+export default function PostListing({ variant, topics, authorId, params = '/' }: PostListingProps) {
 	const posts = usePosts({ topics, authorId })
 	const PostComponent = variant === 'feed' ? FeedPost : RecommendedPosts
 
@@ -29,6 +30,7 @@ export default function PostListing({ variant, topics, authorId }: PostListingPr
 						tags={tags}
 						image={image}
 						topics={topics}
+						params={params}
 					/>
 				)
 			})}
