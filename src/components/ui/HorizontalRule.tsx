@@ -11,6 +11,7 @@ export default function HorizontalRule() {
 				height: '1px',
 				backgroundColor: theme.colors.neutral.x200,
 				marginTop: '20px',
+				marginBottom: '20px',
 			}}
 		/>
 	)

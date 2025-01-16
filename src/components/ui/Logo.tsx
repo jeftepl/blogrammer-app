@@ -13,6 +13,7 @@ export default function Logo() {
 				tag='h1'
 				variant='heading3'
 				styleSheet={{
+					display: 'flex',
 					flexDirection: 'row',
 					alignItems: 'center',
 					gap: '4px',

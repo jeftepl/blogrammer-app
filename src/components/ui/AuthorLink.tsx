@@ -20,6 +20,7 @@ export default function AuthorLink({ author, date, description }: AuthorLinkProp
 		<Link
 			href={url}
 			styleSheet={{
+				display: 'flex',
 				flexDirection: 'row',
 				alignItems: 'center',
 				gap: '8px',

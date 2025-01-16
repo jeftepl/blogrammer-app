@@ -43,7 +43,7 @@ export default function PostPage() {
 						paddingHorizontal: '20px',
 					}}
 				>
-					<Box styleSheet={{ width: '71%', marginTop: '110px' }}>
+					<Box styleSheet={{ width: '71%', marginTop: '110px', marginBottom: '32px' }}>
 						<Card>
 							<Text tag='h1' variant='display1'>
 								{post.title}

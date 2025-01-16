@@ -31,6 +31,7 @@ const Text = React.forwardRef<HTMLDivElement, TextProps>(
 			<BaseComponent
 				as={tag}
 				styleSheet={{
+					display: 'inline-block',
 					...textVariant,
 					...styleSheet,
 				}}

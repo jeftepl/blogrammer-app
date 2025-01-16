@@ -30,9 +30,7 @@ export default function Footer() {
 				</Box>
 			</Box>
 			<HorizontalRule />
-			<Text styleSheet={{ marginTop: '16px' }} variant='body3'>
-				Blogrammer 2024. All Rights reserved
-			</Text>
+			<Text variant='body3'>Blogrammer 2024. All Rights reserved</Text>
 		</>
 	)
 }

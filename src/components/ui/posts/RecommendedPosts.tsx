@@ -58,6 +58,7 @@ export default function RecommendedPosts({
 					<Text
 						variant='body4'
 						styleSheet={{
+							display: 'flex',
 							flexDirection: 'row',
 							alignItems: 'center',
 							fontWeight: 'bold',

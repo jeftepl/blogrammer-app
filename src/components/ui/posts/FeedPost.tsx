@@ -46,10 +46,11 @@ export default function FeedPost({
 		.replace(/de /g, '')
 
 	return (
-		<Box styleSheet={{ position: 'relative', paddingBottom: '35px' }}>
+		<Box styleSheet={{ position: 'relative', paddingBottom: '15px' }}>
 			<Text
 				variant='body4'
 				styleSheet={{
+					display: 'flex',
 					flexDirection: 'row',
 					alignItems: 'center',
 					fontWeight: 'bold',
