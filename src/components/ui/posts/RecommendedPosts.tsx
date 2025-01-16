@@ -43,7 +43,7 @@ export default function RecommendedPosts({
 	return (
 		<Box
 			styleSheet={{
-				paddingBottom: '35px',
+				paddingBottom: '15px',
 			}}
 		>
 			<Box

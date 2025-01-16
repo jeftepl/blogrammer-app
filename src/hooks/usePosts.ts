@@ -1,5 +1,5 @@
 import { getPost, getPosts } from '@/actions/posts'
-import { Post } from '@/types/Post'
+import { RawPost, SerializedPost } from '@/types/Post'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useEffect, useState } from 'react'
 import rehypeHighlight from 'rehype-highlight'
@@ -12,7 +12,7 @@ type UsePostsProps = {
 }
 
 export default function usePosts({ topics, authorId, search }: UsePostsProps) {
-	const [data, setData] = useState<Post[]>([])
+	const [data, setData] = useState<RawPost[]>([])
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -30,7 +30,7 @@ export default function usePosts({ topics, authorId, search }: UsePostsProps) {
 }
 
 export function usePost(id: string) {
-	const [data, setData] = useState<Post | null>(null)
+	const [data, setData] = useState<SerializedPost | null>(null)
 
 	useEffect(() => {
 		const fetchData = async () => {
