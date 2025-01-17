@@ -7,10 +7,10 @@ import Card from '@/components/ui/Card'
 import Header from '@/components/ui/Header'
 import Image from '@/components/ui/Image'
 import PostContent from '@/components/ui/posts/PostContent'
-import PostListing from '@/components/ui/posts/PostListing'
+import RecommendedPosts from '@/components/ui/posts/RecommendedPosts'
 import Text from '@/components/ui/Text'
 import { useAuthor } from '@/hooks/useAuthor'
-import { usePost } from '@/hooks/usePosts'
+import { usePost, useRecommendedPosts } from '@/hooks/usePosts'
 import { useParams } from 'next/navigation'
 
 export default function PostPage() {
@@ -19,6 +19,10 @@ export default function PostPage() {
 	const postId = params.postId
 	const post = usePost(postId)
 	const author = useAuthor(post?.author)
+	const recommendedPosts = useRecommendedPosts({
+		topics: post?.metadata.tags,
+		authorId: post?.author,
+	})
 
 	if (!post) return
 
@@ -80,7 +84,22 @@ export default function PostPage() {
 							<Text tag='h2' variant='heading4'>
 								More posts
 							</Text>
-							<PostListing variant='recommended' />
+							{recommendedPosts.map(({ metadata, slug, author, title, image }) => {
+								const { id, date, excerpt, tags } = metadata
+
+								return (
+									<RecommendedPosts
+										key={slug}
+										id={id}
+										authorId={author}
+										title={title}
+										excerpt={excerpt}
+										date={date}
+										tags={tags}
+										image={image}
+									/>
+								)
+							})}
 						</Card>
 					</Aside>
 				</Box>

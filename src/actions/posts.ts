@@ -128,6 +128,7 @@ export async function getRecommendedPosts({
 			score += matchPercentage * 50
 		}
 
+		// TODO: Review days since published score
 		const postDate = new Date(post.metadata.date).getTime()
 		const now = Date.now()
 		const daysSincePublished = (now - postDate) / (1000 * 60 * 60 * 24)

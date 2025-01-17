@@ -1,4 +1,4 @@
-import { getPost, getPosts } from '@/actions/posts'
+import { getPost, getPosts, getRecommendedPosts } from '@/actions/posts'
 import { RawPost, SerializedPost } from '@/types/Post'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useEffect, useState } from 'react'
@@ -25,6 +25,24 @@ export default function usePosts({ topics, authorId, search }: UsePostsProps) {
 		}
 		fetchData()
 	}, [topics, authorId, search])
+
+	return data
+}
+
+export function useRecommendedPosts({ topics, authorId }: UsePostsProps) {
+	const [data, setData] = useState<RawPost[]>([])
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await getRecommendedPosts({ topics, authorId })
+				setData(response)
+			} catch (err) {
+				console.error(err)
+			}
+		}
+		fetchData()
+	}, [topics, authorId])
 
 	return data
 }
