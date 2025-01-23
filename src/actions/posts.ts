@@ -124,11 +124,9 @@ export async function getRecommendedPosts({
 
 		if (topics && topics.length > 0) {
 			const matchingTopics = topics.filter((topic) => post.metadata.tags.includes(topic))
-			const matchPercentage = matchingTopics.length / topics.length
-			score += matchPercentage * 50
+			score += matchingTopics.length * 50
 		}
 
-		// TODO: Review days since published score
 		const postDate = new Date(post.metadata.date).getTime()
 		const now = Date.now()
 		const daysSincePublished = (now - postDate) / (1000 * 60 * 60 * 24)

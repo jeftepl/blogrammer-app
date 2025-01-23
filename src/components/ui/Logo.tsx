@@ -22,12 +22,13 @@ export default function Logo() {
 			>
 				<ButtonBase
 					styleSheet={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
 						borderRadius: '100%',
 						width: size,
 						height: size,
 						backgroundColor: theme.colors.primary.x500,
-						alignItems: 'center',
-						justifyContent: 'center',
 					}}
 					textVariant='heading2'
 				>

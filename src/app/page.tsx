@@ -42,7 +42,7 @@ export default function HomePage({ searchParams }: { searchParams: { tags?: stri
 						paddingHorizontal: '20px',
 					}}
 				>
-					<Aside>
+					<Aside styleSheet={{ display: { xl: 'block', xs: 'none' } }}>
 						<Box styleSheet={{ marginBottom: 50 }}>
 							<Text variant='heading1' styleSheet={{ lineHeight: 1 }}>
 								Last Updates
@@ -82,7 +82,7 @@ export default function HomePage({ searchParams }: { searchParams: { tags?: stri
 					<Feed>
 						<PostListing variant='feed' topics={tagsParams} />
 					</Feed>
-					<Aside>
+					<Aside styleSheet={{ display: { xl: 'block', xs: 'none' } }}>
 						<Card>
 							<Text variant='heading4'>Authors</Text>
 							{authors.map((author) => (

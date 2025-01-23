@@ -3,9 +3,15 @@ import Box from './Box'
 import Button from './button/Button'
 import Logo from './Logo'
 import SearchField from './SearchField'
+import Icon from './icon/Icon'
+import { useState } from 'react'
+import ButtonBase from './button/ButtonBase'
+import Menu from './Menu'
 
 export default function Header() {
 	const theme = useTheme()
+
+	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
 	return (
 		<Box
@@ -25,6 +31,7 @@ export default function Header() {
 				styleSheet={{
 					flexDirection: 'row',
 					justifyContent: 'space-between',
+					alignItems: 'center',
 					paddingTop: '12px',
 					paddingBottom: '53px',
 					paddingHorizontal: '20px',
@@ -34,7 +41,22 @@ export default function Header() {
 					margin: '0 auto',
 				}}
 			>
-				<Box styleSheet={{ width: '29%' }}>
+				<Box styleSheet={{ width: '29%', flexDirection: 'row', alignItems: 'center' }}>
+					<ButtonBase
+						onClick={() => setIsMenuOpen(!isMenuOpen)}
+						styleSheet={{
+							display: { xl: 'none', xs: 'block' },
+							zIndex: 1000,
+							marginRight: '20px',
+							padding: '10px',
+							hover: {
+								backgroundColor: theme.colors.neutral.x200,
+								borderRadius: '100%',
+							},
+						}}
+					>
+						<Icon name='menu' />
+					</ButtonBase>
 					<Logo />
 				</Box>
 				<SearchField name='search' id='search' />
@@ -60,6 +82,7 @@ export default function Header() {
 					</Button>
 				</Box>
 			</Box>
+			{isMenuOpen && <Menu />}
 		</Box>
 	)
 }

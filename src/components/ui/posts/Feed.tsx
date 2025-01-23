@@ -13,7 +13,7 @@ export default function Feed({ children }: FeedProps) {
 				backgroundColor: theme.colors.neutral.x000,
 				marginTop: '110px',
 				marginBottom: '40px',
-				width: '42%',
+				width: { xl: '42%', xs: '100%' },
 				borderRadius: '8px',
 				paddingVertical: '40px',
 				paddingHorizontal: '32px',

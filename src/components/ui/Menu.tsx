@@ -1,12 +1,8 @@
 import { useTheme } from '@/hooks/useTheme'
 import Box from './Box'
-import Text from './Text'
-import ButtonBase from './button/ButtonBase'
-import Icon from './icon/Icon'
 
 export default function Menu() {
 	const theme = useTheme()
-	const size = '40px'
 
 	return (
 		<Box
@@ -16,49 +12,16 @@ export default function Menu() {
 				left: 0,
 				right: 0,
 				top: 0,
+				bottom: 0,
+				zIndex: 999,
 				flexDirection: 'row',
 				justifyContent: 'space-between',
 				paddingVertical: '16px',
 				paddingHorizontal: '20px',
-				color: theme.colors.neutral.x000,
+				backgroundColor: theme.colors.neutral.x999,
 			}}
 		>
-			<ButtonBase
-				styleSheet={{
-					borderRadius: '100%',
-					width: size,
-					height: size,
-					backgroundColor: theme.colors.primary.x500,
-					alignItems: 'center',
-					justifyContent: 'center',
-					hover: {
-						backgroundColor: theme.colors.primary.x400,
-					},
-					focus: {
-						backgroundColor: theme.colors.primary.x600,
-					},
-				}}
-			>
-				<Text>HW</Text>
-			</ButtonBase>
-			<ButtonBase
-				styleSheet={{
-					borderRadius: '100%',
-					width: size,
-					height: size,
-					backgroundColor: theme.colors.neutral.x500,
-					alignItems: 'center',
-					justifyContent: 'center',
-					hover: {
-						backgroundColor: theme.colors.neutral.x400,
-					},
-					focus: {
-						backgroundColor: theme.colors.neutral.x600,
-					},
-				}}
-			>
-				<Icon name='menu' />
-			</ButtonBase>
+			teste
 		</Box>
 	)
 }
