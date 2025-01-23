@@ -14,9 +14,10 @@ type IconProps = {
 	name: keyof typeof icons
 	styleSheet?: StyleSheet
 	size?: keyof typeof iconSizes
+	onClick?: () => void
 }
 
-export default function Icon({ name, styleSheet, size = 'md' }: IconProps) {
+export default function Icon({ name, styleSheet, size = 'md', onClick }: IconProps) {
 	const CurrentIcon = icons[name]
 
 	return (
@@ -29,6 +30,7 @@ export default function Icon({ name, styleSheet, size = 'md' }: IconProps) {
 				fill: 'currentColor',
 				...styleSheet,
 			}}
+			onClick={onClick}
 		>
 			<CurrentIcon />
 		</BaseComponent>

@@ -19,6 +19,7 @@ type SearchFieldProps = {
 
 export default function SearchField({ ...props }: SearchFieldProps) {
 	const [search, setSearch] = useState('')
+	const [isExpanded, setIsExpanded] = useState(false)
 
 	const theme = useTheme()
 	const posts = usePosts({ search })
@@ -31,10 +32,29 @@ export default function SearchField({ ...props }: SearchFieldProps) {
 
 	const handleLinkClick = () => {
 		setSearch('')
+		setIsExpanded(false)
+	}
+
+	const handleFocus = () => {
+		setIsExpanded(true)
 	}
 
 	return (
-		<Box styleSheet={{ position: 'relative', width: '42%' }}>
+		<Box
+			styleSheet={{
+				position: 'absolute',
+				top: '14px',
+				right: '20px',
+				marginLeft: '20px',
+				zIndex: 1001,
+				width: {
+					xl: '42%',
+					md: '71%',
+					xs: isExpanded ? 'calc(100% - 40px)' : '44px',
+				},
+				transition: 'all 0.3s ease-in-out',
+			}}
+		>
 			<Box
 				styleSheet={{
 					position: 'relative',
@@ -46,9 +66,10 @@ export default function SearchField({ ...props }: SearchFieldProps) {
 				<BaseComponent
 					as='input'
 					type='search'
-					placeholder='Search...'
+					placeholder={isExpanded ? 'Search...' : ''}
 					value={search}
 					onChange={handleSearch}
+					onFocus={handleFocus}
 					{...props}
 					styleSheet={{
 						backgroundColor: theme.colors.neutral.x100,
@@ -56,6 +77,8 @@ export default function SearchField({ ...props }: SearchFieldProps) {
 						borderRadius: '8px',
 						padding: '12px',
 						outline: 'none',
+						width: '100%',
+						transition: 'all 0.3s ease-in-out',
 					}}
 				/>
 				<Icon
@@ -69,7 +92,9 @@ export default function SearchField({ ...props }: SearchFieldProps) {
 						strokeWidth: 2,
 						strokeLinecap: 'round',
 						strokeLinejoin: 'round',
+						cursor: 'pointer',
 					}}
+					onClick={() => setIsExpanded(!isExpanded)}
 				/>
 			</Box>
 			{search && (

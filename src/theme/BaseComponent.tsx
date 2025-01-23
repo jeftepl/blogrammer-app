@@ -25,6 +25,8 @@ type BasecomponentProps = {
 	alt?: string
 	rows?: number
 	maxLength?: number
+	onFocus?: VoidFunction
+	onClick?: VoidFunction
 }
 
 const BaseComponent = React.forwardRef<HTMLDivElement, BasecomponentProps>(
