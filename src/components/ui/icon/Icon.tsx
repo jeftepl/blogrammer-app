@@ -1,5 +1,6 @@
 import BaseComponent from '@/theme/BaseComponent'
 import { StyleSheet } from '@/theme/Stylesheet'
+import { ComponentProps } from 'react'
 import * as icons from './svgs'
 
 const iconSizes = {
@@ -15,7 +16,7 @@ type IconProps = {
 	styleSheet?: StyleSheet
 	size?: keyof typeof iconSizes
 	onClick?: () => void
-}
+} & ComponentProps<'svg'>
 
 export default function Icon({ name, styleSheet, size = 'md', onClick }: IconProps) {
 	const CurrentIcon = icons[name]

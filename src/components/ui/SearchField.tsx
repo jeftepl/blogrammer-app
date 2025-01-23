@@ -3,7 +3,7 @@ import usePosts from '@/hooks/usePosts'
 import useTags from '@/hooks/useTags'
 import { useTheme } from '@/hooks/useTheme'
 import BaseComponent from '@/theme/BaseComponent'
-import { useState } from 'react'
+import { ComponentProps, useState } from 'react'
 import Box from './Box'
 import Icon from './icon/Icon'
 import Link from './Link'
@@ -15,7 +15,7 @@ type SearchFieldProps = {
 	placeholder?: string
 	value?: string
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-}
+} & ComponentProps<'input'>
 
 export default function SearchField({ ...props }: SearchFieldProps) {
 	const [search, setSearch] = useState('')
@@ -42,10 +42,10 @@ export default function SearchField({ ...props }: SearchFieldProps) {
 	return (
 		<Box
 			styleSheet={{
-				position: 'absolute',
-				top: '14px',
-				right: '20px',
-				marginLeft: '20px',
+				position: { lg: 'relative', xs: 'absolute' },
+				top: { xs: '14px', lg: '0' },
+				right: { xs: '20px', lg: '0' },
+				marginLeft: { xs: '20px', lg: '0' },
 				zIndex: 1001,
 				width: {
 					xl: '42%',

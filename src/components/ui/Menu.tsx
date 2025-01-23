@@ -57,7 +57,6 @@ export default function Menu() {
 							flexDirection: 'row',
 							flexWrap: 'wrap',
 							gap: '10px',
-							//width: 'min-content',
 							marginVertical: 10,
 						}}
 					>

@@ -3,36 +3,25 @@ import React from 'react'
 import styled from 'styled-components'
 import { StyleSheet } from './Stylesheet'
 
-type StyledBaseComponent = {
-	styleSheet?: StyleSheet
-}
-
 const StyledBaseComponent = styled.div.withConfig({
 	shouldForwardProp: (prop) => prop !== 'styleSheet',
-})<StyledBaseComponent>`
+})<StyleSheet>`
 	display: flex;
 	flex-direction: column;
 	flex-shrink: 0;
 	${({ styleSheet }) => parseStyleSheet(styleSheet)}
 `
 
-type BasecomponentProps = {
-	as?: string
-	type?: string
+type BasecomponentProps<T extends keyof JSX.IntrinsicElements = 'div'> = {
+	as?: T
 	styleSheet?: StyleSheet
-	children?: React.ReactNode
-	src?: string
-	alt?: string
-	rows?: number
-	maxLength?: number
-	onFocus?: VoidFunction
-	onClick?: VoidFunction
-}
+} & React.ComponentPropsWithoutRef<T>
 
-const BaseComponent = React.forwardRef<HTMLDivElement, BasecomponentProps>(
-	({ styleSheet = {}, ...props }, ref) => (
-		<StyledBaseComponent styleSheet={styleSheet} {...props} ref={ref} />
-	),
+const BaseComponent = React.forwardRef(
+	<T extends keyof JSX.IntrinsicElements = 'div'>(
+		{ styleSheet = {}, ...props }: BasecomponentProps<T>,
+		ref: React.LegacyRef<React.ElementRef<T>>,
+	) => <StyledBaseComponent styleSheet={styleSheet} {...props} ref={ref} />,
 )
 
 BaseComponent.displayName = 'BaseComponent'

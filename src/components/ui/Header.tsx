@@ -36,10 +36,16 @@ export default function Header() {
 					paddingBottom: { xs: '12px', xl: '53px' },
 					paddingHorizontal: '20px',
 					color: theme.colors.neutral.x999,
-					maxWidth: { xs: '100%', sm: '768px', md: '992px', lg: '1280px', xl: '1592px' },
 					width: '100%',
 					margin: '0 auto',
 					position: 'relative',
+					maxWidth: {
+						xl: '1592px',
+						lg: '1280px',
+						md: '992px',
+						sm: '768px',
+						xs: '100%',
+					},
 				}}
 			>
 				<Box styleSheet={{ width: '29%', flexDirection: 'row', alignItems: 'center' }}>

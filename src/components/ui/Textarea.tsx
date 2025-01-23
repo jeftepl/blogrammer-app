@@ -8,7 +8,7 @@ type TextareaProps = {
 	id: string
 	placeholder?: string
 	value?: string
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+	onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
 	error?: string
 }
 

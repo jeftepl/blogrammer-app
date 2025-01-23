@@ -1,8 +1,9 @@
-import { useState, useCallback } from 'react'
+import { useCallback, useState } from 'react'
 
 type FormValues = Record<string, string>
 type FormErrors = Record<string, string>
 type ValidateFunction = (values: FormValues) => FormErrors
+type FormEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 
 export default function useForm({
 	initialValues,
@@ -18,8 +19,8 @@ export default function useForm({
 	const [isSubmitting, setIsSubmitting] = useState(false)
 
 	const handleChange = useCallback(
-		(event: React.ChangeEvent<HTMLInputElement>) => {
-			const { name, value } = event.target
+		(e: FormEvent) => {
+			const { name, value } = e.target
 			setValues((prevValues) => ({
 				...prevValues,
 				[name]: value,
