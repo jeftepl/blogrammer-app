@@ -29,7 +29,7 @@ export default function HomePage({ searchParams }: { searchParams: { tags?: stri
 				styleSheet={{
 					flex: 1,
 					alignItems: 'center',
-					maxWidth: { xs: '100%', sm: '768px', md: '992px', lg: '1280px', xl: '1592px' },
+					maxWidth: '1592px',
 					width: '100%',
 					marginHorizontal: 'auto',
 				}}

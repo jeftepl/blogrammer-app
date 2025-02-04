@@ -45,7 +45,11 @@ export default function AuthorLink({ author, date, description }: AuthorLinkProp
 					</Text>
 				)}
 				{description && (
-					<Text tag='p' variant='body3' styleSheet={{ color: theme.colors.neutral.x500 }}>
+					<Text
+						tag='p'
+						variant='body3'
+						styleSheet={{ width: 'calc(100vw - 140px)', color: theme.colors.neutral.x500 }}
+					>
 						{description}
 					</Text>
 				)}

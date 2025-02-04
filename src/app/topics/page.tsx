@@ -53,12 +53,13 @@ export default function TopicsPage() {
 						gap: '55px',
 						width: '100%',
 						paddingHorizontal: '20px',
+						paddingBottom: '40px',
 					}}
 				>
 					<Box
 						styleSheet={{
 							marginTop: '110px',
-							width: '71%',
+							width: { xl: '71%', xs: '100%' },
 						}}
 					>
 						<Card>
@@ -100,7 +101,7 @@ export default function TopicsPage() {
 							</Box>
 						</Card>
 					</Box>
-					<Aside>
+					<Aside styleSheet={{ display: { xl: 'block', xs: 'none' } }}>
 						<Card>
 							<Text variant='heading4'>Authors</Text>
 							{authors.map((author) => (

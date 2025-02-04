@@ -77,57 +77,69 @@ export default function NewsletterPage() {
 				width: '100%',
 			}}
 		>
-			<Card>
-				<Box tag='form' styleSheet={{ width: '400px' }} onSubmit={form.handleSubmit(handleSubmit)}>
+			<Box
+				styleSheet={{
+					paddingHorizontal: '20px',
+					paddingBottom: '40px',
+					width: { xs: '100%', md: 'auto' },
+				}}
+			>
+				<Card>
 					<Box
-						styleSheet={{
-							alignItems: 'center',
-							justifyContent: 'center',
-							gap: '24px',
-							width: '100%',
-							padding: '16px',
-							textAlign: 'center',
-						}}
+						tag='form'
+						styleSheet={{ width: { xs: '100%', md: '400px' } }}
+						onSubmit={form.handleSubmit(handleSubmit)}
 					>
-						<Text variant='heading1'>Newsletter</Text>
-						<Text variant='body2' styleSheet={{ flexDirection: 'row' }}>
-							Join our group of&nbsp;
-							<Text tag='span' variant='heading5'>
-								{count} active readers
+						<Box
+							styleSheet={{
+								alignItems: 'center',
+								justifyContent: 'center',
+								gap: '24px',
+								width: '100%',
+								padding: '16px',
+								textAlign: 'center',
+							}}
+						>
+							<Text variant='heading1'>Newsletter</Text>
+							<Text variant='body2' styleSheet={{ flexDirection: 'row' }}>
+								Join our group of&nbsp;
+								<Text tag='span' variant='heading5'>
+									{count} active readers
+								</Text>
 							</Text>
+							<TextField
+								id='email'
+								name='email'
+								placeholder='Type your e-mail here'
+								value={form.values.email}
+								onChange={form.handleChange}
+								error={form.errors?.email}
+							/>
+							<Button type='submit' disabled={form.isSubmitting} fullWidth rounded='sm'>
+								{form.isSubmitting ? 'Sending...' : 'Sign up'}
+							</Button>
+						</Box>
+					</Box>
+					<Box styleSheet={{ alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+						<Text
+							variant='body3'
+							styleSheet={{
+								color: isError ? theme.colors.negative.x500 : theme.colors.positive.x500,
+							}}
+							aria-live='polite'
+						>
+							{message}
 						</Text>
-						<TextField
-							id='email'
-							name='email'
-							placeholder='Type your e-mail here'
-							value={form.values.email}
-							onChange={form.handleChange}
-							error={form.errors?.email}
-						/>
-						<Button type='submit' disabled={form.isSubmitting} fullWidth rounded='sm'>
-							{form.isSubmitting ? 'Sending...' : 'Sign up'}
+						<Button
+							variant='ghost'
+							styleSheet={{ marginHorizontal: 'auto' }}
+							onClick={() => router.back()}
+						>
+							Back
 						</Button>
 					</Box>
-				</Box>
-				<Box styleSheet={{ alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-					<Text
-						variant='body3'
-						styleSheet={{
-							color: isError ? theme.colors.negative.x500 : theme.colors.positive.x500,
-						}}
-						aria-live='polite'
-					>
-						{message}
-					</Text>
-					<Button
-						variant='ghost'
-						styleSheet={{ marginHorizontal: 'auto' }}
-						onClick={() => router.back()}
-					>
-						Back
-					</Button>
-				</Box>
-			</Card>
+				</Card>
+			</Box>
 		</Box>
 	)
 }

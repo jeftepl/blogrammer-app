@@ -49,7 +49,7 @@ export default function SearchField({ ...props }: SearchFieldProps) {
 				zIndex: 1001,
 				width: {
 					xl: '42%',
-					md: '71%',
+					md: '65%',
 					xs: isExpanded ? 'calc(100% - 40px)' : '44px',
 				},
 				transition: 'all 0.3s ease-in-out',
@@ -92,7 +92,7 @@ export default function SearchField({ ...props }: SearchFieldProps) {
 						strokeWidth: 2,
 						strokeLinecap: 'round',
 						strokeLinejoin: 'round',
-						cursor: 'pointer',
+						cursor: { xs: 'pointer', md: 'default' },
 					}}
 					onClick={() => setIsExpanded(!isExpanded)}
 				/>

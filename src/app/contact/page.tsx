@@ -69,143 +69,155 @@ export default function ContactPage() {
 				width: '100%',
 			}}
 		>
-			<Card>
-				<Box tag='form' styleSheet={{ width: '400px' }} onSubmit={form.handleSubmit(handleSubmit)}>
+			<Box
+				styleSheet={{
+					paddingHorizontal: '20px',
+					paddingBottom: '40px',
+					width: { xs: '100%', md: 'auto' },
+				}}
+			>
+				<Card>
+					<Box
+						tag='form'
+						styleSheet={{ width: { xs: '100%', md: '400px' } }}
+						onSubmit={form.handleSubmit(handleSubmit)}
+					>
+						<Box
+							styleSheet={{
+								alignItems: 'center',
+								justifyContent: 'center',
+								gap: '16px',
+								width: '100%',
+							}}
+						>
+							<Box styleSheet={{ alignItems: 'center', width: '100%' }}>
+								<Text variant='heading1' styleSheet={{ marginTop: '0px' }}>
+									Contact us
+								</Text>
+								<Text variant='body3'>How can we help you today?</Text>
+							</Box>
+							<Box styleSheet={{ width: '100%', gap: '8px' }}>
+								<Box>
+									<Text
+										variant='body3'
+										tag='label'
+										htmlFor='name'
+										styleSheet={{
+											color: theme.colors.primary.x500,
+											marginBottom: '4px',
+											fontWeight: 'bold',
+										}}
+									>
+										Name
+									</Text>
+									<TextField
+										id='name'
+										name='name'
+										placeholder='Enter your name'
+										value={form.values.name}
+										onChange={form.handleChange}
+										error={form.errors?.name}
+									/>
+								</Box>
+								<Box>
+									<Text
+										variant='body3'
+										tag='label'
+										htmlFor='email'
+										styleSheet={{
+											color: theme.colors.primary.x500,
+											marginBottom: '4px',
+											fontWeight: 'bold',
+										}}
+									>
+										Email
+									</Text>
+									<TextField
+										id='email'
+										name='email'
+										placeholder='you@example.com'
+										value={form.values.email}
+										onChange={form.handleChange}
+										error={form.errors?.email}
+									/>
+								</Box>
+								<Box>
+									<Text
+										variant='body3'
+										tag='label'
+										htmlFor='subject'
+										styleSheet={{
+											color: theme.colors.primary.x500,
+											marginBottom: '4px',
+											fontWeight: 'bold',
+										}}
+									>
+										Subject
+									</Text>
+									<TextField
+										id='subject'
+										name='subject'
+										placeholder="What's on your mind"
+										value={form.values.subject}
+										onChange={form.handleChange}
+										error={form.errors?.subject}
+									/>
+								</Box>
+								<Box>
+									<Text
+										variant='body3'
+										tag='label'
+										htmlFor='message'
+										styleSheet={{
+											color: theme.colors.primary.x500,
+											marginBottom: '4px',
+											fontWeight: 'bold',
+										}}
+									>
+										Message
+									</Text>
+									<Textarea
+										id='message'
+										name='message'
+										placeholder='Tell us how we can help you...'
+										value={form.values.message}
+										onChange={form.handleChange}
+										error={form.errors?.message}
+									/>
+								</Box>
+							</Box>
+							<Button type='submit' disabled={form.isSubmitting} fullWidth rounded='sm'>
+								{form.isSubmitting ? 'Sending...' : 'Send'}
+							</Button>
+						</Box>
+					</Box>
 					<Box
 						styleSheet={{
 							alignItems: 'center',
 							justifyContent: 'center',
 							gap: '16px',
-							width: '100%',
+							marginHorizontal: 'auto',
 						}}
 					>
-						<Box styleSheet={{ alignItems: 'center', width: '100%' }}>
-							<Text variant='heading1' styleSheet={{ marginTop: '0px' }}>
-								Contact us
-							</Text>
-							<Text variant='body3'>How can we help you today?</Text>
-						</Box>
-						<Box styleSheet={{ width: '100%', gap: '8px' }}>
-							<Box>
-								<Text
-									variant='body3'
-									tag='label'
-									htmlFor='name'
-									styleSheet={{
-										color: theme.colors.primary.x500,
-										marginBottom: '4px',
-										fontWeight: 'bold',
-									}}
-								>
-									Name
-								</Text>
-								<TextField
-									id='name'
-									name='name'
-									placeholder='Enter your name'
-									value={form.values.name}
-									onChange={form.handleChange}
-									error={form.errors?.name}
-								/>
-							</Box>
-							<Box>
-								<Text
-									variant='body3'
-									tag='label'
-									htmlFor='email'
-									styleSheet={{
-										color: theme.colors.primary.x500,
-										marginBottom: '4px',
-										fontWeight: 'bold',
-									}}
-								>
-									Email
-								</Text>
-								<TextField
-									id='email'
-									name='email'
-									placeholder='you@example.com'
-									value={form.values.email}
-									onChange={form.handleChange}
-									error={form.errors?.email}
-								/>
-							</Box>
-							<Box>
-								<Text
-									variant='body3'
-									tag='label'
-									htmlFor='subject'
-									styleSheet={{
-										color: theme.colors.primary.x500,
-										marginBottom: '4px',
-										fontWeight: 'bold',
-									}}
-								>
-									Subject
-								</Text>
-								<TextField
-									id='subject'
-									name='subject'
-									placeholder="What's on your mind"
-									value={form.values.subject}
-									onChange={form.handleChange}
-									error={form.errors?.subject}
-								/>
-							</Box>
-							<Box>
-								<Text
-									variant='body3'
-									tag='label'
-									htmlFor='message'
-									styleSheet={{
-										color: theme.colors.primary.x500,
-										marginBottom: '4px',
-										fontWeight: 'bold',
-									}}
-								>
-									Message
-								</Text>
-								<Textarea
-									id='message'
-									name='message'
-									placeholder='Tell us how we can help you...'
-									value={form.values.message}
-									onChange={form.handleChange}
-									error={form.errors?.message}
-								/>
-							</Box>
-						</Box>
-						<Button type='submit' disabled={form.isSubmitting} fullWidth rounded='sm'>
-							{form.isSubmitting ? 'Sending...' : 'Send'}
+						<Text
+							variant='body3'
+							styleSheet={{
+								color: isError ? theme.colors.negative.x500 : theme.colors.positive.x500,
+							}}
+							aria-live='polite'
+						>
+							{message}
+						</Text>
+						<Button
+							variant='ghost'
+							styleSheet={{ marginHorizontal: 'auto' }}
+							onClick={() => router.back()}
+						>
+							Back
 						</Button>
 					</Box>
-				</Box>
-				<Box
-					styleSheet={{
-						alignItems: 'center',
-						justifyContent: 'center',
-						gap: '16px',
-						marginHorizontal: 'auto',
-					}}
-				>
-					<Text
-						variant='body3'
-						styleSheet={{
-							color: isError ? theme.colors.negative.x500 : theme.colors.positive.x500,
-						}}
-						aria-live='polite'
-					>
-						{message}
-					</Text>
-					<Button
-						variant='ghost'
-						styleSheet={{ marginHorizontal: 'auto' }}
-						onClick={() => router.back()}
-					>
-						Back
-					</Button>
-				</Box>
-			</Card>
+				</Card>
+			</Box>
 		</Box>
 	)
 }
