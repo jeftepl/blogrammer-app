@@ -12,8 +12,9 @@ export const typography = {
 				md: '1.2',
 			},
 			fontSize: {
-				xs: '48px',
-				md: '60px',
+				xs: '32px',
+				md: '48px',
+				lg: '60px',
 			},
 		},
 		heading1: {

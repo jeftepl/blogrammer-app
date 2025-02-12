@@ -22,7 +22,7 @@ export interface StyleSheet extends ResponsiveStyleSheet {
 	flexWrap?: ResponsiveProperty<string> | string
 	flexFlow?: ResponsiveProperty<string> | string
 	alignContent?: ResponsiveProperty<string> | string
-	order?: ResponsiveProperty<number> | number
+	order?: ResponsiveProperty<string> | number
 	flexGrow?: ResponsiveProperty<number> | number
 	flexShrink?: ResponsiveProperty<number> | number
 	flexBasis?: ResponsiveProperty<string | number> | string | number

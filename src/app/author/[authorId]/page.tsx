@@ -13,6 +13,7 @@ import PostListing from '@/components/ui/posts/PostListing'
 import Tag from '@/components/ui/Tag'
 import Text from '@/components/ui/Text'
 import useTags from '@/hooks/useTags'
+import { useEffect, useState } from 'react'
 
 type AuthorPageProps = {
 	params: {
@@ -27,6 +28,13 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 	const { authorId } = params
 	const tagsParams = searchParams.tags?.split(',')
 	const tags = useTags()
+	const [isMobile, setIsMobile] = useState(false)
+
+	useEffect(() => {
+		if (window.innerWidth < 768) {
+			setIsMobile(true)
+		}
+	}, [tagsParams])
 
 	return (
 		<>
@@ -43,13 +51,13 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 			>
 				<Box
 					styleSheet={{
-						flexDirection: 'row',
-						gap: '55px',
+						flexDirection: { xs: 'column', lg: 'row' },
+						gap: { xs: '20px', md: '55px' },
 						width: '100%',
 						paddingHorizontal: '20px',
 					}}
 				>
-					<Aside>
+					<Aside styleSheet={{ order: { xs: '2', lg: '0' }, marginBottom: { xs: '-64px', lg: 0 } }}>
 						<Card>
 							<Text variant='heading4'>Topics</Text>
 							<Box
@@ -59,7 +67,7 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 									gap: '10px',
 								}}
 							>
-								{[...tags].slice(0, 20).map((tag) => (
+								{[...tags].slice(0, isMobile ? 10 : 20).map((tag) => (
 									<Tag key={tag} tag={tag} currentTags={tagsParams} params={authorId} />
 								))}
 							</Box>
@@ -83,11 +91,11 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 					<Feed>
 						<PostListing variant='feed' topics={tagsParams} authorId={authorId} params={authorId} />
 					</Feed>
-					<Aside>
+					<Aside styleSheet={{ order: { xs: '1', lg: '0' }, marginTop: { xs: '84px', lg: '0' } }}>
 						<Card>
 							<FeedHeader authorId={authorId} />
 						</Card>
-						<Card>
+						<Card styleSheet={{ display: { xs: 'none', lg: 'flex' } }}>
 							<Footer />
 						</Card>
 					</Aside>

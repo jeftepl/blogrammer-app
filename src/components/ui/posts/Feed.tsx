@@ -10,6 +10,7 @@ export default function Feed({ children }: FeedProps) {
 	return (
 		<Box
 			styleSheet={{
+				order: { xs: '2', lg: '0' },
 				backgroundColor: theme.colors.neutral.x000,
 				marginTop: { xs: '84px', xl: '111px' },
 				marginBottom: '40px',

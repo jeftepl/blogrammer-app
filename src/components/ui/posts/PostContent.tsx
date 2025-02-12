@@ -56,12 +56,12 @@ export default function PostContent({ content }: { content: MDXRemoteSerializeRe
 						as='code'
 						styleSheet={{
 							display: 'block',
-							overflow: 'hidden',
 							padding: '16px',
 							marginVertical: '8px',
 							borderRadius: '8px',
 							backgroundColor: theme.colors.neutral.x999,
 							color: theme.colors.neutral.x000,
+							overflow: 'auto',
 						}}
 					>
 						{children}

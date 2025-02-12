@@ -18,6 +18,8 @@ export default function FeedHeader({ authorId }: { authorId: string }) {
 		<Box>
 			<Box
 				styleSheet={{
+					alignItems: { xs: 'center', lg: 'flex-start' },
+					justifyContent: { xs: 'center', lg: 'flex-start' },
 					gap: '16px',
 					paddingBottom: '24px',
 					borderBottom: `1px solid ${theme.colors.neutral.x200}`,

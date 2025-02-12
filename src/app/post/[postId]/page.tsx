@@ -41,13 +41,19 @@ export default function PostPage() {
 			>
 				<Box
 					styleSheet={{
-						flexDirection: 'row',
-						gap: '55px',
+						flexDirection: { xs: 'column', lg: 'row' },
+						gap: { xs: '20px', lg: '55px' },
 						width: '100%',
 						paddingHorizontal: '20px',
 					}}
 				>
-					<Box styleSheet={{ width: '71%', marginTop: '110px', marginBottom: '32px' }}>
+					<Box
+						styleSheet={{
+							width: { xs: '100%', lg: '71%' },
+							marginTop: '110px',
+							marginBottom: '32px',
+						}}
+					>
 						<Card>
 							<Text tag='h1' variant='display1'>
 								{post.title}
@@ -71,7 +77,11 @@ export default function PostPage() {
 								<Image
 									src={post.image}
 									alt={post.title}
-									styleSheet={{ height: '465px', objectFit: 'cover', borderRadius: '12px' }}
+									styleSheet={{
+										height: { xs: '300px', md: '465px' },
+										objectFit: 'cover',
+										borderRadius: '12px',
+									}}
 								/>
 							)}
 							<Box tag='article' styleSheet={{ marginTop: '20px' }}>
@@ -81,7 +91,7 @@ export default function PostPage() {
 					</Box>
 					<Aside>
 						<Card>
-							<Text tag='h2' variant='heading4'>
+							<Text tag='h2' variant='heading3'>
 								More posts
 							</Text>
 							{recommendedPosts.map(({ metadata, slug, author, title, image }) => {
