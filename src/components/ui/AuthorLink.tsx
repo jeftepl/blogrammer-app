@@ -35,7 +35,7 @@ export default function AuthorLink({ author, date, description }: AuthorLinkProp
 					borderRadius: '100%',
 				}}
 			/>
-			<Box>
+			<Box styleSheet={{ maxWidth: '100%' }}>
 				<Text variant='heading5' styleSheet={{ color: theme.colors.primary.x500 }}>
 					{author?.name}
 				</Text>
@@ -48,7 +48,11 @@ export default function AuthorLink({ author, date, description }: AuthorLinkProp
 					<Text
 						tag='p'
 						variant='body3'
-						styleSheet={{ width: 'calc(100vw - 140px)', color: theme.colors.neutral.x500 }}
+						styleSheet={{
+							width: 'calc(100vw - 140px)',
+							color: theme.colors.neutral.x500,
+							maxWidth: '100%',
+						}}
 					>
 						{description}
 					</Text>

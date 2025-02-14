@@ -37,7 +37,7 @@ export const typography = {
 				xs: '1.5',
 			},
 			fontSize: {
-				xs: '20px',
+				xs: '24px',
 				md: '26px',
 			},
 		},

@@ -12,13 +12,13 @@ export default function Aside({ children, styleSheet }: AsideProps) {
 			tag='aside'
 			styleSheet={{
 				...styleSheet,
-				width: { xs: '100%', lg: 'calc(29% - 55px)' },
+				width: { xs: '100%', xl: 'calc(29% - 55px)' },
 				gap: '20px',
 				overflowY: 'auto',
-				position: { xs: 'relative', lg: 'sticky' },
+				position: { xs: 'relative', xl: 'sticky' },
 				top: 0,
 				height: '100%',
-				paddingTop: { xs: 0, lg: '110px' },
+				paddingTop: { xs: 0, xl: '110px' },
 			}}
 		>
 			{children}

@@ -56,14 +56,14 @@ export default function AuthorsPage() {
 								}}
 							>
 								{authors.map((author) => (
-									<Box key={author.id} styleSheet={{ marginBottom: '10px' }}>
+									<Box key={author.id} styleSheet={{ marginBottom: '10px', maxWidth: '100%' }}>
 										<AuthorLink author={author} description={author.description} />
 									</Box>
 								))}
 							</Box>
 						</Card>
 					</Box>
-					<Aside styleSheet={{ display: { xl: 'block', xs: 'none' } }}>
+					<Aside styleSheet={{ display: { xl: 'flex', xs: 'none' } }}>
 						<Card>
 							<Text variant='heading4'>Topics</Text>
 							<Box

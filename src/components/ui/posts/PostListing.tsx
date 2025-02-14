@@ -2,7 +2,6 @@ import usePosts from '@/hooks/usePosts'
 import Box from '../Box'
 import FeedPost from './FeedPost'
 import RecommendedPosts from './RecommendedPosts'
-import { getRecommendedPosts } from '@/actions/posts'
 
 type PostListingProps = {
 	variant: 'feed' | 'recommended'
@@ -13,8 +12,6 @@ type PostListingProps = {
 
 export default function PostListing({ variant, topics, authorId, params = '/' }: PostListingProps) {
 	const posts = usePosts({ topics, authorId })
-	// TODO: Implement recommended posts algorithm
-	//const recommendedPosts = getRecommendedPosts({ topics, authorId })
 
 	const PostComponent = variant === 'feed' ? FeedPost : RecommendedPosts
 

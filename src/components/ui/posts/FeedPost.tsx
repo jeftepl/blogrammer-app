@@ -100,7 +100,7 @@ export default function FeedPost({
 						alt={title}
 						styleSheet={{
 							width: '100%',
-							height: '335px',
+							height: '280px',
 							marginBottom: '24px',
 							borderRadius: '12px',
 							objectFit: 'cover',

@@ -48,7 +48,9 @@ export default function Menu() {
 			>
 				<Box styleSheet={{ flex: 1 }}>
 					<Link href='/'>
-						<Text variant='heading4'>Home</Text>
+						<Text variant='heading4' styleSheet={{ color: theme.colors.neutral.x999 }}>
+							Home
+						</Text>
 					</Link>
 					<HorizontalRule />
 					<Text variant='heading4'>Topics</Text>
@@ -81,11 +83,15 @@ export default function Menu() {
 					<Link href='/authors'>See all</Link>
 					<HorizontalRule />
 					<Link href='/newsletter'>
-						<Text variant='heading4'>Newsletter</Text>
+						<Text variant='heading4' styleSheet={{ color: theme.colors.neutral.x999 }}>
+							Newsletter
+						</Text>
 					</Link>
 					<HorizontalRule />
 					<Link href='/contact'>
-						<Text variant='heading4'>Contact</Text>
+						<Text variant='heading4' styleSheet={{ color: theme.colors.neutral.x999 }}>
+							Contact
+						</Text>
 					</Link>
 				</Box>
 				<Text variant='body3' styleSheet={{ marginTop: 40 }}>

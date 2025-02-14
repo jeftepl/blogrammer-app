@@ -101,7 +101,7 @@ export default function TopicsPage() {
 							</Box>
 						</Card>
 					</Box>
-					<Aside styleSheet={{ display: { xl: 'block', xs: 'none' } }}>
+					<Aside styleSheet={{ display: { xl: 'flex', xs: 'none' } }}>
 						<Card>
 							<Text variant='heading4'>Authors</Text>
 							{authors.map((author) => (

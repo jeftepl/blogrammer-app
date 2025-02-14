@@ -51,13 +51,13 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 			>
 				<Box
 					styleSheet={{
-						flexDirection: { xs: 'column', lg: 'row' },
+						flexDirection: { xs: 'column', xl: 'row' },
 						gap: { xs: '20px', md: '55px' },
 						width: '100%',
 						paddingHorizontal: '20px',
 					}}
 				>
-					<Aside styleSheet={{ order: { xs: '2', lg: '0' }, marginBottom: { xs: '-64px', lg: 0 } }}>
+					<Aside styleSheet={{ order: { xs: '2', xl: '0' }, marginBottom: { xs: '-64px', xl: 0 } }}>
 						<Card>
 							<Text variant='heading4'>Topics</Text>
 							<Box
@@ -91,11 +91,11 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 					<Feed>
 						<PostListing variant='feed' topics={tagsParams} authorId={authorId} params={authorId} />
 					</Feed>
-					<Aside styleSheet={{ order: { xs: '1', lg: '0' }, marginTop: { xs: '84px', lg: '0' } }}>
+					<Aside styleSheet={{ order: { xs: '1', xl: '0' }, marginTop: { xs: '84px', xl: '0' } }}>
 						<Card>
 							<FeedHeader authorId={authorId} />
 						</Card>
-						<Card styleSheet={{ display: { xs: 'none', lg: 'flex' } }}>
+						<Card styleSheet={{ display: { xs: 'none', xl: 'flex' } }}>
 							<Footer />
 						</Card>
 					</Aside>

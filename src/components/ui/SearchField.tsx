@@ -103,12 +103,12 @@ export default function SearchField({ ...props }: SearchFieldProps) {
 						styleSheet={{
 							gap: 16,
 							backgroundColor: theme.colors.neutral.x000,
-							boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1);',
+							boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.2);',
 							border: 'none',
-							borderRadius: '8px',
+							borderRadius: '12px',
 							padding: '12px',
 							overflowY: 'auto',
-							maxHeight: '90vh',
+							maxHeight: '60vh',
 							scrollbarWidth: 'thin',
 							scrollbarColor: `${theme.colors.neutral.x100} transparent`,
 						}}

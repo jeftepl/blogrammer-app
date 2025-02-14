@@ -41,15 +41,15 @@ export default function PostPage() {
 			>
 				<Box
 					styleSheet={{
-						flexDirection: { xs: 'column', lg: 'row' },
-						gap: { xs: '20px', lg: '55px' },
+						flexDirection: { xs: 'column', xl: 'row' },
+						gap: { xs: '20px', xl: '55px' },
 						width: '100%',
-						paddingHorizontal: '20px',
+						paddingHorizontal: { xs: '18px', xl: '32px' },
 					}}
 				>
 					<Box
 						styleSheet={{
-							width: { xs: '100%', lg: '71%' },
+							width: { xs: '100%', xl: '71%' },
 							marginTop: '110px',
 							marginBottom: '32px',
 						}}
@@ -89,7 +89,7 @@ export default function PostPage() {
 							</Box>
 						</Card>
 					</Box>
-					<Aside>
+					<Aside styleSheet={{ marginBottom: '40px' }}>
 						<Card>
 							<Text tag='h2' variant='heading3'>
 								More posts
