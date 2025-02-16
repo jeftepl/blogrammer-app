@@ -55,9 +55,12 @@ export default function AuthorPage({ params, searchParams }: AuthorPageProps) {
 						gap: { xs: '20px', md: '55px' },
 						width: '100%',
 						paddingHorizontal: '20px',
+						paddingBottom: '40px',
 					}}
 				>
-					<Aside styleSheet={{ order: { xs: '2', xl: '0' }, marginBottom: { xs: '-64px', xl: 0 } }}>
+					<Aside
+						styleSheet={{ order: { xs: '2', xl: '0' }, marginBottom: { xs: '-64px', xl: '0' } }}
+					>
 						<Card>
 							<Text variant='heading4'>Topics</Text>
 							<Box

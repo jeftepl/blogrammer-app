@@ -45,13 +45,13 @@ export default function PostPage() {
 						gap: { xs: '20px', xl: '55px' },
 						width: '100%',
 						paddingHorizontal: { xs: '18px', xl: '32px' },
+						marginBottom: '40px',
 					}}
 				>
 					<Box
 						styleSheet={{
 							width: { xs: '100%', xl: '71%' },
 							marginTop: '110px',
-							marginBottom: '32px',
 						}}
 					>
 						<Card>
@@ -89,7 +89,7 @@ export default function PostPage() {
 							</Box>
 						</Card>
 					</Box>
-					<Aside styleSheet={{ marginBottom: '40px' }}>
+					<Aside>
 						<Card>
 							<Text tag='h2' variant='heading3'>
 								More posts

@@ -40,6 +40,7 @@ export default function HomePage({ searchParams }: { searchParams: { tags?: stri
 						gap: '55px',
 						width: '100%',
 						paddingHorizontal: '20px',
+						paddingBottom: '40px',
 					}}
 				>
 					<Aside styleSheet={{ display: { xl: 'flex', xs: 'none' } }}>

@@ -48,7 +48,13 @@ export default function Menu() {
 			>
 				<Box styleSheet={{ flex: 1 }}>
 					<Link href='/'>
-						<Text variant='heading4' styleSheet={{ color: theme.colors.neutral.x999 }}>
+						<Text
+							variant='heading4'
+							styleSheet={{
+								color: theme.colors.neutral.x999,
+								hover: { color: theme.colors.primary.x400 },
+							}}
+						>
 							Home
 						</Text>
 					</Link>
@@ -83,13 +89,25 @@ export default function Menu() {
 					<Link href='/authors'>See all</Link>
 					<HorizontalRule />
 					<Link href='/newsletter'>
-						<Text variant='heading4' styleSheet={{ color: theme.colors.neutral.x999 }}>
+						<Text
+							variant='heading4'
+							styleSheet={{
+								color: theme.colors.neutral.x999,
+								hover: { color: theme.colors.primary.x400 },
+							}}
+						>
 							Newsletter
 						</Text>
 					</Link>
 					<HorizontalRule />
 					<Link href='/contact'>
-						<Text variant='heading4' styleSheet={{ color: theme.colors.neutral.x999 }}>
+						<Text
+							variant='heading4'
+							styleSheet={{
+								color: theme.colors.neutral.x999,
+								hover: { color: theme.colors.primary.x400 },
+							}}
+						>
 							Contact
 						</Text>
 					</Link>

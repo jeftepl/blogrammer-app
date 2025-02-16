@@ -60,7 +60,10 @@ export default function FeedHeader({ authorId }: { authorId: string }) {
 					</Box>
 				</Box>
 			</Box>
-			<Text variant='body2' styleSheet={{ marginTop: '24px' }}>
+			<Text
+				variant='body2'
+				styleSheet={{ marginTop: '24px', textAlign: { xs: 'center', lg: 'left' } }}
+			>
 				{author?.description}
 			</Text>
 		</Box>

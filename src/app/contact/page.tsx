@@ -72,7 +72,7 @@ export default function ContactPage() {
 			<Box
 				styleSheet={{
 					paddingHorizontal: '20px',
-					paddingBottom: '40px',
+					paddingVertical: '40px',
 					width: { xs: '100%', md: 'auto' },
 				}}
 			>
