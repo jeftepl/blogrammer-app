@@ -6,7 +6,7 @@ import matter from 'gray-matter'
 import path from 'path'
 
 export async function author(id: string): Promise<Author | null> {
-	const PATH_AUTHORS = path.resolve('.', '_data', 'authors')
+	const PATH_AUTHORS = path.join(process.cwd(), 'content', 'authors')
 	const authorsFiles = await fs.readdir(PATH_AUTHORS, { encoding: 'utf-8' })
 
 	for (const authorFile of authorsFiles) {
@@ -28,7 +28,7 @@ export async function author(id: string): Promise<Author | null> {
 }
 
 export async function authors(search?: string): Promise<Author[]> {
-	const PATH_AUTHORS = path.resolve('.', '_data', 'authors')
+	const PATH_AUTHORS = path.join(process.cwd(), 'content', 'authors')
 	const authorsFiles = await fs.readdir(PATH_AUTHORS, { encoding: 'utf-8' })
 	const authors = []
 

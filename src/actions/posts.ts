@@ -12,7 +12,7 @@ type GetPostsProps = {
 }
 
 export async function getPosts({ topics, authorId, search }: GetPostsProps): Promise<RawPost[]> {
-	const PATH_POSTS = path.resolve('.', '_data', 'posts')
+	const PATH_POSTS = path.join(process.cwd(), 'content', 'posts')
 	const years = await fs.readdir(PATH_POSTS, { encoding: 'utf-8' })
 
 	const allPosts: RawPost[] = []
@@ -80,7 +80,7 @@ export async function getRecommendedPosts({
 	topics,
 	authorId,
 }: GetRecommendedPostsProps): Promise<RawPost[]> {
-	const PATH_POSTS = path.resolve('.', '_data', 'posts')
+	const PATH_POSTS = path.join(process.cwd(), 'content', 'posts')
 	const years = await fs.readdir(PATH_POSTS, { encoding: 'utf-8' })
 
 	const allPosts: RawPost[] = []
@@ -139,7 +139,7 @@ export async function getRecommendedPosts({
 }
 
 export async function getPost(id: string): Promise<RawPost | null> {
-	const PATH_POSTS = path.resolve('.', '_data', 'posts')
+	const PATH_POSTS = path.join(process.cwd(), 'content', 'posts')
 	const years = await fs.readdir(PATH_POSTS, { encoding: 'utf-8' })
 
 	let post: RawPost | null = null
