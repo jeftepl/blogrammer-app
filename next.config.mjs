@@ -3,8 +3,10 @@ const nextConfig = {
 	compiler: {
 		styledComponents: true,
 	},
-	outputFileTracingIncludes: {
-		'/**': ['./content/**/*'],
+	experimental: {
+		outputFileTracingIncludes: {
+			'/**': ['./content/**/*'],
+		},
 	},
 }
 
